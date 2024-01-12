@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="706.0" prefWidth="1227.0" stylesheets="@../../styles/CommonStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.student_system.DashboardController">
+   <stylesheets>
+      <URL value="@../../styles/CommonStyles.css" />
+   </stylesheets>
+
+   <children>
+      <AnchorPane layoutX="73.0" layoutY="137.0" prefHeight="178.0" prefWidth="1090.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Line endX="913.5283203125" layoutX="150.0" layoutY="57.0" startX="-120.73583984375" stroke="#d6d6d6" />
+            <Label alignment="CENTER" layoutX="482.0" layoutY="24.0" styleClass="label-headers" text="ANNOUNCEMENTS" />
+            <AnchorPane fx:id="anchorPaneAnnounceContainer" layoutX="28.0" layoutY="77.0" prefHeight="83.0" prefWidth="1035.0" styleClass="rounded-green-containers" stylesheets="@../../styles/CommonStyles.css">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="143.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/information.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="lblAnnouncementDesc" alignment="CENTER" layoutX="181.0" layoutY="32.0" styleClass="label-announcement-green" text="You are STILL ELIGIBLE to enroll this term WITHIN the following period:" />
+                  <Label fx:id="lblStartDate" alignment="CENTER" layoutX="652.0" layoutY="23.0" styleClass="label-announcement-green-bold" text="Start Date:" />
+                  <Label fx:id="lblEndDate" alignment="CENTER" layoutX="652.0" layoutY="45.0" styleClass="label-announcement-green-bold" text="End Date:" />
+                  <Label fx:id="lblStartDateValue" alignment="CENTER" layoutX="746.0" layoutY="23.0" styleClass="label-announcement-green" text="02 January 2023" />
+                  <Label fx:id="lblEndDateValue" alignment="CENTER" layoutX="746.0" layoutY="45.0" styleClass="label-announcement-green" text="16 January 2023" />
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="67.0" layoutY="434.0" prefHeight="212.0" prefWidth="623.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label layoutX="289.0" layoutY="22.0" styleClass="label-headers" text="NOTICE" />
+            <Line endX="1138.5660400390625" layoutX="-550.0" layoutY="53.0" startX="591.7546997070312" stroke="#d6d6d6" />
+            <Label layoutX="41.0" layoutY="70.0" styleClass="label-dashboard" text="Greetings! We're excited to announce the beta test phase of our system. Please note that PLM ARES is" />
+            <Label layoutX="58.0" layoutY="86.0" styleClass="label-dashboard" text=" still under development, and we value your feedback. If you encounter any issues, bugs, or have" />
+            <Label layoutX="41.0" layoutY="101.0" styleClass="label-dashboard" text="suggestions for improvement, we encourage you to report them through the PLM ARES support forms:" />
+            <Label layoutX="41.0" layoutY="148.0" styleClass="label-dashboard" text="Your insights are crucial in shaping the final version of the system.Thank you for your participation and" />
+            <Label layoutX="98.0" layoutY="163.0" styleClass="label-dashboard" text="patience as we work together to create a seamless andefficient user experience." />
+            <Hyperlink fx:id="hyperlinkFeedbackForm" focusTraversable="false" layoutX="227.0" layoutY="121.0" onMouseClicked="#handleFeedbackForm" text="PLM ARES Beta Feedback Form">
+               <font>
+                  <Font name="Roboto" size="11.773585319519043" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="72.0" layoutY="344.0" prefHeight="62.0" prefWidth="623.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label layoutX="38.0" layoutY="23.0" styleClass="label-dashboard" text="You may watch a tutorial for using PLM ARES via this link:" />
+            <Hyperlink fx:id="hyperlinkTutorial" focusTraversable="false" layoutX="355.0" layoutY="19.0" onMouseClicked="#handleTutorialLink" text="Video Tutorial for Student PLM ARES Users" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="73.0" layoutY="67.0" prefHeight="38.0" prefWidth="699.0" styleClass="label-greetings" stylesheets="@../../styles/CommonStyles.css" text="Mabuhay, Iskolar ng Bayan!" />
+      <Label fx:id="lblCurrDateValue" alignment="CENTER_RIGHT" layoutX="988.0" layoutY="95.0" prefHeight="15.0" prefWidth="172.0" styleClass="label-announcement-red-bold" stylesheets="@../../styles/CommonStyles.css" text="January 13, 2024" />
+      <AnchorPane layoutX="750.0" layoutY="344.0" prefHeight="301.0" prefWidth="410.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <ImageView fitHeight="195.0" fitWidth="410.0" onMouseClicked="#handleVisitPLMWebsite" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/PLMWebsite.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Hyperlink fx:id="hyperlinkTutorial1" focusTraversable="false" layoutX="89.0" layoutY="166.0" onMouseClicked="#handleVisitPLMWebsite" style="-fx-font-size: 15;" text="VISIT THE PLM OFFICIAL WEBSITE" />
+            <Label layoutX="49.0" layoutY="208.0" styleClass="label-dashboard" text="Pamantasan ng Lungsod ng Maynila (PLM) is the first and" />
+            <Label layoutX="48.0" layoutY="223.0" styleClass="label-dashboard" text="only chartered and autonomous university funded by a city" />
+            <Label layoutX="38.0" layoutY="238.0" styleClass="label-dashboard" text="government. It was created by the Congress of the Philippines" />
+            <Label layoutX="112.0" layoutY="253.0" styleClass="label-dashboard" text=" by virtue of Republic Act No. 4196" />
+         </children>
+      </AnchorPane>
+      <Label alignment="CENTER_RIGHT" layoutX="1017.0" layoutY="78.0" prefHeight="15.0" prefWidth="141.0" styleClass="label-announcement-red" stylesheets="@../../styles/CommonStyles.css" text="Today is" />
+   </children>
+</AnchorPane>

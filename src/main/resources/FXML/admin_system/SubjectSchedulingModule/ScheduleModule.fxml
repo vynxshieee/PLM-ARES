@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1285.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.SubjectModuleControllers.ScheduleModuleController">
+   <stylesheets>
+      <URL value="@../../../styles/CommonStyles.css" />
+   </stylesheets>
+   <children>
+      <ScrollPane hbarPolicy="NEVER" layoutY="-1.0" maxHeight="760.0" prefHeight="1325.0" prefWidth="1285.0" style="-fx-background-color: #e2eff1;" vbarPolicy="ALWAYS">
+         <content>
+            <AnchorPane prefHeight="1291.0" prefWidth="1285.0" style="-fx-background-color: #e2eff1;">
+               <children>
+                  <ImageView fitHeight="803.0" fitWidth="1285.0" layoutX="-1.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/plm_bg_transparent1.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="623.0" fitWidth="72.0" layoutX="1229.0" layoutY="710.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/plm_geometric_side_design.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="623.0" fitWidth="72.0" layoutX="1229.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/plm_geometric_side_design.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="54.0" layoutY="50.0" prefHeight="38.0" prefWidth="359.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="Scheduling Module" />
+                  <AnchorPane layoutX="54.0" layoutY="105.0" prefHeight="37.0" prefWidth="1131.0" styleClass="rounded-teal-containers" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="20.0" layoutY="9.0" styleClass="label-contained-titles" text="RECORDS" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="60.0" layoutY="579.0" prefHeight="62.0" prefWidth="542.0" styleClass="rounded-yellow-containers" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="9.0" styleClass="label-contained-titles" text="SCHEDULE DETAILS FOR:" />
+                        <Label fx:id="lblSubjectTitle" layoutX="16.0" layoutY="34.0" prefHeight="19.0" prefWidth="504.0" style="-fx-font-family: Roboto;" styleClass="label-contained-titles" text="&lt; &gt;" textOverrun="WORD_ELLIPSIS" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="61.0" layoutY="233.0" prefHeight="318.0" prefWidth="1120.0" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+                     <children>
+                        <TableView fx:id="tblVwScheduleInfo" editable="true" focusTraversable="false" layoutX="6.0" layoutY="4.0" prefHeight="305.0" prefWidth="1108.0" stylesheets="@../../../styles/Table.css">
+                           <columns>
+                              <TableColumn fx:id="colSubjectCode" editable="false" prefWidth="96.00000762939453" reorderable="false" resizable="false" sortable="false" text="Subject Code" />
+                              <TableColumn fx:id="colDescription" editable="false" minWidth="0.0" prefWidth="217.35842895507812" reorderable="false" resizable="false" sortable="false" text="Description" />
+                              <TableColumn fx:id="colSemester" editable="false" prefWidth="76.075439453125" reorderable="false" resizable="false" sortable="false" text="Semester" />
+                              <TableColumn fx:id="colCollege" editable="false" minWidth="8.1510009765625" prefWidth="73.35855102539062" reorderable="false" resizable="false" sortable="false" text="College" />
+                              <TableColumn fx:id="colSection" editable="false" prefWidth="68.83013916015625" reorderable="false" resizable="false" sortable="false" text="Section" />
+                              <TableColumn fx:id="colDay" editable="false" minWidth="5.4339599609375" prefWidth="46.18865966796875" reorderable="false" resizable="false" sortable="false" text="Day" />
+                              <TableColumn fx:id="colTime" editable="false" prefWidth="95.0943603515625" reorderable="false" resizable="false" sortable="false" text="Time" />
+                              <TableColumn fx:id="colRoom" editable="false" prefWidth="102.339599609375" reorderable="false" resizable="false" sortable="false" text="Room" />
+                              <TableColumn fx:id="colModality" editable="false" prefWidth="76.9810791015625" reorderable="false" resizable="false" sortable="false" text="Modality" />
+                              <TableColumn fx:id="colSequence" editable="false" prefWidth="76.981201171875" reorderable="false" resizable="false" sortable="false" text="Sequence" />
+                              <TableColumn fx:id="colFaculty" prefWidth="153.96234130859375" resizable="false" text="Faculty" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSchedDetails" disable="true" layoutX="62.0" layoutY="670.0" prefHeight="590.0" prefWidth="1118.0" styleClass="custom-border-white-container" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="13.0" prefHeight="561.0" prefWidth="590.0">
+                           <children>
+                              <Label layoutX="27.0" layoutY="25.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Subject Code" />
+                              <TextField fx:id="txtSubjectCode" disable="true" editable="false" layoutX="27.0" layoutY="52.0" prefHeight="27.0" prefWidth="156.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="27.0" layoutY="100.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="College Code" />
+                              <Label layoutX="400.0" layoutY="100.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Section" />
+                              <TextField fx:id="txtSection" disable="true" layoutX="400.0" layoutY="128.0" prefHeight="27.0" prefWidth="161.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="27.0" layoutY="206.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Day" />
+                              <ComboBox fx:id="cmbDay" layoutX="28.0" layoutY="234.0" prefHeight="27.0" prefWidth="121.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="189.0" layoutY="206.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Modality" />
+                              <ComboBox fx:id="cmbModality" layoutX="189.0" layoutY="234.0" prefHeight="27.0" prefWidth="77.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="32.0" layoutY="285.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Start Time:" />
+                              <TextField fx:id="txtRoom" layoutX="305.0" layoutY="234.0" prefHeight="27.0" prefWidth="157.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <TextField fx:id="txtStartHour" layoutX="35.0" layoutY="318.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <TextField fx:id="txtStartMin" layoutX="91.0" layoutY="318.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="77.0" layoutY="318.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                              <Label layoutX="169.0" layoutY="285.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="End Time:" />
+                              <Label layoutX="306.0" layoutY="206.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Room" />
+                              <TextField fx:id="txtEndHour" layoutX="170.0" layoutY="318.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <TextField fx:id="txtEndMin" layoutX="226.0" layoutY="318.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="212.0" layoutY="315.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                              <Label layoutX="188.0" layoutY="100.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Semester" />
+                              <Label layoutX="217.0" layoutY="25.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Description" />
+                              <TextField fx:id="txtDescription" disable="true" editable="false" layoutX="217.0" layoutY="52.0" prefHeight="27.0" prefWidth="345.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="28.0" layoutY="399.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Faculty ID" />
+                              <TextField fx:id="txtFacultyID" disable="true" editable="false" layoutX="28.0" layoutY="426.0" prefHeight="27.0" prefWidth="102.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="168.0" layoutY="399.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Faculty Name" />
+                              <TextField fx:id="txtFacultyName" disable="true" editable="false" layoutX="168.0" layoutY="426.0" prefHeight="27.0" prefWidth="345.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <AnchorPane fx:id="btnEditCommit" layoutX="24.0" layoutY="498.0" onMouseClicked="#handleEditCommit" prefHeight="38.0" prefWidth="205.0" style="-fx-background-radius: 10;" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="54.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="EDIT SCHEDULE" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="btnRevertDetails" layoutX="247.0" layoutY="498.0" onMouseClicked="#handleRevertToOriginal" prefHeight="38.0" prefWidth="216.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="24.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="REVERT BACK TO ORIGINAL" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="btnDeleteCommit" layoutX="23.0" layoutY="498.0" onMouseClicked="#handleDeleteCommit" prefHeight="38.0" prefWidth="207.0" style="-fx-background-radius: 10;" styleClass="button-red" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="46.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="DELETE SCHEDULE" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <Label fx:id="btnChangeFacultyAssign" alignment="CENTER" layoutX="350.0" layoutY="400.0" onMouseClicked="#handleChooseFacultyAssignment" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Change faculty assignment?">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label fx:id="errLblRoom" layoutX="305.0" layoutY="268.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <Label fx:id="errLblTime" layoutX="35.0" layoutY="369.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <TextField fx:id="txtCollegeCode" disable="true" layoutX="28.0" layoutY="128.0" prefHeight="27.0" prefWidth="129.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <TextField fx:id="txtSemester" disable="true" layoutX="188.0" layoutY="128.0" prefHeight="27.0" prefWidth="63.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <TextField fx:id="txtSequence" disable="true" layoutX="293.0" layoutY="128.0" prefHeight="27.0" prefWidth="63.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="24.0" layoutY="174.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Modify the following" />
+                              <Separator layoutX="143.0" layoutY="177.0" opacity="0.29" prefHeight="15.0" prefWidth="422.0" />
+                              <Label layoutX="35.0" layoutY="351.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Note: Use military time" />
+                              <Label layoutX="292.0" layoutY="99.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Sequence" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="641.0" layoutY="91.0" prefHeight="180.0" prefWidth="439.0" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+                           <children>
+                              <TableView fx:id="tblVwSubjectInfo" disable="true" editable="true" focusTraversable="false" layoutX="4.0" layoutY="1.0" prefHeight="170.0" prefWidth="431.0" stylesheets="@../../../styles/Table.css">
+                                 <columns>
+                                    <TableColumn fx:id="colSubjectCodeDetails" editable="false" prefWidth="125.88677978515625" reorderable="false" resizable="false" sortable="false" text="Subject Code" />
+                                    <TableColumn fx:id="colDescriptionDetails" editable="false" minWidth="0.0" prefWidth="297.05670166015625" reorderable="false" resizable="false" sortable="false" text="Description" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="lblChooseSubject" layoutX="641.0" layoutY="30.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Choose subject here:" />
+                        <AnchorPane fx:id="btnSubjectSearchDetails" disable="true" layoutX="912.0" layoutY="53.0" onMouseClicked="#handleSubjectDetailsSearch" prefHeight="24.0" prefWidth="34.0" styleClass="button-teal" stylesheets="@../../../styles/CommonStyles.css">
+                           <children>
+                              <Label alignment="CENTER" layoutX="12.0" layoutY="-2.0" style="-fx-font-size: 20;" styleClass="label-button-titles" text="&gt;" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <TextField fx:id="txtSubjectSearchDetails" disable="true" layoutX="639.0" layoutY="52.0" prefHeight="27.0" prefWidth="260.0" promptText="Enter subject code or description" styleClass="text-field-rounded" stylesheets="@../../../styles/CommonStyles.css" />
+                        <AnchorPane layoutX="641.0" layoutY="366.0" prefHeight="186.0" prefWidth="439.0" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+                           <children>
+                              <TableView fx:id="tblVwFacultyInfo" disable="true" editable="true" focusTraversable="false" layoutX="4.0" layoutY="1.0" prefHeight="178.0" prefWidth="431.0" stylesheets="@../../../styles/Table.css">
+                                 <columns>
+                                    <TableColumn fx:id="colFacultyIDDetails" editable="false" prefWidth="125.88677978515625" reorderable="false" resizable="false" sortable="false" text="Faculty ID" />
+                                    <TableColumn fx:id="colFacultyNameDetails" editable="false" minWidth="0.0" prefWidth="297.05670166015625" reorderable="false" resizable="false" sortable="false" text="Faculty Name" />
+                                 </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="lblChooseFaculty" layoutX="641.0" layoutY="305.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Choose faculty here:" />
+                        <AnchorPane fx:id="btnFacultySearchDetails" disable="true" layoutX="912.0" layoutY="328.0" onMouseClicked="#handleFacultyDetailsSearch" prefHeight="24.0" prefWidth="34.0" styleClass="button-teal" stylesheets="@../../../styles/CommonStyles.css">
+                           <children>
+                              <Label alignment="CENTER" layoutX="12.0" layoutY="-2.0" style="-fx-font-size: 20;" styleClass="label-button-titles" text="&gt;" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <TextField fx:id="txtEmployeeSearchDetails" disable="true" layoutX="639.0" layoutY="327.0" prefHeight="27.0" prefWidth="260.0" promptText="Enter faculty ID or name" styleClass="text-field-rounded" stylesheets="@../../../styles/CommonStyles.css" />
+                        <Label fx:id="btnClearSubjectDetails" alignment="CENTER" disable="true" layoutX="869.0" layoutY="30.0" onMouseClicked="#clearSubjectDetailsSearch" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="clear">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="btnClearFacultyDetails" alignment="CENTER" disable="true" layoutX="869.0" layoutY="306.0" onMouseClicked="#clearFacultyDetailsSearch" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="clear">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Separator layoutX="608.0" layoutY="41.0" orientation="VERTICAL" prefHeight="526.0" prefWidth="7.0" />
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="343.0" layoutY="166.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Search for a faculty:" />
+                  <TextField fx:id="txtEmployeeSearch" layoutX="344.0" layoutY="187.0" prefHeight="27.0" prefWidth="260.0" promptText="Enter faculty ID or name" styleClass="text-field-rounded" stylesheets="@../../../styles/CommonStyles.css" />
+                  <Label layoutX="60.0" layoutY="166.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Search for a subject:" />
+                  <TextField fx:id="txtSubjectSearch" layoutX="57.0" layoutY="187.0" prefHeight="27.0" prefWidth="260.0" promptText="Enter subject code or description" styleClass="text-field-rounded" stylesheets="@../../../styles/CommonStyles.css" />
+                  <Label layoutX="801.0" layoutY="165.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Schedule" />
+                  <ComboBox fx:id="cmbScheduleFilter" layoutX="801.0" layoutY="183.0" prefHeight="27.0" prefWidth="124.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                  <Label layoutX="958.0" layoutY="165.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="College" />
+                  <ComboBox fx:id="cmbCollegeFilter" layoutX="958.0" layoutY="183.0" prefHeight="27.0" prefWidth="94.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                  <Label layoutX="643.0" layoutY="164.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Section" />
+                  <TextField fx:id="txtSecSearch" layoutX="643.0" layoutY="186.0" prefHeight="25.0" prefWidth="124.0" promptText="Ex. IT11, CS21" styleClass="text-field-rounded" stylesheets="@../../../styles/CommonStyles.css" />
+                  <Label fx:id="btnClearSection" alignment="CENTER" layoutX="738.0" layoutY="164.0" onMouseClicked="#clearSectionSearch" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="clear">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="btnClearFaculty" alignment="CENTER" layoutX="573.0" layoutY="165.0" onMouseClicked="#clearFacultySearch" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="clear">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="btnClearSubject" alignment="CENTER" layoutX="283.0" layoutY="165.0" onMouseClicked="#clearSubjectSearch" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="clear">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <AnchorPane fx:id="btnFilter" layoutX="1078.0" layoutY="161.0" onMouseClicked="#handleFilterSearch" prefHeight="27.0" prefWidth="91.0" style="-fx-background-radius: 15;" styleClass="button-teal" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="24.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="FILTER" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane fx:id="btnClear" layoutX="1078.0" layoutY="192.0" onMouseClicked="#clearAllFilterSearch" prefHeight="27.0" prefWidth="91.0" style="-fx-background-radius: 15;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="24.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="CLEAR" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane layoutX="1007.0" layoutY="50.0" onMouseClicked="#onClickBtnGoBack" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="103.0" layoutY="12.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="GO BACK" />
+                        <Line endX="36.4906005859375" layoutX="59.0" layoutY="20.0" opacity="0.6" startX="-34.15087890625" style="-fx-stroke: white;" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane fx:id="btnEdit" disable="true" layoutX="793.0" layoutY="588.0" onMouseClicked="#handleEditMode" prefHeight="38.0" prefWidth="126.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="29.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="EDIT MODE" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane fx:id="btnDelete" disable="true" layoutX="642.0" layoutY="588.0" onMouseClicked="#handleDeleteMode" prefHeight="38.0" prefWidth="126.0" style="-fx-background-radius: 10;" styleClass="button-red" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="12.0" layoutY="11.0" prefHeight="15.0" prefWidth="101.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="DELETE MODE" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane fx:id="btnCancel" disable="true" layoutX="1076.0" layoutY="670.0" onMouseClicked="#handleCancelFromModes" prefHeight="26.0" prefWidth="104.0" style="-fx-background-radius: 0;" styleClass="button-red" stylesheets="@../../../styles/CommonStyles.css">
+                     <children>
+                        <Label alignment="CENTER" layoutX="27.0" layoutY="5.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="CANCEL" />
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane layoutX="944.0" layoutY="579.0" prefHeight="56.0" prefWidth="235.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+                     <children>
+                        <AnchorPane fx:id="btnAdd" layoutX="15.0" layoutY="9.0" onMouseClicked="#handleAddMode" prefHeight="38.0" prefWidth="205.0" style="-fx-background-radius: 10;" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css">
+                           <children>
+                              <Label alignment="CENTER" layoutX="32.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="ADD A NEW SCHEDULE" />
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <ScrollPane fx:id="scrollPaneAddMode" hbarPolicy="NEVER" layoutX="83.0" layoutY="687.0" maxHeight="1230.0" prefHeight="558.0" prefWidth="595.0" style="-fx-border-color: transparent;" vbarPolicy="ALWAYS">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1216.0" prefWidth="582.0" style="-fx-background-color: white; -fx-focus-traversable: false;">
+                           <children>
+                              <Label layoutX="23.0" layoutY="21.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Subject Code" />
+                              <TextField fx:id="txtSubjectCodeAdd" editable="false" layoutX="23.0" layoutY="48.0" prefHeight="27.0" prefWidth="156.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="23.0" layoutY="106.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="College Code" />
+                              <Label layoutX="303.0" layoutY="106.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Section" />
+                              <TextField fx:id="txtSectionAdd" layoutX="303.0" layoutY="134.0" prefHeight="27.0" prefWidth="161.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="184.0" layoutY="106.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Semester" />
+                              <Label layoutX="203.0" layoutY="21.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Description" />
+                              <TextField fx:id="txtDescriptionAdd" editable="false" layoutX="213.0" layoutY="48.0" prefHeight="27.0" prefWidth="345.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <ComboBox fx:id="cmbCollege" layoutX="23.0" layoutY="134.0" prefHeight="27.0" prefWidth="128.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <ComboBox fx:id="cmbSemester" layoutX="184.0" layoutY="134.0" prefHeight="27.0" prefWidth="82.0" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label fx:id="btnChangeFacultyAssign1" alignment="CENTER" layoutX="451.0" layoutY="22.0" onMouseClicked="#handleChooseSubjectAssignment" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Choose a subject?">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <AnchorPane fx:id="anchorPaneSeq1" disable="true" layoutX="20.0" layoutY="279.0" prefHeight="264.0" prefWidth="542.0" styleClass="rounded-bordered-white-container" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label layoutX="31.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Day" />
+                                    <ComboBox fx:id="cmbDaySeq1" layoutX="32.0" layoutY="89.0" prefHeight="27.0" prefWidth="121.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="193.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Modality" />
+                                    <ComboBox fx:id="cmbModalitySeq1" layoutX="193.0" layoutY="89.0" prefHeight="27.0" prefWidth="77.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="36.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Start Time:" />
+                                    <TextField fx:id="txtRoomSeq1" layoutX="309.0" layoutY="89.0" prefHeight="27.0" prefWidth="157.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartHourSeq1" layoutX="39.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartMinSeq1" layoutX="95.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="81.0" layoutY="183.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label layoutX="173.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="End Time:" />
+                                    <Label layoutX="310.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Room" />
+                                    <TextField fx:id="txtEndHourSeq1" layoutX="174.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtEndMinSeq1" layoutX="230.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="216.0" layoutY="180.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label fx:id="errLblRoom1" layoutX="309.0" layoutY="113.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label layoutX="39.0" layoutY="216.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Note: Use military time" />
+                                    <Label fx:id="errLblTimeSeq1" layoutX="36.0" layoutY="236.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblDaySeq1" layoutX="33.0" layoutY="123.0" prefHeight="14.0" prefWidth="144.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblModalitySeq1" layoutX="193.0" layoutY="123.0" prefHeight="14.0" prefWidth="113.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblRoomSeq1" layoutX="310.0" layoutY="123.0" prefHeight="14.0" prefWidth="162.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="23.0" layoutY="196.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Faculty ID" />
+                              <TextField fx:id="txtFacultyIDAdd" editable="false" layoutX="23.0" layoutY="223.0" prefHeight="27.0" prefWidth="102.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label layoutX="163.0" layoutY="196.0" style="-fx-font-size: 14;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Faculty Name" />
+                              <TextField fx:id="txtFacultyNameAdd" editable="false" layoutX="163.0" layoutY="223.0" prefHeight="27.0" prefWidth="345.0" style="-fx-background-color: #ebfafa;" stylesheets="@../../../styles/CommonStyles.css" />
+                              <Label fx:id="btnChangeFacultyAssign2" alignment="CENTER" layoutX="405.0" layoutY="197.0" onMouseClicked="#handleChooseFacultyAssignment" style="-fx-font-size: 13; -fx-underline: true;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Assign a faculty?">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label fx:id="errLblSubject" layoutX="23.0" layoutY="81.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <Label fx:id="errLblFaculty" layoutX="23.0" layoutY="253.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <Label fx:id="errLblCollegeCode" layoutX="26.0" layoutY="169.0" prefHeight="14.0" prefWidth="121.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <Label fx:id="errLblSemester" layoutX="186.0" layoutY="169.0" prefHeight="14.0" prefWidth="114.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <Label fx:id="errLblSectionAdd" layoutX="306.0" layoutY="169.0" prefHeight="10.0" prefWidth="163.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                              <AnchorPane fx:id="anchorPaneSeq2" disable="true" layoutX="20.0" layoutY="566.0" prefHeight="269.0" prefWidth="542.0" styleClass="rounded-bordered-white-container" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label layoutX="31.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Day" />
+                                    <ComboBox fx:id="cmbDaySeq2" layoutX="32.0" layoutY="89.0" prefHeight="27.0" prefWidth="121.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="193.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Modality" />
+                                    <ComboBox fx:id="cmbModalitySeq2" layoutX="193.0" layoutY="89.0" prefHeight="27.0" prefWidth="77.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="36.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Start Time:" />
+                                    <TextField fx:id="txtRoomSeq2" layoutX="309.0" layoutY="89.0" prefHeight="27.0" prefWidth="157.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartHourSeq2" layoutX="39.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartMinSeq2" layoutX="95.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="81.0" layoutY="183.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label layoutX="173.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="End Time:" />
+                                    <Label layoutX="310.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Room" />
+                                    <TextField fx:id="txtEndHourSeq2" layoutX="174.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtEndMinSeq2" layoutX="230.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="216.0" layoutY="180.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label fx:id="errLblRoomSeq2" layoutX="309.0" layoutY="113.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label layoutX="39.0" layoutY="216.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Note: Use military time" />
+                                    <Label fx:id="errLblTimeSeq2" layoutX="36.0" layoutY="236.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblDaySeq2" layoutX="33.0" layoutY="123.0" prefHeight="14.0" prefWidth="144.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblModalitySeq2" layoutX="193.0" layoutY="123.0" prefHeight="14.0" prefWidth="113.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblRoomSeq2" layoutX="310.0" layoutY="123.0" prefHeight="14.0" prefWidth="162.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSeq3" disable="true" layoutX="20.0" layoutY="856.0" prefHeight="269.0" prefWidth="542.0" styleClass="rounded-bordered-white-container" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label layoutX="31.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Day" />
+                                    <ComboBox fx:id="cmbDaySeq3" layoutX="32.0" layoutY="89.0" prefHeight="27.0" prefWidth="121.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="193.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Modality" />
+                                    <ComboBox fx:id="cmbModalitySeq3" layoutX="193.0" layoutY="89.0" prefHeight="27.0" prefWidth="77.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="36.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Start Time:" />
+                                    <TextField fx:id="txtRoomSeq3" layoutX="309.0" layoutY="89.0" prefHeight="27.0" prefWidth="157.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartHourSeq3" layoutX="39.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtStartMinSeq3" layoutX="95.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="81.0" layoutY="183.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label layoutX="173.0" layoutY="150.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="End Time:" />
+                                    <Label layoutX="310.0" layoutY="61.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Room" />
+                                    <TextField fx:id="txtEndHourSeq3" layoutX="174.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <TextField fx:id="txtEndMinSeq3" layoutX="230.0" layoutY="183.0" prefHeight="27.0" prefWidth="36.0" stylesheets="@../../../styles/CommonStyles.css" />
+                                    <Label layoutX="216.0" layoutY="180.0" style="-fx-font-size: 20;" styleClass="label-small-grey" text=":" />
+                                    <Label fx:id="errLblRoomSeq21" layoutX="309.0" layoutY="113.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label layoutX="39.0" layoutY="216.0" style="-fx-font-size: 12; -fx-font-style: italic;" styleClass="label-small-grey" text="Note: Use military time" />
+                                    <Label fx:id="errLblTimeSeq3" layoutX="36.0" layoutY="236.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblDaySeq3" layoutX="33.0" layoutY="123.0" prefHeight="14.0" prefWidth="144.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblModalitySeq3" layoutX="193.0" layoutY="123.0" prefHeight="14.0" prefWidth="113.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                    <Label fx:id="errLblRoomSeq3" layoutX="310.0" layoutY="123.0" prefHeight="14.0" prefWidth="162.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="btnRevertDetails1" layoutX="253.0" layoutY="1151.0" onMouseClicked="#handleClearAll" prefHeight="38.0" prefWidth="117.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="25.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="CLEAR ALL" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="btnDeleteCommit1" layoutX="29.0" layoutY="1151.0" onMouseClicked="#handleAddCommit" prefHeight="38.0" prefWidth="207.0" style="-fx-background-radius: 10;" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css">
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="55.0" layoutY="11.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="ADD SCHEDULE" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <CheckBox fx:id="chkSeq2" focusTraversable="false" layoutX="48.0" layoutY="586.0" mnemonicParsing="false" onAction="#handleCheckSeq2" style="-fx-font-family: Roboto; -fx-font-size: 13;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Sequence 2" />
+                              <CheckBox fx:id="chkSeq3" focusTraversable="false" layoutX="49.0" layoutY="877.0" mnemonicParsing="false" onAction="#handleCheckSeq3" style="-fx-font-size: 13; -fx-font-family: Roboto;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Sequence 3" />
+                              <CheckBox fx:id="chkSeq1" focusTraversable="false" layoutX="50.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleCheckSeq1" style="-fx-font-family: Roboto; -fx-font-size: 13;" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Sequence 1" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

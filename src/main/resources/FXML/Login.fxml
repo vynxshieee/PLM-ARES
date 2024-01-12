@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane fx:id="anchorPaneContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="590.0" prefWidth="940.0" style="-fx-background-color: #e0f8f5;"
+            stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.OOP.plmares.controllers.LoginController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="602.0" layoutX="-8.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="595.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.0470588244497776" green="0.37254902720451355" blue="0.3803921639919281" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.0313725508749485" green="0.21960784494876862" blue="0.23529411852359772" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <ImageView fx:id="imgVwShapeDesign" fitHeight="511.0" fitWidth="427.0" layoutX="44.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/shape_design.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="anchorPaneLogin" layoutX="492.0" layoutY="38.0" prefHeight="520.0" prefWidth="398.0" stylesheets="@../styles/Login.css">
+         <children>
+            <Label fx:id="lblSignIn" layoutX="154.0" layoutY="112.0" stylesheets="@../styles/Login.css" text="Sign in" />
+            <Label layoutX="57.0" layoutY="161.0" prefHeight="3.0" prefWidth="283.0" text="Welcome back! Please enter your login credentials" />
+            <ImageView fitHeight="50.0" fitWidth="51.0" layoutX="174.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/plm_logo.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtUsername" focusTraversable="false" layoutX="57.0" layoutY="221.0" prefHeight="29.0" prefWidth="283.0" promptText="Enter Student or Employee ID" />
+            <Button fx:id="btnLogin" focusTraversable="false" layoutX="138.0" layoutY="396.0" mnemonicParsing="false" onAction="#onClickBtnLogin" prefHeight="25.0" prefWidth="100.0" text="login">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Hyperlink fx:id="hlinkCantSignIn" focusTraversable="false" layoutX="166.0" layoutY="451.0" onAction="#handleContactUs" text="Contact Us" />
+            <CheckBox fx:id="chkShowPassword" focusTraversable="false" layoutX="57.0" layoutY="347.0" mnemonicParsing="false" onAction="#handleChkShowPassword" styleClass="label-small-grey" stylesheets="@../styles/CommonStyles.css" text="Show password?" />
+            <Label fx:id="errLblLogin" layoutX="57.0" layoutY="314.0" prefHeight="14.0" prefWidth="283.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28; -fx-font-family: Roboto;" styleClass="label-small-grey" text=" " />
+            <PasswordField fx:id="passPassword" layoutX="57.0" layoutY="279.0" prefHeight="27.0" prefWidth="283.0" promptText="Enter Password" />
+            <TextField fx:id="txtPassword" focusTraversable="false" layoutX="57.0" layoutY="276.0" prefHeight="29.0" prefWidth="283.0" promptText="Enter Password" visible="false" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

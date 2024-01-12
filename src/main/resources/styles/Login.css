@@ -1,0 +1,103 @@
+
+#anchorPaneLogin {
+    -fx-background-radius: 10;
+    -fx-border-radius: 15;
+    -fx-background-color: white;
+    -fx-effect: dropshadow( three-pass-box, rgba(0,0,0,0.3), 10, 0, 1, 1);
+}
+
+.label {
+    -fx-font-family: Raleway;
+    -fx-text-fill: #0b4243;
+}
+
+#lblSignIn {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 28.85;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-border-color: #0b4243;
+    -fx-border-width: 0 0 1.2 0; /* top, right, bottom, left */
+    -fx-background-color: white;
+}
+
+.titlebar-button {
+    -fx-font-family: "Raleway Light";
+    -fx-font-size: 12;
+    -fx-padding: 2;
+    -fx-text-fill: #0b4243;
+    -fx-pref-width: 25px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-background-color: #d1e7e4;
+}
+
+#btnLogin {
+    -fx-font-family: "Raleway Medium";
+    -fx-text-fill: white;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-padding: 7;
+    -fx-pref-width: 125px;
+    -fx-background-color: #0b4243;
+}
+
+#btnLogin:hover{
+    -fx-background-color: #0f5152;
+}
+
+#btnLogin:pressed{
+    -fx-background-color: #0a3536;
+}
+
+.titlebar-button:hover {
+    -fx-background-color: #c2dcd9;
+}
+.titlebar-button:pressed {
+    -fx-background-color: #afc9c6;
+}
+
+.hyperlink {
+    -fx-font-family: "Raleway Medium";
+    -fx-text-fill: #0b4243;
+    -fx-underline: true;
+}
+
+.hyperlink:focused,
+.hyperlink:hover,
+.hyperlink:pressed {
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view1 {
+    -fx-border-color: #000000;
+    -fx-border-width: 1px 1px 0 1px;
+    -fx-background-color: white;
+    -fx-font-family: "Roboto";
+    -fx-text-fill: #2d2d2d;
+    -fx-padding: 2;
+}
+
+.table-view1 .table-cell {
+    -fx-min-height: 16;
+    -fx-font-family: Roboto;
+    -fx-font-size: 12;
+    -fx-wrap-text: true;
+    -fx-alignment: CENTER-LEFT;
+    -fx-background-color: white;
+}
+
+.table-view1 .column-header {
+    -fx-background-color: white;
+    -fx-pref-height: 30;
+    -fx-font-family: "Raleway ExtraBold";
+    -fx-text-background-color: #000000;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER-LEFT;
+}

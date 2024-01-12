@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.EnrollmentModuleControllers.EnrollmentModuleController">
+   <children>
+      <Label alignment="CENTER" layoutX="491.0" layoutY="61.0" prefHeight="38.0" prefWidth="245.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="Enrollment Module" />
+      <AnchorPane layoutX="154.0" layoutY="364.0" prefHeight="257.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="69.0" layoutY="98.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- View and unenroll enrollees for a specific subject" />
+            <AnchorPane layoutX="75.0" layoutY="37.0" onMouseClicked="#onClickBtnSubjectSpecificEnrollees" prefHeight="45.0" prefWidth="280.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="47.0" layoutY="13.0" styleClass="label-contained-titles" text="Subject-specific Enrollees" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane layoutX="75.0" layoutY="141.0" onMouseClicked="#onClickBtnEnrolleesMasterlist" prefHeight="45.0" prefWidth="280.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="69.0" layoutY="13.0" styleClass="label-contained-titles" text="Enrollees Masterlist" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Label layoutX="69.0" layoutY="201.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Access a general masterlist of enrolled students." />
+            <Label layoutX="69.0" layoutY="217.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Unenroll students and view their individual schedules." />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="154.0" layoutY="337.0" prefHeight="37.0" prefWidth="430.0" style="-fx-background-radius: 0; -fx-effect: null;" styleClass="rounded-teal-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="126.0" layoutY="9.0" styleClass="label-contained-titles" text="ENROLLMENT CONSOLE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="154.0" layoutY="173.0" prefHeight="118.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="53.0" layoutY="89.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Review and approve applications from irregular enrollments" />
+            <AnchorPane fx:id="btnApprovalsConsole" layoutX="74.0" layoutY="29.0" onMouseClicked="#onClickBtnApprovalsConsole" prefHeight="45.0" prefWidth="280.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="73.0" layoutY="13.0" styleClass="label-contained-titles" text="Approvals Console" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="154.0" layoutY="148.0" prefHeight="37.0" prefWidth="430.0" style="-fx-background-radius: 0; -fx-effect: null;" styleClass="rounded-orange-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="82.0" layoutY="9.0" styleClass="label-contained-titles" text="APPLICATIONS APPROVAL CONSOLE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="661.0" layoutY="173.0" prefHeight="449.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="122.0" layoutY="96.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Start Date (DD/MM/YYYY)" />
+            <Label layoutX="41.0" layoutY="380.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Note: This feature is intended for testing purposes, and any changes" />
+            <Label layoutX="38.0" layoutY="395.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text=" made during runtime will not be saved." />
+            <DatePicker fx:id="dtStartDate" layoutX="122.0" layoutY="120.0" stylesheets="@../../../styles/CommonStyles.css" />
+            <DatePicker fx:id="dtEndDate" layoutX="122.0" layoutY="212.0" stylesheets="@../../../styles/CommonStyles.css" />
+            <Label layoutX="122.0" layoutY="192.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="End Date (DD/MM/YYYY)" />
+            <Label fx:id="errLblStartDate" layoutX="123.0" layoutY="152.0" prefHeight="16.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <Label fx:id="errLblEndDate" layoutX="123.0" layoutY="245.0" prefHeight="16.0" prefWidth="232.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <Button layoutX="144.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#onClickSetSchedule" prefHeight="27.0" prefWidth="141.0" style="-fx-font-family: &quot;Raleway Extrabold&quot;;" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css" text="SET SCHEDULE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="61.0" layoutY="45.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Set a starting date and deadline for student's enrollment" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="661.0" layoutY="148.0" prefHeight="37.0" prefWidth="430.0" style="-fx-background-color: #48b239;" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="14.0" layoutY="9.0" styleClass="label-contained-titles" text="ENROLLMENT SCHEDULE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.SchoolYearModuleController">
+   <children>
+      <Label layoutX="147.0" layoutY="118.0" prefHeight="38.0" prefWidth="634.0" styleClass="label-header-titles" stylesheets="@../../styles/CommonStyles.css" text="School Year Module" />
+      <AnchorPane layoutX="147.0" layoutY="187.0" prefHeight="396.0" prefWidth="565.0" styleClass="anchor-pane" stylesheets="@../../styles/Table.css">
+         <children>
+            <TableView fx:id="tblVwSchoolYear" editable="true" focusTraversable="false" layoutX="8.0" layoutY="4.0" prefHeight="386.0" prefWidth="552.0" styleClass="table-view1" stylesheets="@../../styles/Table.css">
+               <columns>
+                  <TableColumn fx:id="colSchoolYear" editable="false" minWidth="0.0" prefWidth="139.47166442871094" resizable="false" sortable="false" text="School Year" />
+                  <TableColumn fx:id="colStatus" editable="false" minWidth="5.4339599609375" prefWidth="132.2264404296875" resizable="false" sortable="false" text="Status" />
+                  <TableColumn fx:id="colAction" editable="false" minWidth="5.4339599609375" prefWidth="92.37738037109375" resizable="false" sortable="false" text="Action" />
+                  <TableColumn fx:id="colEdit" editable="false" minWidth="5.4339599609375" prefWidth="90.5660400390625" resizable="false" sortable="false" text="Edit" />
+                  <TableColumn fx:id="colDelete" editable="false" minWidth="5.4339599609375" prefWidth="87.84906005859375" resizable="false" sortable="false" text="Delete" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="782.0" layoutY="187.0" prefHeight="161.0" prefWidth="297.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" styleClass="anchor-pane" stylesheets="@../../styles/Table.css">
+         <children>
+            <AnchorPane layoutX="63.0" layoutY="102.0" onMouseClicked="#handleAddBtn" prefHeight="27.0" prefWidth="168.0" styleClass="button-teal" stylesheets="@../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="35.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="Add school year" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Label layoutX="42.0" layoutY="26.0" styleClass="label-small-grey" stylesheets="@../../styles/CommonStyles.css" text="New School Year" />
+            <TextField fx:id="txtAddSchoolYear" layoutX="42.0" layoutY="45.0" prefHeight="27.0" prefWidth="210.0" promptText="Ex. 2024-2025" styleClass="text-field" stylesheets="@../../styles/CommonStyles.css" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneEditContainer" disable="true" layoutX="787.0" layoutY="445.0" prefHeight="139.0" prefWidth="287.0" style="-fx-background-radius: 0; -fx-border-radius: 0;" styleClass="rounded-bordered-white-container" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label layoutX="35.0" layoutY="23.0" styleClass="label-small-grey" stylesheets="@../../styles/CommonStyles.css" text="New Edited School Year" />
+            <TextField fx:id="txtEditSchoolYear" layoutX="35.0" layoutY="43.0" prefHeight="27.0" prefWidth="216.0" promptText="Ex. 2024-2025" styleClass="text-field" stylesheets="@../../styles/CommonStyles.css" />
+            <Button layoutX="36.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#handleEditCancel" prefHeight="27.0" prefWidth="68.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="button-yellow" stylesheets="@../../styles/CommonStyles.css" text="Cancel">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="136.0" layoutY="89.0" mnemonicParsing="false" onMouseClicked="#handleEditSaveChanges" prefHeight="27.0" prefWidth="115.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="button-green" stylesheets="@../../styles/CommonStyles.css" text="Save Changes">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneTitleEdit" disable="true" layoutX="782.0" layoutY="380.0" prefHeight="66.0" prefWidth="297.0" style="-fx-effect: null; -fx-background-radius: 0;" styleClass="rounded-teal-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label fx:id="lblSchoolYear" layoutX="107.0" layoutY="37.0" prefHeight="15.0" prefWidth="137.0" style="-fx-font-size: 13; -fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-contained-titles" text="&lt; &gt;" />
+            <Label alignment="CENTER" layoutX="18.0" layoutY="37.0" style="-fx-font-size: 13;" styleClass="label-contained-titles" text="School Year:" />
+            <Label alignment="CENTER" layoutX="18.0" layoutY="14.0" style="-fx-font-size: 11; -fx-underline: true;" styleClass="label-contained-titles" text="CURRENTLY EDITING:" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.SubjectModuleControllers.SubjectSchedulingController">
+   <children>  <Label alignment="CENTER" layoutX="398.0" layoutY="88.0" prefHeight="38.0" prefWidth="430.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="Subject &amp; Scheduling Module" />
+      <AnchorPane layoutX="142.0" layoutY="168.0" prefHeight="37.0" prefWidth="430.0" styleClass="rounded-teal-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="148.0" layoutY="9.0" styleClass="label-contained-titles" text="SUBJECT MODULE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="655.0" layoutY="167.0" prefHeight="37.0" prefWidth="430.0" styleClass="rounded-orange-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="133.0" layoutY="9.0" styleClass="label-contained-titles" text="SCHEDULING MODULE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="655.0" layoutY="223.0" prefHeight="176.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="53.0" layoutY="118.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Add, Edit and Delete Subject Schedules" />
+            <AnchorPane layoutX="42.0" layoutY="43.0" onMouseClicked="#onClickBtnSchedulingModule" prefHeight="56.0" prefWidth="345.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="74.0" layoutY="18.0" styleClass="label-contained-titles" text="Access Scheduling Records" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="142.0" layoutY="224.0" prefHeight="176.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="53.0" layoutY="118.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Add, Edit and Delete Subject Records" />
+            <AnchorPane layoutX="42.0" layoutY="43.0" onMouseClicked="#onClickBtnSubjectModule" prefHeight="56.0" prefWidth="345.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="87.0" layoutY="18.0" styleClass="label-contained-titles" text="Access Subject Records" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="455.0" layoutY="455.0" prefHeight="37.0" prefWidth="316.0" style="-fx-background-color: #48b239;" styleClass="rounded-yellow-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="36.0" layoutY="9.0" styleClass="label-contained-titles" text="MODIFY MAXIMUM CLASS COUNT" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="455.0" layoutY="506.0" prefHeight="130.0" prefWidth="316.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="56.0" layoutY="87.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Change the maximum allowable count" />
+            <Label layoutX="40.0" layoutY="100.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="of enrolled students in a class. Maximum 100." />
+            <TextField fx:id="txtMaxCount" alignment="CENTER" layoutX="88.0" layoutY="28.0" prefHeight="38.0" prefWidth="47.0" style="-fx-font-size: 15;" stylesheets="@../../../styles/CommonStyles.css" />
+            <Button layoutX="156.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#onClickModifyClassCount" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css" text="Modify Now">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="errLblMaxCount" layoutX="70.0" layoutY="69.0" prefHeight="16.0" prefWidth="185.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

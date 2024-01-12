@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="706.0" prefWidth="1227.0" stylesheets="@../../styles/CommonStyles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.student_system.UserInfoStudentController">
+   <children>
+      <AnchorPane layoutX="59.0" layoutY="159.0" prefHeight="229.0" prefWidth="854.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label fx:id="lblLastName" layoutX="28.0" layoutY="37.0" prefHeight="18.0" prefWidth="210.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="lblFirstName" layoutX="28.0" layoutY="88.0" prefHeight="18.0" prefWidth="210.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="28.0" layoutY="20.0" styleClass="label-small-grey" text="Last Name" />
+            <Label layoutX="28.0" layoutY="71.0" styleClass="label-small-grey" text="First Name" />
+            <Label layoutX="26.0" layoutY="122.0" styleClass="label-small-grey" text="Student Number" />
+            <Label fx:id="lblGender" layoutX="28.0" layoutY="188.0" prefHeight="18.0" prefWidth="95.0" styleClass="label-headers" text="&lt; &gt;" />
+            <Label layoutX="28.0" layoutY="171.0" styleClass="label-small-grey" text="Gender" />
+            <Label fx:id="lblStudentNo" layoutX="26.0" layoutY="140.0" prefHeight="18.0" prefWidth="102.0" style="-fx-font-family: Roboto;" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="lblEmail" layoutX="460.0" layoutY="36.0" prefHeight="18.0" prefWidth="370.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="460.0" layoutY="19.0" styleClass="label-small-grey" text="PLM Email" />
+            <Label fx:id="lblBirthday" layoutX="245.0" layoutY="38.0" prefHeight="18.0" prefWidth="124.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="245.0" layoutY="21.0" styleClass="label-small-grey" text="Birthday (DD/MM/YY)" />
+            <Label layoutX="243.0" layoutY="72.0" styleClass="label-small-grey" text="Course" />
+            <Label fx:id="lblCourse" layoutX="243.0" layoutY="90.0" prefHeight="18.0" prefWidth="102.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="lblAddress" layoutX="460.0" layoutY="88.0" prefHeight="18.0" prefWidth="370.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="460.0" layoutY="71.0" styleClass="label-small-grey" text="Address" />
+            <Label fx:id="lblMobileNum" layoutX="460.0" layoutY="139.0" prefHeight="18.0" prefWidth="135.0" style="-fx-font-family: Roboto;" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="460.0" layoutY="122.0" styleClass="label-small-grey" text="Mobile Number" />
+            <Label fx:id="lblRegStatus" layoutX="245.0" layoutY="139.0" prefHeight="18.0" prefWidth="117.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label layoutX="245.0" layoutY="122.0" styleClass="label-small-grey" text="Registration Status" />
+            <Label layoutX="243.0" layoutY="171.0" styleClass="label-small-grey" text="Active Status" />
+            <Label fx:id="lblActiveStatus" layoutX="243.0" layoutY="189.0" prefHeight="18.0" prefWidth="102.0" styleClass="label-headers" text="&lt; &gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+         </children></AnchorPane>
+      <Label layoutX="59.0" layoutY="50.0" prefHeight="38.0" prefWidth="359.0" styleClass="label-header-titles" stylesheets="@../../styles/CommonStyles.css" text="Student Information" />
+      <AnchorPane layoutX="58.0" layoutY="108.0" prefHeight="37.0" prefWidth="1118.0" styleClass="rounded-teal-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="20.0" layoutY="9.0" styleClass="label-contained-titles" text="STUDENT DATA" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="58.0" layoutY="414.0" prefHeight="239.0" prefWidth="389.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <AnchorPane layoutX="63.0" layoutY="69.0" onMouseClicked="#onClickBtnChangePasswordMode" prefHeight="56.0" prefWidth="264.0" styleClass="button-yellow" stylesheets="@../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="50.0" layoutY="18.0" styleClass="label-contained-titles" text="Change your password" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <AnchorPane prefHeight="37.0" prefWidth="389.0" style="-fx-background-radius: 0; -fx-effect: null;" styleClass="rounded-yellow-containers" stylesheets="@../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="9.0" styleClass="label-contained-titles" text="ACCOUNT MANAGEMENT" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="63.0" layoutY="148.0" onMouseClicked="#onClickBtnSuggestInfoMode" prefHeight="56.0" prefWidth="263.0" styleClass="button-yellow" stylesheets="@../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="30.0" layoutY="18.0" styleClass="label-contained-titles" text="Suggest Information Update" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneAccManageContainer" layoutX="480.0" layoutY="401.0" prefHeight="264.0" prefWidth="704.0">
+         <children>
+            <Pane layoutX="10.0" layoutY="12.0" prefHeight="239.0" prefWidth="684.0" style="-fx-border-color: #b2b2b2;">
+               <children>
+                  <Label layoutX="197.0" layoutY="111.0" style="-fx-font-size: 14; -fx-text-fill: #b2b2b2;" styleClass="label-small-grey" text="Account management options will appear here" />
+                  <Line endX="41.20758056640625" endY="54.81134033203125" layoutX="138.0" layoutY="56.0" opacity="0.1" startX="-137.99996948242188" startY="-56.0" />
+                  <Line endX="42.4339599609375" endY="46.71697998046875" layoutX="461.0" layoutY="65.0" opacity="0.1" startX="223.67919921875" startY="-65.0" />
+                  <Line endX="31.20758056640625" endY="68.3585205078125" layoutX="148.0" layoutY="66.0" opacity="0.1" startX="-148.0" startY="173.0943603515625" />
+                  <Line endX="347.2452392578125" endY="58.3585205078125" layoutX="158.0" layoutY="76.0" opacity="0.1" startX="526.67919921875" startY="163.0943603515625" />
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <AnchorPane layoutX="940.0" layoutY="159.0" prefHeight="229.0" prefWidth="234.0" styleClass="rounded-containers" stylesheets="@../../styles/CommonStyles.css">
+         <children>
+            <ImageView fx:id="imgVwProfilePic" fitHeight="202.0" fitWidth="210.0" layoutX="16.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/blankPicture.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Circle fill="#d9d9d9" layoutX="1151.0" layoutY="366.0" onMouseClicked="#onClickUploadProfilePicture" radius="19.0" stroke="WHITE" strokeType="OUTSIDE" strokeWidth="10.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Circle>
+      <ImageView fitHeight="19.0" fitWidth="20.0" layoutX="1141.0" layoutY="356.0" onMouseClicked="#onClickUploadProfilePicture" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/camera.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Button fx:id="btnRemoveImg" layoutX="938.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#removeImageFromDB" styleClass="button-bordered-grey" stylesheets="@../../styles/CommonStyles.css" text="Remove image?">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>

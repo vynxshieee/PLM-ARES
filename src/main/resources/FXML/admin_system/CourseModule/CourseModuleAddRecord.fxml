@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.CourseModule.CourseModuleAddRecordController">
+   <children>
+      <Label layoutX="54.0" layoutY="55.0" prefHeight="38.0" prefWidth="564.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="Add a new course:" />
+      <AnchorPane layoutX="1003.0" layoutY="595.0" onMouseClicked="#onClickBtnGoBack" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="103.0" layoutY="12.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="GO BACK" />
+            <Line endX="36.4906005859375" layoutX="59.0" layoutY="20.0" opacity="0.6" startX="-34.15087890625" style="-fx-stroke: white;" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="48.0" layoutY="175.0" prefHeight="227.0" prefWidth="1129.0" styleClass="rounded-bordered-white-container" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label layoutX="42.0" layoutY="35.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Course Code" />
+            <Label layoutX="319.0" layoutY="35.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Description" />
+            <TextField fx:id="txtCourseCode" layoutX="42.0" layoutY="62.0" prefHeight="27.0" prefWidth="209.0" stylesheets="@../../../styles/CommonStyles.css" />
+            <TextField fx:id="txtDescription" layoutX="319.0" layoutY="62.0" prefHeight="27.0" prefWidth="761.0" stylesheets="@../../../styles/CommonStyles.css" />
+            <Label layoutX="517.0" layoutY="120.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="College Code" />
+            <ComboBox fx:id="cmbCollegeCode" layoutX="518.0" layoutY="148.0" prefHeight="27.0" prefWidth="121.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+            <AnchorPane fx:id="btnAddStudent" layoutX="871.0" layoutY="129.0" onMouseClicked="#onClickBtnAddRecord" prefHeight="39.0" prefWidth="209.0" style="-fx-background-radius: 10;" styleClass="button-teal" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="62.0" layoutY="12.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="ADD COURSE" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Label layoutX="699.0" layoutY="120.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Active Status" />
+            <ComboBox fx:id="cmbActive" layoutX="700.0" layoutY="148.0" prefHeight="27.0" prefWidth="96.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+            <DatePicker fx:id="dtDateOpened" layoutX="42.0" layoutY="148.0" />
+            <DatePicker fx:id="dtDateClosed" layoutX="279.0" layoutY="148.0" />
+            <Label layoutX="40.0" layoutY="125.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Date Opened" />
+            <Label layoutX="279.0" layoutY="125.0" style="-fx-font-size: 14;" styleClass="label-small-grey" text="Date Closed" />
+            <Label fx:id="errLblDateOpened" layoutX="41.0" layoutY="182.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <Label fx:id="errLblDateClosed" layoutX="277.0" layoutY="182.0" prefHeight="14.0" prefWidth="174.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <Label fx:id="errLblDescription" layoutX="318.0" layoutY="93.0" prefHeight="14.0" prefWidth="340.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text=" " />
+            <Label fx:id="errLblCollegeCode" layoutX="518.0" layoutY="182.0" prefHeight="14.0" prefWidth="151.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <Label fx:id="errLblActiveStatus" layoutX="700.0" layoutY="182.0" prefHeight="14.0" prefWidth="138.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" text="    " />
+            <AnchorPane layoutX="871.0" layoutY="177.0" onMouseClicked="#onClickClearAll" prefHeight="27.0" prefWidth="209.0" style="-fx-background-radius: 5;" styleClass="button-red" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="71.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="CLEAR ALL" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Label fx:id="errLblCourseCode" layoutX="40.0" layoutY="93.0" prefHeight="14.0" prefWidth="283.0" style="-fx-font-size: 11; -fx-text-fill: #d43c28;" styleClass="label-small-grey" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="49.0" layoutY="114.0" prefHeight="38.0" prefWidth="1129.0" styleClass="rounded-yellow-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="25.0" layoutY="12.0" style="-fx-font-size: 13; -fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-contained-titles" text="COURSE DETAILS:" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

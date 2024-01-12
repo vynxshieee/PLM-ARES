@@ -1,0 +1,47 @@
+.label-side-menu {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #0b4243;
+    -fx-font-size: 12.5;
+}
+
+.label-side-menu-pressed {
+    -fx-text-fill: #ffffff;
+}
+
+
+.top-side-menu {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 8, 0, 2, 2);
+}
+
+.label-top-menu {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 16;
+    -fx-text-fill: #366c72;
+}
+
+.side-button, .side-button-icon {
+    -fx-background-color: #ffffff;
+}
+
+.side-button-hover, .side-button-icon-hover, #anchorPaneUser:hover {
+    -fx-background-color: #f3f3f3;
+}
+
+.side-button-pressed, .side-button-pressed:hover {
+    -fx-background-color: #5bacad;
+}
+
+.side-button-icon-pressed, .side-button-icon-pressed:hover {
+    -fx-background-color: #5bacad;
+    -fx-border-color: #f76504;
+    -fx-border-width: 0 0 0 6;
+}
+
+.info-user-pressed {
+    -fx-background-color: #e5e5e5;
+    -fx-border-color: #d0d0d0;
+    -fx-border-width: 0.5, 0.5, 0.5, 0.5;
+}
+
+

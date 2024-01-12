@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.ClasslistGeneratorControllers.GeneralClasslistController">
+   <stylesheets>
+      <URL value="@../../../styles/CommonStyles.css" />
+   </stylesheets>
+   <children>
+      <Label layoutX="66.0" layoutY="58.0" prefHeight="38.0" prefWidth="634.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="General Classlist Generator" />
+      <AnchorPane layoutX="66.0" layoutY="141.0" prefHeight="456.0" prefWidth="661.0" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <TableView fx:id="tblVwGeneralClasslist" editable="true" focusTraversable="false" layoutX="8.0" layoutY="4.0" prefHeight="450.0" prefWidth="641.0" styleClass="table-view1" stylesheets="@../../../styles/Table.css">
+               <columns>
+                  <TableColumn fx:id="colStudentNo" editable="false" prefWidth="183.84910583496094" resizable="false" text="Student Number" />
+                  <TableColumn fx:id="colFullName" editable="false" minWidth="0.0" prefWidth="287.99993896484375" resizable="false" text="Full Name" />
+                  <TableColumn fx:id="colStatus" editable="false" minWidth="0.0" prefWidth="164.8302001953125" resizable="false" sortable="false" text="Status" />
+               </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="66.0" layoutY="624.0" prefHeight="24.0" prefWidth="181.0" styleClass="rounded-yellow-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="16.0" layoutY="4.0" style="-fx-font-size: 13; -fx-font-family: Roboto; -fx-font-weight: bold;" styleClass="label-contained-titles" text="TOTAL STUDENTS:" />
+            <Label fx:id="lblStudentCount" alignment="CENTER" layoutX="145.0" layoutY="4.0" style="-fx-font-size: 13; -fx-font-family: Roboto; -fx-font-weight: bold;" styleClass="label-contained-titles" text="&lt; &gt;" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="996.0" layoutY="66.0" onMouseClicked="#onClickBtnGoBack" prefHeight="38.0" prefWidth="173.0" style="-fx-background-radius: 10;" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="99.0" layoutY="12.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="GO BACK" />
+            <Line endX="34.20751953125" layoutX="56.0" layoutY="19.0" opacity="0.6" startX="-34.15087890625" style="-fx-stroke: white;" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="btnPrint" disable="true" layoutX="568.0" layoutY="624.0" onMouseClicked="#handlePrint" prefHeight="24.0" prefWidth="158.0" styleClass="button-green" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="36.0" layoutY="4.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="PRINT A COPY" />
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane layoutX="788.0" layoutY="141.0" prefHeight="206.0" prefWidth="344.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <ComboBox fx:id="cmbSchoolYear" layoutX="32.0" layoutY="38.0" prefHeight="27.0" prefWidth="187.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+            <Label layoutX="32.0" layoutY="18.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="School Year" />
+            <ComboBox fx:id="cmbSemester" layoutX="242.0" layoutY="38.0" prefHeight="27.0" prefWidth="69.0" styleClass="combo-box-rectangle" stylesheets="@../../../styles/CommonStyles.css" />
+            <Label layoutX="242.0" layoutY="18.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Semester" />
+            <AnchorPane layoutX="32.0" layoutY="153.0" onMouseClicked="#handleGenerateClasslist" prefHeight="27.0" prefWidth="158.0" styleClass="button-teal" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="23.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="Generate Classlist" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <Label layoutX="32.0" layoutY="83.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="Course-Year-Block" />
+            <AnchorPane layoutX="244.0" layoutY="153.0" onMouseClicked="#handleClearAll" prefHeight="27.0" prefWidth="71.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="20.0" layoutY="6.0" style="-fx-font-family: &quot;Raleway ExtraBold&quot;;" styleClass="label-button-titles" text="clear" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+            <TextField fx:id="txtSection" layoutX="32.0" layoutY="103.0" prefHeight="27.0" prefWidth="131.0" promptText="Ex. CS11, IT42" stylesheets="@../../../styles/CommonStyles.css" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,358 @@
+.rounded-containers {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 8, 0, 2, 2);
+}
+
+.rounded-red-containers {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #ffebe2;
+    -fx-border-color: #f7c7c7;
+}
+
+.rounded-green-containers {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #e6ffe2;
+    -fx-border-color: #c5eebb;
+}
+
+.rounded-teal-containers {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #5bacad;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, 2, 2);
+}
+
+.rounded-orange-containers {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #f78104;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, 2, 2);
+}
+
+.rounded-yellow-containers {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #f3a026;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 8, 0, 2, 2);
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.rounded-bordered-white-container {
+    -fx-background-color: white;
+    -fx-border-color: #c5c5c5;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.rounded-bordered-green-container {
+    -fx-background-color: white;
+    -fx-border-color: #48b239;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+.custom-border-white-container {
+    -fx-background-color: white;
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 3;
+}
+
+.custom-add-container {
+    -fx-background-color: white;
+    -fx-border-color: #48b239;
+    -fx-border-width: 3;
+}
+
+.custom-edit-container {
+    -fx-background-color: white;
+    -fx-border-color: #f3a026;
+    -fx-border-width: 3;
+}
+
+.custom-delete-container {
+    -fx-background-color: white;
+    -fx-border-color: #f65e32;
+    -fx-border-width: 3;
+}
+
+.button-yellow {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #f3a026;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.button-yellow:hover {
+    -fx-background-color: #da9021;
+}
+
+.button-yellow:pressed {
+    -fx-background-color: #e5872a;
+}
+
+.button-teal {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #5bacad;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.button-teal:hover {
+    -fx-background-color: #4f999a;
+}
+
+.button-teal:pressed {
+    -fx-background-color: #488b8c;
+}
+
+.button-green {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #48b239;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.button-green:hover {
+    -fx-background-color: #359428;
+}
+
+.button-green:pressed {
+    -fx-background-color: #2d8122;
+}
+
+.button-red {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #f65e32;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.button-red:hover {
+    -fx-background-color: #da552d;
+}
+
+.button-red:pressed {
+    -fx-background-color: #bd4825;
+}
+
+.button-grey {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: #d3d3d3;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 13;
+    -fx-text-fill: white;
+}
+
+.button-grey:hover {
+    -fx-background-color: #bbbbbb;
+}
+
+.button-grey:pressed {
+    -fx-background-color: #a6a6a6;
+}
+
+
+.button-bordered-grey {
+    -fx-background-color: white;
+    -fx-border-color: #d5d5d5;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-font-family: Roboto;
+    -fx-font-size: 13;
+    -fx-text-fill: #a2a2a2;
+}
+
+.button-bordered-grey:hover {
+    -fx-background-color: #dcdcdc;
+}
+
+.button-bordered-grey:pressed {
+    -fx-background-color: #d5d5d5;
+}
+
+
+
+.label-headers {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #0b4243;
+    -fx-font-size: 13.89;
+}
+
+.label-dashboard {
+    -fx-font-family: Roboto;
+    -fx-text-fill: #698d92;
+    -fx-font-size: 12.12;
+}
+
+.label-announcement-red {
+    -fx-font-family: Roboto;
+    -fx-text-fill: #984c22;
+    -fx-font-size: 13;
+}
+
+.label-announcement-red-bold {
+    -fx-font-family: "Roboto Black";
+    -fx-text-fill: #984c22;
+    -fx-font-size: 13;
+}
+
+.label-announcement-green {
+    -fx-font-family: Roboto;
+    -fx-text-fill: #33881f;
+    -fx-font-size: 13;
+}
+
+.label-announcement-green-bold {
+    -fx-font-family: "Roboto Black";
+    -fx-text-fill: #33881f;
+    -fx-font-size: 13;
+}
+
+.label-time {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #868686;
+    -fx-font-size: 12.5;
+}
+
+.label-greetings {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #0b4243;
+    -fx-font-size: 31;
+}
+
+.hyperlink {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.label-header-titles {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #0b4243;
+    -fx-font-size: 26;
+}
+
+.label-contained-titles {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15;
+}
+
+.label-button-titles {
+    -fx-font-family: "Raleway SemiBold";
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 12.5;
+}
+
+.label-small-grey {
+    -fx-font-family: Roboto;
+    -fx-text-fill: #95aaad;
+    -fx-font-size: 12;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-border-color: #ececec;
+    -fx-focus-traversable: false;
+}
+
+.combo-box .text-field {
+    -fx-background-color: white;
+    -fx-border-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: rgba(245, 245, 245, 0.83);
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+}
+
+.combo-box:focused, .combo-box-rectangle:focused {
+    -fx-border-color: #b6b6b6;
+}
+
+.combo-box .list-view, .combo-box-rectangle .list-view {
+    -fx-background-color: #dcdcdc;
+}
+
+
+.combo-box-rectangle {
+    -fx-background-color: white;
+    -fx-border-color: #b6b6b6;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-focus-traversable: false;
+}
+
+
+.text-field-rounded {
+    -fx-background-color: white;
+    -fx-border-color: #dcdcdc;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}
+
+.text-field , .text-area {
+    -fx-background-color: white;
+    -fx-border-color: #dcdcdc;
+    -fx-effect: null;
+    -fx-focus-traversable: false;
+    -fx-wrap-text: true;
+}
+
+.spinner {
+    -fx-focus-traversable: false;
+    -fx-background-color: white;
+}
+
+.spinner .increment-button,
+.spinner .decrement-button {
+    -fx-focus-traversable: false;
+    -fx-background-color: rgba(245, 245, 245, 0.83);
+    -fx-border-radius: 7;
+    -fx-background-radius: 7;
+}
+
+.spinner .text-field {
+    -fx-background-color: white;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #dcdcdc;
+    -fx-effect: null;
+    -fx-focus-traversable: false;
+    -fx-wrap-text: true;
+    -fx-font-size: 14;
+}
+
+.landing-label-header {
+    -fx-font-family: "Century Gothic";
+    -fx-font-weight: bold;
+    -fx-font-size: 80;
+    -fx-text-fill: #f76504;
+}
+
+.landing-label-subheader {
+    -fx-font-family: Roboto;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20;
+}

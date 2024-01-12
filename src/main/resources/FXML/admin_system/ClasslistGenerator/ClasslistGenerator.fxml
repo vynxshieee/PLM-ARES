@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.admin_system.ClasslistGeneratorControllers.ClasslistGeneratorController">
+   <children>
+      <Label alignment="CENTER" layoutX="491.0" layoutY="120.0" prefHeight="38.0" prefWidth="245.0" styleClass="label-header-titles" stylesheets="@../../../styles/CommonStyles.css" text="Classlist Generator" />
+      <AnchorPane layoutX="142.0" layoutY="257.0" prefHeight="37.0" prefWidth="430.0" styleClass="rounded-teal-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="105.0" layoutY="9.0" styleClass="label-contained-titles" text="SUBJECT-SECTION CLASSLIST" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="655.0" layoutY="256.0" prefHeight="37.0" prefWidth="430.0" styleClass="rounded-orange-containers" stylesheets="@../../../styles/CommonStyles.css">
+         <children>
+            <Label alignment="CENTER" layoutX="133.0" layoutY="9.0" styleClass="label-contained-titles" text="GENERAL MASTERLIST" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="655.0" layoutY="312.0" prefHeight="176.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="53.0" layoutY="118.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Preview masterlists by college, year, course, or block" />
+            <AnchorPane fx:id="btnApprovalsConsole" layoutX="42.0" layoutY="43.0" onMouseClicked="#onClickBtnGeneralMasterlist" prefHeight="56.0" prefWidth="345.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="122.0" layoutY="18.0" styleClass="label-contained-titles" text="Generate now" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="142.0" layoutY="313.0" prefHeight="176.0" prefWidth="430.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" styleClass="anchor-pane" stylesheets="@../../../styles/Table.css">
+         <children>
+            <Label layoutX="53.0" layoutY="118.0" styleClass="label-small-grey" stylesheets="@../../../styles/CommonStyles.css" text="- Preview classlist for individual subject-sections" />
+            <AnchorPane fx:id="btnApprovalsConsole1" layoutX="42.0" layoutY="43.0" onMouseClicked="#onClickBtnSubjectSectionClasslist" prefHeight="56.0" prefWidth="345.0" styleClass="button-yellow" stylesheets="@../../../styles/CommonStyles.css">
+               <children>
+                  <Label alignment="CENTER" layoutX="122.0" layoutY="18.0" styleClass="label-contained-titles" text="Generate now" />
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
