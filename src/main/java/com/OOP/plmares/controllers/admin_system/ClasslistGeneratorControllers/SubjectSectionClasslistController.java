@@ -89,12 +89,11 @@ public class SubjectSectionClasslistController {
             lblStudentCount.setText(intStudentCount + "");
             btnPrint.setDisable(false);
         } else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "No matching records found!",
-                    "No Matching Records",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("No Matching Records");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("No matching records found!");
+            errorAlert.showAndWait();
             btnPrint.setDisable(true);
         }
     }
@@ -123,23 +122,34 @@ public class SubjectSectionClasslistController {
     private void handlePrint() {
         PrinterJob printerJob = PrinterJob.createPrinterJob();
 
-        if (printerJob != null && printerJob.showPrintDialog(tblVwSubjectSectionClasslist.getScene().getWindow())) {
-            String schoolYear = cmbSchoolYear.getValue();
-            String semester = cmbSemester.getValue();
-            Pair<String, String> pairSubject = new Pair<>("Subject", lblDescription.getText() + " [" + txtSection.getText() + "]");
-            Node contentNode = printUtil.createPrintNode(tblVwSubjectSectionClasslist, schoolYear, semester, pairSubject);
+        if (printerJob != null) {
+            // Set a change listener for job status
+            printerJob.jobStatusProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue == PrinterJob.JobStatus.DONE) {
+                    // This code will be executed when the print job is done
+                    System.out.println("Print job completed!");
+                }
+            });
 
-            // Print the content
-            boolean success = printUtil.printNode(printerJob, contentNode);
+            if (printerJob.showPrintDialog(tblVwSubjectSectionClasslist.getScene().getWindow())) {
+                String schoolYear = cmbSchoolYear.getValue();
+                String semester = cmbSemester.getValue();
+                Pair<String, String> pairSubject = new Pair<>("Subject", lblDescription.getText() + " [" + txtSection.getText() + "]");
+                Node contentNode = printUtil.createPrintNode(tblVwSubjectSectionClasslist, schoolYear, semester, pairSubject);
 
-            if (success) {
-                // End the print job
-                printerJob.endJob();
-            } else {
-                System.out.println("Printing failed.");
+                // Print the content
+                boolean success = printUtil.printNode(printerJob, contentNode);
+
+                if (success) {
+                    // End the print job
+                    printerJob.endJob();
+                } else {
+                    System.out.println("Printing failed.");
+                }
             }
         }
     }
+
     public void onClickBtnGoBack(){
         c.loadScreen("/FXML/admin_system/ClasslistGenerator/ClasslistGenerator.fxml", anchorPaneContentContainer);
     }

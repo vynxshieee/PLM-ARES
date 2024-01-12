@@ -4,11 +4,12 @@ import com.OOP.plmares.controllers.GlobalSchedule;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.time.LocalDate;
 
 public class EnrollmentModuleController {
@@ -63,14 +64,14 @@ public class EnrollmentModuleController {
         }
 
         if (flagValid) {
-            int result = JOptionPane.showConfirmDialog(
-                    null,
-                    "Are you sure you want to set the inputted dates as the current enrollment schedule?",
-                    "Confirmation",
-                    JOptionPane.YES_NO_OPTION
-            );
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to set the inputted dates as the current enrollment schedule?");
 
-            if (result == JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result == ButtonType.OK) {
                 // Pass the dates to global variables or perform any other necessary actions
                 globalSchedule.setDtStartDate(dtStartDate.getValue());
                 globalSchedule.setDtEndDate(dtEndDate.getValue());
@@ -78,12 +79,11 @@ public class EnrollmentModuleController {
                 System.out.println("START DATE: " + strStartDate);
                 System.out.println("END DATE: " + strEndDate);
 
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Enrollment schedule set successfully.",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Success");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Enrollment schedule set successfully.");
+                successAlert.showAndWait();
             }
         }
     }

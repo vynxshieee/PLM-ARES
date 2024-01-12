@@ -8,17 +8,13 @@ import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import com.OOP.plmares.controllers.utilities.WarningDialogUtils;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.File;
 import java.util.Map;
 
@@ -118,14 +114,14 @@ public class UserInfoAdminController implements DataInitializable {
     }
 
     public void removeImageFromDB() {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to remove your current profile picture?",
-                "Remove Profile Image",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE
-        );
-        if (result == JOptionPane.YES_OPTION) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Remove Profile Image");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to remove your current profile picture?");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.YES) {
             DBCommonMethods.removeProfileImage("employee", "profile_image", "employee_id", strEmployeeID);
             Image imgDefault = new Image("file:src/main/resources/images/blankPicture.png");
             btnRemoveImg.setVisible(false);

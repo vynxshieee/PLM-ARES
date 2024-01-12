@@ -5,8 +5,9 @@ import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,15 +53,16 @@ public class DBMethodsCourseMod {
     }
 
     public static boolean deleteCourseModule(String strCourseCode) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to delete the information for course " + strCourseCode + "?\n\n"
-                        + "Note: Deleting this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
 
-        if (result != JOptionPane.YES_OPTION) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to delete the information for course " + strCourseCode + "?\n\n"
+                + "Note: Deleting this information may also affect other existing records.");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -78,15 +80,15 @@ public class DBMethodsCourseMod {
     public static boolean editCourseModule(String strCourseCode, String strDescription, String strCollegeCode,
                                                 String strDateOpened, String strDateClosed, String strStatus) {
         // Show a confirmation dialog to ensure the user wants to edit the course's information
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to edit the information for course " + strCourseCode + "?\n\n"
-                        + "Note: Editing this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to edit the information for course " + strCourseCode + "?\n\n"
+                + "Note: Editing this information may also affect other existing records.");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -125,10 +127,14 @@ public class DBMethodsCourseMod {
     public static boolean addCourseModule(String strCourseCode, String strDescription, String strCollegeCode,
                                                String strDateOpened, String strDateClosed, String strStatus) {
 
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to add the information for course "
-                + strCourseCode + "?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to add the information for course " + strCourseCode + "?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 

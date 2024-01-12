@@ -9,17 +9,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
-import java.time.LocalDate;
 
 import static com.OOP.plmares.controllers.tableUtils.DBCommonMethods.fetchNameData;
 import static com.OOP.plmares.controllers.utilities.CommonUtils.fadeInAndMoveUpAndCenterStage;
@@ -57,7 +58,7 @@ public class StudentMainScreenController implements DataInitializable {
         stdName = fetchNameData("student", "student_no", "firstname", strStudentNo);
         c.adjustLabelSizeWithText(lblUserInfo, stdName.toUpperCase());
 
-        if (LocalDate.now().isAfter(globalSchedule.getDtStartDate()) || LocalDate.now().isBefore(globalSchedule.getDtEndDate())) {   // check enrollment date
+        if (LocalDate.now().isAfter(globalSchedule.getDtStartDate()) && LocalDate.now().isBefore(globalSchedule.getDtEndDate())) {   // check enrollment date
             btnEnlistment.setDisable(false);
             btnEnlistmentIcon.setDisable(false);
         } else {
@@ -176,24 +177,24 @@ public class StudentMainScreenController implements DataInitializable {
 
     public void onClickBtnLogout(MouseEvent e) {
 
-        if(!sideMenuButtonDoubleClick){
-            int result = JOptionPane.showConfirmDialog(
-                    null,
-                    "Are you sure you want to logout?",
-                    "Logout Confirmation",
-                    JOptionPane.OK_CANCEL_OPTION
-            );
+        if (!sideMenuButtonDoubleClick) {
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Logout Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to logout?");
 
-            if (result == JOptionPane.OK_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result == ButtonType.OK) {
                 // If the user confirms, load the Login screen
-                try{
+                try {
                     Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
-                    Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                    Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                     Scene scene = new Scene(root);
                     stage.setScene(scene);
                     fadeInAndMoveUpAndCenterStage(stage, root);
                     stage.show();
-                } catch (IOException ex){
+                } catch (IOException ex) {
                     ex.printStackTrace();
                     showGenericErrorWarning();
                 }

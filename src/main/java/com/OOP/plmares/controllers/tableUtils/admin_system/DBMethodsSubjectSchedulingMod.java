@@ -5,8 +5,9 @@ import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -52,15 +53,15 @@ public class DBMethodsSubjectSchedulingMod {
         return subjectModuleInfo;
     }
     public static boolean deleteSubjectModule(String strSubjectCode) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to delete the information for subject " + strSubjectCode + "?\n\n"
-                        + "Note: Deleting this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to delete the information for subject " + strSubjectCode + "?\n\n"
+                + "Note: Deleting this information may also affect other existing records.");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -78,46 +79,46 @@ public class DBMethodsSubjectSchedulingMod {
     public static boolean editSubjectModule(String strSubjectCode, String strDescription, int intUnits, String strCurriculum,
                                             String strCollegeCode, String strStatus) {
         // Show a confirmation dialog to ensure the user wants to edit the course's information
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to edit the information for subject " + strSubjectCode + "?\n\n"
-                        + "Note: Editing this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to edit the information for subject " + strSubjectCode + "?\n\n"
+                + "Note: Editing this information may also affect other existing records.");
 
-        if (result != JOptionPane.YES_OPTION) {
-            return false;
-        }
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-        String updateQuery = "UPDATE subject SET " +
-                "description = ?, units = ?, curriculum = ?, college_code = ?, status = ? " +
-                "WHERE subject_code = ?";
+        if (result == ButtonType.OK) {
+            String updateQuery = "UPDATE subject SET " +
+                    "description = ?, units = ?, curriculum = ?, college_code = ?, status = ? " +
+                    "WHERE subject_code = ?";
 
-        try (Connection connection = new ConnectDB().Connect();
-             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+            try (Connection connection = new ConnectDB().Connect();
+                 PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
-            preparedStatement.setString(1, strDescription);
-            preparedStatement.setInt(2, intUnits);
-            preparedStatement.setString(3, strCurriculum);
-            preparedStatement.setString(4, strCollegeCode);
-            preparedStatement.setString(5, strStatus);
-            preparedStatement.setString(6, strSubjectCode);
+                preparedStatement.setString(1, strDescription);
+                preparedStatement.setInt(2, intUnits);
+                preparedStatement.setString(3, strCurriculum);
+                preparedStatement.setString(4, strCollegeCode);
+                preparedStatement.setString(5, strStatus);
+                preparedStatement.setString(6, strSubjectCode);
 
+                int rowsAffected = preparedStatement.executeUpdate();
 
-            int rowsAffected = preparedStatement.executeUpdate();
+                if (rowsAffected > 0) {
+                    System.out.println("Subject information updated successfully.");
+                    return true;
+                } else {
+                    System.out.println("No matching subject record found for update.");
+                    return false;
+                }
 
-            if (rowsAffected > 0) {
-                System.out.println("Subject information updated successfully.");
-                return true;
-            } else {
-                System.out.println("No matching subject record found for update.");
+            } catch (SQLException e) {
+                e.printStackTrace();
+                showGenericErrorWarning();
                 return false;
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            showGenericErrorWarning();
+        } else {
+            // User clicked CANCEL or closed the dialog
             return false;
         }
     }
@@ -125,9 +126,14 @@ public class DBMethodsSubjectSchedulingMod {
     public static boolean addSubjectModule(String strSubjectCode, String strDescription, int intUnits, String strCurriculum,
                                           String strCollegeCode, String strStatus) {
 
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to add the information for subject " + strSubjectCode + "?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to add the information for subject " + strSubjectCode + "?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -280,17 +286,17 @@ public class DBMethodsSubjectSchedulingMod {
     }
 
     public static boolean editScheduleModule(String strSubjectCode, String strCollegeCode, String strSemester, String strSequence,
-                                            String strBlockNo, String strDay, String strType, String strRoom, String strTime, String strFacultyID) {
+                                             String strBlockNo, String strDay, String strType, String strRoom, String strTime, String strFacultyID) {
         // Show a confirmation dialog to ensure the user wants to edit the course's information
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to edit the information for the selected schedule?\n\n"
-                        + "Note: Editing this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to edit the information for the selected schedule?\n\n"
+                + "Note: Editing this information may also affect other existing records.");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -311,7 +317,6 @@ public class DBMethodsSubjectSchedulingMod {
             preparedStatement.setString(8, strBlockNo);
             preparedStatement.setString(9, strSubjectCode);
             preparedStatement.setString(10, strSequence);
-
 
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -366,16 +371,16 @@ public class DBMethodsSubjectSchedulingMod {
     }
 
     public static boolean deleteScheduleModule(String strSubjectCode, String strCollegeCode, String strSemester, String strSequence, String strBlockNo) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to delete the information for schedule:\n"
-                        + strSubjectCode + " [" + strBlockNo + "-" + "Seq " + strSequence + "]" + "?\n\n"
-                        + "Note: Deleting this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to delete the information for schedule:\n"
+                + strSubjectCode + " [" + strBlockNo + "-Seq " + strSequence + "]" + "?\n\n"
+                + "Note: Deleting this information may also affect other existing records.");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 

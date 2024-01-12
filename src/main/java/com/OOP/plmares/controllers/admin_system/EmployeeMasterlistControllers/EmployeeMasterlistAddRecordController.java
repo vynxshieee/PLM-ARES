@@ -43,9 +43,14 @@ public class EmployeeMasterlistAddRecordController {
     }
 
     public void onClickClearAll() {
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to clear all the details?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to clear all the details?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return;
         }
 
@@ -159,7 +164,11 @@ public class EmployeeMasterlistAddRecordController {
 
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
-            JOptionPane.showMessageDialog(null, "Please recheck your inputs.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+            warningAlert.showAndWait();
         }
 
         return flagValid;

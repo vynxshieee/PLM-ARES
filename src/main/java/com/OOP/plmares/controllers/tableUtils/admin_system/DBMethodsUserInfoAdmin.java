@@ -3,8 +3,9 @@ package com.OOP.plmares.controllers.tableUtils.admin_system;
 import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.database.ConnectDB;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,14 +55,15 @@ public class DBMethodsUserInfoAdmin {
     }
 
     public static boolean updateAdminPassword(String strNewPass, String strUserID) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to change your password?",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
-        if (result != JOptionPane.YES_OPTION) {
-            // User chose not to delete, return false
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to change your password?");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
+            // User chose not to change the password, return false
             return false;
         }
 

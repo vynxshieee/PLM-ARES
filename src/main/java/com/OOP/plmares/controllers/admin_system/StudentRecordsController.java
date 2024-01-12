@@ -1,6 +1,8 @@
 package com.OOP.plmares.controllers.admin_system;
 
-import com.OOP.plmares.controllers.tableUtils.*;
+import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
+import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.TableUtils;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsEnrollmentMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsStudentRecordsMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
@@ -14,8 +16,6 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Callback;
 import javafx.util.Pair;
-
-import javax.swing.*;
 
 public class StudentRecordsController {
 
@@ -138,8 +138,12 @@ public class StudentRecordsController {
             anchorPaneFilter.setDisable(false);
             tblVwStudentRecords.setDisable(false);
         } else {
-            JOptionPane.showMessageDialog(null, "There were no records found for \"" + strStudentNo +
-                    "\"\nPlease ensure you've typed the correct student number.", "Error", JOptionPane.ERROR_MESSAGE);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("There were no records found for \"" + strStudentNo +
+                    "\"\nPlease ensure you've typed the correct student number.");
+            alert.showAndWait();
         }
     }
 
@@ -147,13 +151,11 @@ public class StudentRecordsController {
         String strFilterSy = cmbSchoolYear.getValue();
         String strFilterSemester = c.getSelectedItemOrEmptyCmbBox(cmbSemester);
         if(updateTableWithFilter(strFilterSy, strFilterSemester, strStudentNo) == 0){
-            JOptionPane.showMessageDialog(
-                    null,
-                    "No results found.",
-                    "Error",
-                    JOptionPane.WARNING_MESSAGE
-            );
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Matching Records");
+            alert.setHeaderText(null);
+            alert.setContentText("No matching records found!");
+            alert.showAndWait();
         }
     }
 

@@ -15,8 +15,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 
-import javax.swing.*;
-
 public class GeneralClasslistController {
 
     @FXML
@@ -89,12 +87,11 @@ public class GeneralClasslistController {
             lblStudentCount.setText(intStudentCount + "");
             btnPrint.setDisable(false);
         } else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "No matching records found!",
-                    "No Matching Records",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("No Matching Records");
+            alert.setHeaderText(null);
+            alert.setContentText("No matching records found!");
+            alert.showAndWait();
             btnPrint.setDisable(true);
         }
     }

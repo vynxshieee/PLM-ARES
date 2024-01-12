@@ -414,7 +414,11 @@ public class CommonUtils {
 
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
-            JOptionPane.showMessageDialog(null, "Please recheck your inputs.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+            warningAlert.showAndWait();
         }
 
         return flagValid;

@@ -1,17 +1,14 @@
 package com.OOP.plmares.controllers.admin_system.CollegeModule;
 
 import com.OOP.plmares.controllers.DataInitializable;
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsCollegeMod;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsCollegeMod;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
@@ -64,9 +61,14 @@ public class CollegeModuleEditRecordController implements DataInitializable {
     }
 
     public void onClickRevertToOriginal() {
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to revert the details back to the original?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to revert the details back to the original?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return;
         }
 

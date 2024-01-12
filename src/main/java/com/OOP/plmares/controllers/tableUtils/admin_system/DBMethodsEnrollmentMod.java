@@ -5,9 +5,10 @@ import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.util.Pair;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -277,12 +278,14 @@ public class DBMethodsEnrollmentMod {
     }
 
     public static Boolean removePendingSubjectApplication(String strSy, String strSemester, String strStudentNo, String strSubjectCode, String strBlockNo) {
-        int confirmation = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to remove this subject application?",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to remove this subject application?");
 
-        if (confirmation != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 

@@ -3,10 +3,10 @@ package com.OOP.plmares.controllers.tableUtils;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 
-import javax.swing.*;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -156,12 +156,11 @@ public class DBCommonMethods {
                 }
             }
         } catch (SQLException | IOException e) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Error: Image file size too big!",
-                    "Large Image Size",
-                    JOptionPane.WARNING_MESSAGE
-            );
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Large Image Size");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Error: Image file size too big!");
+            warningAlert.showAndWait();
             System.out.println(e);
             return false;
         }

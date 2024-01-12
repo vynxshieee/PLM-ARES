@@ -14,8 +14,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.StageStyle;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -229,15 +229,15 @@ public class SubjectsApprovalController implements DataInitializable {
     @FXML
     private void onClickBtnApproveAll() {
         // Display a confirmation dialog to ensure the user wants to approve all subjects
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to approve all subjects for:\n" + lblFullName.getText() + " [ " + lblStudentNo.getText() + " ]?",
-                "Confirm Approval",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirm Approval");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to approve all subjects for:\n" + lblFullName.getText() + " [ " + lblStudentNo.getText() + " ]?");
+        confirmationAlert.initStyle(StageStyle.UTILITY);
 
-        if (result == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             // Get the list of subject approvals for the student
             ObservableList<TableModel.ApprovalSubjectInfo> subjectApprovalList =
                     DBMethodsEnrollmentMod.getSubjectApprovalsInfo(strSy, strSemester, strStudentNo);

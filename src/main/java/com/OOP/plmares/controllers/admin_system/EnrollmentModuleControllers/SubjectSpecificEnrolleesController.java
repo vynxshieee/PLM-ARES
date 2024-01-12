@@ -1,17 +1,15 @@
 package com.OOP.plmares.controllers.admin_system.EnrollmentModuleControllers;
 
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsEnrollmentMod;
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.controllers.tableUtils.TableUtils;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsEnrollmentMod;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
-
-import javax.swing.*;
 
 public class SubjectSpecificEnrolleesController {
 
@@ -75,12 +73,11 @@ public class SubjectSpecificEnrolleesController {
             txtSection.setDisable(true);
             btnSearch.setDisable(true);
         } else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "No matching records found!",
-                    "No Matching Records",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("No Matching Records");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("No matching records found!");
+            errorAlert.showAndWait();
         }
     }
 
@@ -121,11 +118,14 @@ public class SubjectSpecificEnrolleesController {
         String subjectCode = txtSubjectCode.getText();
 
         // Display a confirmation dialog
-        int option = JOptionPane.showConfirmDialog(null,
-                "Do you want to unenroll: " + studentName + " on Subject Code: " + subjectCode,
-                "Unenroll Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Unenroll Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Do you want to unenroll: " + studentName + " on Subject Code: " + subjectCode);
 
-        if (option == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             DBMethodsEnrollmentMod.deleteSubjectScheduleRecord(strSy, strSemester, subjectCode, txtSection.getText(), lblStudentNo.getText());
             updateTableWithSearchResults(subjectCode, txtSection.getText());
         }

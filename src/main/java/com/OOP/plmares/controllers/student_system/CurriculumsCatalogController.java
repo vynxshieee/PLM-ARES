@@ -3,6 +3,7 @@ package com.OOP.plmares.controllers.student_system;
 import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
 import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
@@ -65,7 +66,11 @@ public class CurriculumsCatalogController {
                 strTitle = strCourseValue;
             } else {
                 // If the value is neither of the two, show an error warning
-                JOptionPane.showMessageDialog(null, "No available curriculum file for the selected course.", "Error", JOptionPane.WARNING_MESSAGE);
+                Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+                warningAlert.setTitle("Error");
+                warningAlert.setHeaderText(null);
+                warningAlert.setContentText("No available curriculum file for the selected course.");
+                warningAlert.showAndWait();
                 return;
             }
 
@@ -74,7 +79,11 @@ public class CurriculumsCatalogController {
             lblCourseTitle.setText(strTitle);
         } else {
             // Handle the case where no course is selected
-            JOptionPane.showMessageDialog(null, "Please select a course.", "Error", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Error");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please select a course.");
+            warningAlert.showAndWait();
         }
     }
 

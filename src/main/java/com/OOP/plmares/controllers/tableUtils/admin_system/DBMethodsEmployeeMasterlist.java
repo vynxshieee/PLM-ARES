@@ -6,8 +6,9 @@ import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,14 +60,15 @@ public class DBMethodsEmployeeMasterlist {
     }
 
     public static boolean deleteEmployeeMasterlist(String strEmployeeID) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to delete the information for employee " + strEmployeeID + "?\n\n"
-                        + "Note: Deleting this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
-        if (result != JOptionPane.YES_OPTION) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to delete the information for employee " + strEmployeeID + "?\n\n"
+                + "Note: Deleting this information may also affect other existing records.");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             // User chose not to delete, return false
             return false;
         }
@@ -89,14 +91,15 @@ public class DBMethodsEmployeeMasterlist {
     public static boolean editEmployeeMasterlist(String strEmployeeID, String strLastName, String strFirstName,
                                                 String strPLMEmail, String strMobileNum, String strBirthday,
                                                 String strGender, String strActive, String strAddress) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to edit the information for employee " + strEmployeeID + "?\n\n"
-                        + "Note: Editing this information may also affect other existing records.",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
-        if (result != JOptionPane.YES_OPTION) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to edit the information for employee " + strEmployeeID + "?\n\n"
+                + "Note: Editing this information may also affect other existing records.");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 
@@ -139,14 +142,14 @@ public class DBMethodsEmployeeMasterlist {
                                                 String strPLMEmail, String strMobileNum, String strBirthday,
                                                 String strGender, String strActive, String strAddress) {
 
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to add the information for Employee " + strEmployeeID + "?",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to add the information for Employee " + strEmployeeID + "?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return false;
         }
 

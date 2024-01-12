@@ -1,14 +1,15 @@
 package com.OOP.plmares.controllers.admin_system;
 
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.controllers.tableUtils.TableUtils;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.util.Optional;
 
 
 public class SchoolYearModuleController {
@@ -63,15 +64,14 @@ public class SchoolYearModuleController {
 
                     System.out.println("School Year: " + strSy);
 
-                    int result = JOptionPane.showConfirmDialog(
-                            null,
-                            "Opening \"" + strSy + "\" will close other school years.\nContinue?",
-                            "Open School Year",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE
-                    );
+                    Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmationAlert.setTitle("Open School Year");
+                    confirmationAlert.setHeaderText(null);
+                    confirmationAlert.setContentText("Opening \"" + strSy + "\" will close other school years.\nContinue?");
 
-                    if (result == JOptionPane.YES_OPTION) {
+                    ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+                    if (result == ButtonType.OK) {
                         DBMethodsSySem.openSySemMethod("sy", "sy", strSy);
                     }
                     updateTable();
@@ -172,15 +172,14 @@ public class SchoolYearModuleController {
                     String strSy = selectedData.getStrSy();
 
                     // Prompt the user for confirmation
-                    int result = JOptionPane.showConfirmDialog(
-                            null,
-                            "Deleting \"" + strSy + "\" will also delete records with the same school year.\nContinue?",
-                            "Delete School Year",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE
-                    );
+                    Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmationAlert.setTitle("Delete School Year");
+                    confirmationAlert.setHeaderText(null);
+                    confirmationAlert.setContentText("Deleting \"" + strSy + "\" will also delete records with the same school year.\nContinue?");
 
-                    if (result == JOptionPane.YES_OPTION) {
+                    ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+                    if (result == ButtonType.OK) {
                         DBMethodsSySem.deleteSchoolYear(strSy);
                         updateTable();
                     }
@@ -204,37 +203,49 @@ public class SchoolYearModuleController {
     }
 
     public void handleAddBtn() {
-        String strSy = txtAddSchoolYear.getText();
-        if(!validateSchoolYear(strSy))
-            return;
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to add School Year: \"" + strSy + "\"?",
-                "Add School Year",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        TextInputDialog inputDialog = new TextInputDialog();
+        inputDialog.setTitle("Add School Year");
+        inputDialog.setHeaderText(null);
+        inputDialog.setContentText("Enter School Year:");
 
-        if (result == JOptionPane.YES_OPTION) {
-            DBMethodsSySem.addSchoolYear(strSy);
+        Optional<String> result = inputDialog.showAndWait();
+
+        if (result.isPresent()) {
+            String strSy = result.get();
+
+            if (!validateSchoolYear(strSy)) {
+                return;
+            }
+
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Add School Year");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to add School Year: \"" + strSy + "\"?");
+
+            ButtonType confirmationResult = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (confirmationResult == ButtonType.OK) {
+                DBMethodsSySem.addSchoolYear(strSy);
+            }
+
+            updateTable();
+            resetAllEditFields();
         }
-        updateTable();
-        resetAllEditFields();
     }
 
     public void handleEditSaveChanges() {
-        if(!validateSchoolYear(txtEditSchoolYear.getText()))
+        if (!validateSchoolYear(txtEditSchoolYear.getText())) {
             return;
-        // Prompt the user for confirmation
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Editing \"" + lblSchoolYear.getText() + "\" to \"" + txtEditSchoolYear.getText() + "\" may affect records with the same school year.\nContinue?",
-                "Edit School Year",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        }
 
-        if (result == JOptionPane.YES_OPTION) {
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Edit School Year");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Editing \"" + lblSchoolYear.getText() + "\" to \"" + txtEditSchoolYear.getText() + "\" may affect records with the same school year.\nContinue?");
+
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             DBMethodsSySem.editSchoolYear(lblSchoolYear.getText(), txtEditSchoolYear.getText());
         }
 
@@ -250,12 +261,11 @@ public class SchoolYearModuleController {
         String schoolYearRegex = "^\\d{4}-\\d{4}$";
 
         if (!strSchoolYear.matches(schoolYearRegex)) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Invalid School Year format. Please use the format YYYY-YYYY (e.g., 2020-2021).\nPlease recheck your inputs",
-                    "Error",
-                    JOptionPane.WARNING_MESSAGE
-            );
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Error");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Invalid School Year format. Please use the format YYYY-YYYY (e.g., 2020-2021).\nPlease recheck your inputs");
+            warningAlert.showAndWait();
             return false;
         }
 

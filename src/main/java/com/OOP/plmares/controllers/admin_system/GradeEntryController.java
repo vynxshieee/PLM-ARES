@@ -1,6 +1,8 @@
 package com.OOP.plmares.controllers.admin_system;
 
-import com.OOP.plmares.controllers.tableUtils.*;
+import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
+import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.TableUtils;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsClasslistMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsGradeEntryMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
@@ -9,7 +11,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 
-import javax.swing.*;
+import java.util.Optional;
+import java.util.logging.Logger;
 
 public class GradeEntryController {
 
@@ -20,6 +23,7 @@ public class GradeEntryController {
     @FXML private TextField txtSubjectCode, txtSection;
     @FXML private Label lblSchoolYear, lblSemester, lblSubjectCode, lblFaculty, lblSection, lblDescription, lblStudentCount;
     @FXML private Button btnPrintPreview, btnRevert, btnSave;
+    private static final Logger LOGGER = Logger.getLogger(GradeEntryController.class.getName());
 
     private String strSy, strSemester;
 
@@ -225,12 +229,11 @@ public class GradeEntryController {
             btnSave.setDisable(false);
 
         } else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "No matching records found!",
-                    "No Matching Records",
-                    JOptionPane.ERROR_MESSAGE
-            );
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setTitle("No Matching Records");
+            errorAlert.setHeaderText(null);
+            errorAlert.setContentText("No matching records found!");
+            errorAlert.showAndWait();
         }
     }
 
@@ -254,7 +257,6 @@ public class GradeEntryController {
 
         btnRevert.setDisable(true);
         btnSave.setDisable(true);
-        btnPrintPreview.setDisable(true);
     }
 
     public void handleRevertToOriginal() {
@@ -263,20 +265,23 @@ public class GradeEntryController {
         String strSubjectCode = lblSubjectCode.getText();
         String strSection = lblSection.getText();
 
-        // Confirm with a JOptionPane
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to revert to the original values?",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        // Confirm with a JavaFX Alert
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to revert to the original values?");
 
-        if (result == JOptionPane.YES_OPTION) {
+        Optional<ButtonType> result = alert.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.OK) {
             // User confirmed, update the table with original values
             updateTableWithSearchResults(strSy, strSemester, strSubjectCode, strSection);
+        } else {
+            System.out.println("User canceled the revert operation.");
         }
     }
+
+
 
     public void handleSaveChanges() {
         String strSy = lblSchoolYear.getText();
@@ -284,29 +289,25 @@ public class GradeEntryController {
         String strSubjectCode = lblSubjectCode.getText();
         String strSection = lblSection.getText();
 
-        System.out.println("strSy: " + strSy);
-        System.out.println("strSemester: " + strSemester);
-        System.out.println("strSubjectCode: " + strSubjectCode);
-        System.out.println("strSection: " + strSection);
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure you want to commit changes for " + strSubjectCode + " [" + strSection + "]?");
 
-        int result = JOptionPane.showConfirmDialog(null,
-                "Are you sure you want to commit changes for " +  strSubjectCode + " [" + strSection + "]?",
-                "Warning", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+        Optional<ButtonType> result = alert.showAndWait();
 
-        if (result == JOptionPane.OK_OPTION) {
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // User confirmed, update the grades
             ObservableList<TableModel.GradeEntryStudent> gradeRecords = tblVwGradeEntry.getItems();
 
             for (TableModel.GradeEntryStudent gradeEntry : gradeRecords) {
                 String strStudentNo = gradeEntry.getStrStudentNo();
                 Double dblGrade = gradeEntry.getDblGrade();
 
-                System.out.println("\nstrStudentNo: " + strStudentNo);
-                System.out.println("dblGrade: " + dblGrade);
-
-
                 DBMethodsGradeEntryMod.updateGrades(strSy, strSemester, strStudentNo, strSubjectCode, strSection, dblGrade);
             }
         }
     }
+
 
 }

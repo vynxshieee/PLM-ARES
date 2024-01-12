@@ -6,12 +6,8 @@ import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.MailSenderUtils;
 import com.OOP.plmares.controllers.utilities.WarningDialogUtils;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
-import javax.swing.*;
 import java.util.Map;
 
 import static com.OOP.plmares.controllers.tableUtils.DBCommonMethods.fetchNameData;
@@ -86,12 +82,11 @@ public class ChangePasswordSuggestInfoController implements DataInitializable {
                 errLblSuggestInfo.setText("");
             }
         } else {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Please recheck your inputs.",
-                    "Error",
-                    JOptionPane.WARNING_MESSAGE
-            );
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+            warningAlert.showAndWait();
             errLblSuggestInfo.setText("Should be non-empty, max 1000 characters *");
         }
     }

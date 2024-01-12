@@ -7,10 +7,7 @@ import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import javax.swing.*;
@@ -38,9 +35,14 @@ public class CourseModuleAddRecordController {
     }
 
     public void onClickClearAll() {
-        int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to clear all the details?", "Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to clear all the details?");
 
-        if (result != JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result != ButtonType.OK) {
             return;
         }
 
@@ -135,7 +137,11 @@ public class CourseModuleAddRecordController {
 
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
-            JOptionPane.showMessageDialog(null, "Please recheck your inputs.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+            warningAlert.showAndWait();
         }
 
         return flagValid;

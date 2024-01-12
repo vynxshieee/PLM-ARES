@@ -9,12 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -218,26 +219,26 @@ public class AdminMainScreenController implements DataInitializable {
     }
 
     public void onClickBtnLogout(ActionEvent e) {
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to logout?",
-                "Logout Confirmation",
-                JOptionPane.OK_CANCEL_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Logout Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to logout?");
 
-        if (result == JOptionPane.OK_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             // If the user confirms, load the Login screen
-            try{
+            try {
                 Parent root = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));
 
                 // Get the current stage
-                stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
+                Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 fadeInAndMoveUpAndCenterStage(stage, root);
                 stage.show();
-            } catch (IOException ex){
+            } catch (IOException ex) {
                 ex.printStackTrace();
                 showGenericErrorWarning();
             }

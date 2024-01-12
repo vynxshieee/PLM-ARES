@@ -5,8 +5,9 @@ import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.database.ConnectDB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
-import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -135,10 +136,12 @@ public class DBMethodsApplicationMod {
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            // Display a confirmation dialog
-            int option = JOptionPane.showConfirmDialog(null,
-                    "Are you sure you want to apply to the subject?\nSubject Code: " + strSubjectCode + "\nSection: " + strBlockNo,
-                    "Confirmation", JOptionPane.YES_NO_OPTION);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to apply to the subject?\nSubject Code: " + strSubjectCode + "\nSection: " + strBlockNo);
+
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
             while (resultSet.next()) {
                 String strCollegeCode = resultSet.getString("college_code");
@@ -149,19 +152,19 @@ public class DBMethodsApplicationMod {
                 String strSequenceNo = resultSet.getString("sequence_no");
                 String strEmployeeId = resultSet.getString("employee_id");
 
-                if (option == JOptionPane.YES_OPTION) {
+                if (result == ButtonType.OK) {
                     // Create INSERT statement for enrollment table
                     String insertSubjectScheduleQuery = String.format("INSERT INTO enrollment VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', 'pending');",
                             strSy, strSemester, strCollegeCode, strStudentNo, strBlockNo, strSubjectCode, strDay, strTime, strRoom, strType, strSequenceNo, strEmployeeId);
 
-                    // Execute the insertQuery for enrollment table
+                    // Execute the insertQuery for the enrollment table
                     DBCommonMethods.executeQuery(insertSubjectScheduleQuery);
                 } else {
                     System.out.println("Application cancelled!");
                 }
             }
 
-            return option == JOptionPane.YES_OPTION;
+            return result == ButtonType.OK;
 
         } catch (SQLException e) {
             e.printStackTrace();

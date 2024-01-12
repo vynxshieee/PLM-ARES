@@ -1,14 +1,12 @@
 package com.OOP.plmares.controllers.admin_system;
 
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
 import com.OOP.plmares.controllers.tableUtils.TableUtils;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
-import javax.swing.*;
 
 public class SemesterModuleController {
 
@@ -62,15 +60,14 @@ public class SemesterModuleController {
 
                     System.out.println("Semester: " + strSemester);
 
-                    int result = JOptionPane.showConfirmDialog(
-                            null,
-                            "Opening \"" + strSemester + "\" will close other semesters.\nContinue?",
-                            "Open Semester",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE
-                    );
+                    Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmationAlert.setTitle("Open Semester");
+                    confirmationAlert.setHeaderText(null);
+                    confirmationAlert.setContentText("Opening \"" + strSemester + "\" will close other semesters.\nContinue?");
 
-                    if (result == JOptionPane.YES_OPTION) {
+                    ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+                    if (result == ButtonType.OK) {
                         DBMethodsSySem.openSySemMethod("semester", "semester", strSemester);
                     }
                     updateTable();
@@ -170,16 +167,14 @@ public class SemesterModuleController {
 
                     String strSemester = selectedData.getStrSemester();
 
-                    // Prompt the user for confirmation
-                    int result = JOptionPane.showConfirmDialog(
-                            null,
-                            "Deleting \"" + strSemester + "\" will also delete records with the same semester.\nContinue?",
-                            "Delete semester",
-                            JOptionPane.YES_NO_OPTION,
-                            JOptionPane.QUESTION_MESSAGE
-                    );
+                    Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    confirmationAlert.setTitle("Delete Semester");
+                    confirmationAlert.setHeaderText(null);
+                    confirmationAlert.setContentText("Deleting \"" + strSemester + "\" will also delete records with the same semester.\nContinue?");
 
-                    if (result == JOptionPane.YES_OPTION) {
+                    ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+                    if (result == ButtonType.OK) {
                         DBMethodsSySem.deleteSemester(strSemester);
                         updateTable();
                     }
@@ -206,15 +201,14 @@ public class SemesterModuleController {
         String strSemester = txtAddSemester.getText();
         if(!validateSemester(strSemester))
             return;
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to add semester: \"" + strSemester + "\"?",
-                "Add semester",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Add Semester");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to add semester: \"" + strSemester + "\"?");
 
-        if (result == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             DBMethodsSySem.addSemesterWithStrSy(strSemester);
         }
         updateTable();
@@ -225,15 +219,14 @@ public class SemesterModuleController {
         if(!validateSemester(txtEditSemester.getText()))
             return;
         // Prompt the user for confirmation
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Editing \"" + lblSemester.getText() + "\" may affect records with the same semester.\nContinue?",
-                "Edit Semester",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.QUESTION_MESSAGE
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Edit Semester");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Editing \"" + lblSemester.getText() + "\" may affect records with the same semester.\nContinue?");
 
-        if (result == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             System.out.println("semester TO BE EDITED " + lblSemester.getText());
             System.out.println("semester edit text: " + txtEditSemester.getText());
             DBMethodsSySem.editSemester(lblSemester.getText(), txtEditSemester.getText());
@@ -245,12 +238,11 @@ public class SemesterModuleController {
 
     private boolean validateSemester(String strSemester) {
         if (strSemester.length() != 1 || !Character.isLetterOrDigit(strSemester.charAt(0))) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Semester should only consist of one character, which can be a numeral or a letter.\nPlease recheck your inputs",
-                    "Error",
-                    JOptionPane.WARNING_MESSAGE
-            );
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Error");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Semester should only consist of one character, which can be a numeral or a letter.\nPlease recheck your inputs");
+            warningAlert.showAndWait();
             return false;
         }
         return true;

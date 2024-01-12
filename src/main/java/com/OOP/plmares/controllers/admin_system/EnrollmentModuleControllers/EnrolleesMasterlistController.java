@@ -8,13 +8,9 @@ import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -110,11 +106,14 @@ public class EnrolleesMasterlistController implements DataInitializable {
         String studentName = lblFullName.getText();
 
         // Display a confirmation dialog
-        int option = JOptionPane.showConfirmDialog(null,
-                "Do you want to unenroll: " + studentName + " for S.Y. " + strSy + " Semester " + strSemester + "?",
-                "Unenroll Confirmation", JOptionPane.YES_NO_OPTION);
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Unenroll Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Do you want to unenroll: " + studentName + " for S.Y. " + strSy + " Semester " + strSemester + "?");
 
-        if (option == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.OK) {
             DBMethodsEnrollmentMod.deleteEnrolleeSySem(strSy, strSemester, lblStudentNo.getText());
             lblEnrolleeCount.setText(updateTableWithSearchResults("") + "");
             clearAllFields();
