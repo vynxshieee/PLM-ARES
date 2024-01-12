@@ -3,6 +3,8 @@ package com.OOP.plmares.controllers.admin_system.SubjectModuleControllers;
 import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -27,14 +29,14 @@ public class SubjectSchedulingController {
             return;
         }
 
-        int result = JOptionPane.showConfirmDialog(
-                null,
-                "Are you sure you want to modify the maximum class count to " + maxCountText + "?",
-                "Confirmation",
-                JOptionPane.YES_NO_OPTION
-        );
+        Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationAlert.setTitle("Confirmation");
+        confirmationAlert.setHeaderText(null);
+        confirmationAlert.setContentText("Are you sure you want to modify the maximum class count to " + maxCountText + "?");
 
-        if (result == JOptionPane.YES_OPTION) {
+        ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+        if (result == ButtonType.YES) {
             try {
                 // Parse the max count
                 int intMaxCount = Integer.parseInt(maxCountText);
@@ -80,12 +82,12 @@ public class SubjectSchedulingController {
                 DBCommonMethods.executeQuery(modifiedQuery);
 
                 // Display a success message (you can replace this with your actual UI update)
-                JOptionPane.showMessageDialog(
-                        null,
-                        "Maximum class count modified successfully.",
-                        "Success",
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+                Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                successAlert.setTitle("Success");
+                successAlert.setHeaderText(null);
+                successAlert.setContentText("Maximum class count modified successfully.");
+
+                successAlert.showAndWait();
 
                 // Clear error label
                 errLblMaxCount.setText("");

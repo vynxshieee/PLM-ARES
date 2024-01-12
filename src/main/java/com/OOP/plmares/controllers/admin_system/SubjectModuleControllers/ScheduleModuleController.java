@@ -187,12 +187,12 @@ public class ScheduleModuleController {
 
     private void updateLabelsMainTable(TableModel.ScheduleModule scheduleInfo) {
         if(!strMode.isEmpty()){
-            JOptionPane.showMessageDialog(
-                    null,
-                    "You are still in " + strMode + " mode. Schedule selection is disabled.",
-                    "Disabled Selection",
-                    JOptionPane.WARNING_MESSAGE
-            );
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Disabled Selection");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("You are still in " + strMode + " mode. Schedule selection is disabled.");
+
+            warningAlert.showAndWait();
         } else {
             strSubjectCode = scheduleInfo.getSubjectCode();
             strDescription = scheduleInfo.getDescription();
@@ -354,10 +354,14 @@ public class ScheduleModuleController {
 
     public void handleCancelFromModes() {
         if(!strMode.isEmpty()){
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to cancel this process?\n",
-                    "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to cancel this process?");
 
-            if (result != JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.YES) {
                 return;
             }
         }
@@ -437,10 +441,15 @@ public class ScheduleModuleController {
     }
     public void handleChooseFacultyAssignment(){
         if (strMode.equals("EDIT")){
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to change the current faculty assignment?\n" +
-                    "This action will affect existing records.", "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to change the current faculty assignment?\n" +
+                    "This action will affect existing records.");
 
-            if (result != JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.YES) {
                 return;
             }
         }
@@ -456,10 +465,14 @@ public class ScheduleModuleController {
     }
     public void handleRevertToOriginal() {
         if(strMode.equals("EDIT")){
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to revert the details back to the original?\n",
-                    "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to revert the details back to the original?");
 
-            if (result != JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.YES) {
                 return;
             }
         }
@@ -559,10 +572,14 @@ public class ScheduleModuleController {
 
     public void handleClearAll() {
         if(strMode.equals("ADD")){
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want clear all details?\n",
-                    "Confirmation", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to clear all details?");
 
-            if (result != JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.YES) {
                 return;
             }
         }
@@ -617,9 +634,14 @@ public class ScheduleModuleController {
         if(inputValidationAdd()){
             Boolean flagSuccess = true;
 
-            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to add the inputted information in the schedule records?", "Confirmation", JOptionPane.YES_NO_OPTION);
+            Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationAlert.setTitle("Confirmation");
+            confirmationAlert.setHeaderText(null);
+            confirmationAlert.setContentText("Are you sure you want to add the inputted information in the schedule records?");
 
-            if (result != JOptionPane.YES_OPTION) {
+            ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
+
+            if (result != ButtonType.YES) {
                 return;
             }
 
@@ -786,7 +808,12 @@ public class ScheduleModuleController {
 
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
-            JOptionPane.showMessageDialog(null, "Please recheck your inputs.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+
+            warningAlert.showAndWait();
         }
 
         return flagValid;
@@ -952,7 +979,12 @@ public class ScheduleModuleController {
 
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
-            JOptionPane.showMessageDialog(null, "Please recheck your inputs.", "Invalid Input", JOptionPane.WARNING_MESSAGE);
+            Alert warningAlert = new Alert(Alert.AlertType.WARNING);
+            warningAlert.setTitle("Invalid Input");
+            warningAlert.setHeaderText(null);
+            warningAlert.setContentText("Please recheck your inputs.");
+
+            warningAlert.showAndWait();
         }
 
         return flagValid;
