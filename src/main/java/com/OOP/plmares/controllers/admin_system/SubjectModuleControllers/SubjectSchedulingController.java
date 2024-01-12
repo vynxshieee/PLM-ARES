@@ -9,8 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 public class SubjectSchedulingController {
 
     @FXML
@@ -36,7 +34,7 @@ public class SubjectSchedulingController {
 
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-        if (result == ButtonType.YES) {
+        if (result == ButtonType.OK) {
             try {
                 // Parse the max count
                 int intMaxCount = Integer.parseInt(maxCountText);

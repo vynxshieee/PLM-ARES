@@ -121,7 +121,7 @@ public class UserInfoAdminController implements DataInitializable {
 
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-        if (result == ButtonType.YES) {
+        if (result == ButtonType.OK) {
             DBCommonMethods.removeProfileImage("employee", "profile_image", "employee_id", strEmployeeID);
             Image imgDefault = new Image("file:src/main/resources/images/blankPicture.png");
             btnRemoveImg.setVisible(false);

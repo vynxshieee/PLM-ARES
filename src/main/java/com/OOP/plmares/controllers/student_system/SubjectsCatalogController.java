@@ -72,7 +72,9 @@ public class SubjectsCatalogController {
         lblCollegeCode.setText("< >");
         lblStatus.setText("< >");
 
-        btnDelete.setDisable(true);
-        btnEdit.setDisable(true);
+        if(btnDelete != null || btnEdit != null){
+            btnDelete.setDisable(true);
+            btnEdit.setDisable(true);
+        }
     }
 }

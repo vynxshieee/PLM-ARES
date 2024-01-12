@@ -10,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 public class SubjectModuleAddRecordController {
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtSubjectCode, txtDescription;
@@ -52,7 +50,7 @@ public class SubjectModuleAddRecordController {
 
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-        if (result != ButtonType.YES) {
+        if (result != ButtonType.OK) {
             return;
         }
 

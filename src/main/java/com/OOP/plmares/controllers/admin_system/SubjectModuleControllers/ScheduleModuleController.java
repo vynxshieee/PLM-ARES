@@ -1,6 +1,8 @@
 package com.OOP.plmares.controllers.admin_system.SubjectModuleControllers;
 
-import com.OOP.plmares.controllers.tableUtils.*;
+import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
+import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.TableUtils;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSubjectSchedulingMod;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
@@ -9,8 +11,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
-import javax.swing.*;
 
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showSuccessDialog;
 
@@ -361,7 +361,7 @@ public class ScheduleModuleController {
 
             ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-            if (result != ButtonType.YES) {
+            if (result == ButtonType.CANCEL) {
                 return;
             }
         }
@@ -449,7 +449,7 @@ public class ScheduleModuleController {
 
             ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-            if (result != ButtonType.YES) {
+            if (result != ButtonType.OK) {
                 return;
             }
         }
@@ -472,7 +472,7 @@ public class ScheduleModuleController {
 
             ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-            if (result != ButtonType.YES) {
+            if (result != ButtonType.OK) {
                 return;
             }
         }
@@ -579,7 +579,7 @@ public class ScheduleModuleController {
 
             ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-            if (result != ButtonType.YES) {
+            if (result != ButtonType.OK) {
                 return;
             }
         }
@@ -641,7 +641,7 @@ public class ScheduleModuleController {
 
             ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-            if (result != ButtonType.YES) {
+            if (result != ButtonType.OK) {
                 return;
             }
 

@@ -120,7 +120,7 @@ public class UserInfoStudentController implements DataInitializable {
 
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
-        if (result == ButtonType.YES) {
+        if (result == ButtonType.OK) {
             DBCommonMethods.removeProfileImage("student", "profile_image", "student_no", strStudentNo);
             Image imgDefault = new Image("file:src/main/resources/images/blankPicture.png");
             btnRemoveImg.setVisible(false);
