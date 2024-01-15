@@ -1,8 +1,8 @@
 package com.OOP.plmares.controllers.admin_system.EmployeeMasterlistControllers;
 
 import com.OOP.plmares.controllers.DataInitializable;
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsEmployeeMasterlist;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsEmployeeMasterlist;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import javafx.collections.FXCollections;
@@ -11,7 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.time.LocalDate;
 import java.util.Map;
 
@@ -22,10 +21,8 @@ public class EmployeeMasterlistEditRecordController implements DataInitializable
     @FXML private ComboBox<String> cmbGender, cmbActive;
     @FXML private DatePicker dateBirthday;
     @FXML private Label errLblLastName, errLblFirstName, errLblMobileNumber, errLblAddress, errLblBirthday;
-
     private CommonUtils c = new CommonUtils();
     private InputValidationUtils iv = new InputValidationUtils();
-
     private String strEmployeeID = "", strLastName = "", strFirstName = "", strPLMEmail = "", strMobileNum = "", strBirthday = "",
             strGender = "", strActive = "", strAddress = "" ;
     private boolean isInitialized = false;
@@ -44,18 +41,13 @@ public class EmployeeMasterlistEditRecordController implements DataInitializable
     @FXML
     private void initialize() {
         if (isInitialized) {
-            ObservableList<String> gender = FXCollections.observableArrayList(
-                    "Male", "Female");
+            ObservableList<String> gender = FXCollections.observableArrayList("Male", "Female");
             cmbGender.setItems(gender);
-
-            ObservableList<String> activeStatus = FXCollections.observableArrayList(
-                    "Active", "Inactive");
+            ObservableList<String> activeStatus = FXCollections.observableArrayList("Active", "Inactive");
             cmbActive.setItems(activeStatus);
-
 
             // set original data from selected student:
             ObservableList<TableModel.EmployeeMasterlist> selectedEmployee = DBMethodsEmployeeMasterlist.getEmployeeMasterlist(strEmployeeID);
-
             // split full name
             String fullName = selectedEmployee.get(0).getStrFullName();
             String[] nameParts = fullName.split(",\\s*");
@@ -82,7 +74,6 @@ public class EmployeeMasterlistEditRecordController implements DataInitializable
         confirmationAlert.setTitle("Confirmation");
         confirmationAlert.setHeaderText(null);
         confirmationAlert.setContentText("Are you sure you want to revert the details back to the original?");
-
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
 
         if (result != ButtonType.OK) {
@@ -202,7 +193,6 @@ public class EmployeeMasterlistEditRecordController implements DataInitializable
         txtPLMEmail.setText(strGeneratedEmail);
         return strGeneratedEmail;
     }
-
 
     public void onClickBtnGoBack(){
         c.loadScreen("/FXML/admin_system/EmployeeMasterlist/EmployeeMasterlist.fxml", anchorPaneContentContainer);

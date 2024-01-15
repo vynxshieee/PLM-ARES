@@ -10,19 +10,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 public class CourseModuleAddRecordController {
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtCourseCode, txtDescription;
     @FXML private DatePicker dtDateOpened, dtDateClosed;
     @FXML private ComboBox<String> cmbCollegeCode, cmbActive;
     @FXML private Label errLblDescription, errLblDateOpened, errLblDateClosed, errLblCourseCode, errLblCollegeCode, errLblActiveStatus;
-
     private CommonUtils c = new CommonUtils();
-
     private InputValidationUtils iv = new InputValidationUtils();
-
     @FXML
     private void initialize() {
         DBCommonMethods.populateComboBox(cmbCollegeCode, "college", "college_code");

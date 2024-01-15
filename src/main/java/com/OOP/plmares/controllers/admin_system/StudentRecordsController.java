@@ -18,7 +18,6 @@ import javafx.util.Callback;
 import javafx.util.Pair;
 
 public class StudentRecordsController {
-
     @FXML private TableView<TableModel.StudentRecordSubject> tblVwStudentRecords;
     @FXML private TableColumn<TableModel.StudentRecordSubject, String> colSubjectCode, colDescription, colGrade, colRemark;
     @FXML private TableColumn<TableModel.StudentRecordSubject, Integer> colUnits;
@@ -43,16 +42,11 @@ public class StudentRecordsController {
 
         // Set up columns
         colSubjectCode.setCellValueFactory(cellData -> cellData.getValue().subjectCodeProperty());
-
         t.setupTextWrapping(colDescription);
         colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
-
         colUnits.setCellValueFactory(cellData -> cellData.getValue().unitsProperty().asObject());
-
         colGrade.setCellValueFactory(cellData -> cellData.getValue().gradeProperty());
-
         colRemark.setCellValueFactory(cellData -> cellData.getValue().remarkProperty());
-
         colorCodeGradeRemarkColumns();
 
         // Populate the TableView
@@ -61,7 +55,6 @@ public class StudentRecordsController {
     }
 
     private int updateTableWithFilter(String strSy, String strSemester, String strStudentNo) {
-
         ObservableList<TableModel.StudentRecordSubject> listFilteredResults = DBMethodsStudentRecordsMod.getStudentRecords(
                 strSy, strSemester, strStudentNo);
 
@@ -158,6 +151,4 @@ public class StudentRecordsController {
             alert.showAndWait();
         }
     }
-
-
 }

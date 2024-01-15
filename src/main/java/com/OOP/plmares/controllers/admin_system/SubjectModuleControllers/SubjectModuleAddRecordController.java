@@ -16,12 +16,9 @@ public class SubjectModuleAddRecordController {
     @FXML private Spinner<Integer> spnUnits = new Spinner<>(1, 10, 1);
     @FXML private ComboBox<String> cmbCurriculum, cmbCollegeCode, cmbActive;
     @FXML private Label errLblSubjectCode, errLblDescription, errLblCurriculum, errLblCollegeCode, errLblActiveStatus;
-
     @FXML private SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
 
-
     private CommonUtils c = new CommonUtils();
-
     private InputValidationUtils iv = new InputValidationUtils();
 
     @FXML
@@ -49,11 +46,9 @@ public class SubjectModuleAddRecordController {
         confirmationAlert.setContentText("Are you sure you want to clear all the details?");
 
         ButtonType result = confirmationAlert.showAndWait().orElse(ButtonType.CANCEL);
-
         if (result != ButtonType.OK) {
             return;
         }
-
         setFieldsToDefault();
     }
 

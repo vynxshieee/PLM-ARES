@@ -72,7 +72,6 @@ public class SubjectsApplicationController implements DataInitializable {
             TableModel.StudentGeneralInfo stdInfo = DBMethodsEnrollmentMod.getStudentGeneralInfo(strSy, strStudentNo);
             lblFullName.setText(stdInfo.getFullName().toUpperCase());
 
-
             // populate college combobox
             DBCommonMethods.populateComboBox(cmbCollege, "college", "college_code");
 

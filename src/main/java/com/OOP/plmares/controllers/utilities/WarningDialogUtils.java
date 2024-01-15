@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 
 
 public class WarningDialogUtils {
-
         public static void showDuplicateEntryWarning() {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Duplicate Entry");
@@ -13,7 +12,6 @@ public class WarningDialogUtils {
 
             alert.showAndWait();
         }
-
         public static void showGenericErrorWarning() {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Error");
@@ -22,7 +20,6 @@ public class WarningDialogUtils {
 
             alert.showAndWait();
         }
-
         public static void showSuccessDialog() {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Success");
@@ -31,6 +28,4 @@ public class WarningDialogUtils {
 
             alert.showAndWait();
         }
-
-
 }

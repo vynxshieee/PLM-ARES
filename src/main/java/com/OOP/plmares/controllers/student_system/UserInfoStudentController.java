@@ -21,20 +21,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserInfoStudentController implements DataInitializable {
-    @FXML
-    AnchorPane anchorPaneAccManageContainer;
-    @FXML
-    private ImageView imgVwProfilePic;
-
-    @FXML
-    private Label lblLastName, lblFirstName, lblActiveStatus, lblAddress, lblBirthday, lblCourse, lblEmail, lblGender, lblMobileNum, lblRegStatus, lblStudentNo;
-
-
-    @FXML
-    private Button btnRemoveImg;
-
-
-
+    @FXML AnchorPane anchorPaneAccManageContainer;
+    @FXML private ImageView imgVwProfilePic;
+    @FXML private Label lblLastName, lblFirstName, lblActiveStatus, lblAddress, lblBirthday, lblCourse, lblEmail, lblGender, lblMobileNum, lblRegStatus, lblStudentNo;
+    @FXML private Button btnRemoveImg;
     CommonUtils c = new CommonUtils();
     String strPreviousBtn= "", strCurrentBtn= "", strStudentNo = "";
 
@@ -147,6 +137,4 @@ public class UserInfoStudentController implements DataInitializable {
         }
         strPreviousBtn = "suggest info";
     }
-
-
 }

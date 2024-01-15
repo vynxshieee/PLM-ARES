@@ -6,9 +6,7 @@ import java.util.Properties;
 
 public class GlobalSchedule {
     private static final String FILE_PATH = "src/main/resources/globalSchedule.properties";
-
     private static Properties properties;
-
     static {
         properties = new Properties();
         loadProperties();

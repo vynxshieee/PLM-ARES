@@ -8,8 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class NavigationUtils {
-
-
     // ----- 1. This is to change the style of the dual anchorPanes (buttons) to a pressed state for the menu
     public void changeOverallMenuBtnToPressedState (AnchorPane btnButton, AnchorPane btnIcon, Label lblLabel, ImageView imgIcon, String strCurrentMenu, String strPreviousMenu){
         if(!strCurrentMenu.equals(strPreviousMenu)) {
@@ -19,7 +17,6 @@ public class NavigationUtils {
             changeImageIconToPressedState(imgIcon);
         }
     }
-
     public void changeBtnToPressedState(AnchorPane anchorPane) {
         anchorPane.getStyleClass().add("side-button-pressed");
     }
@@ -39,7 +36,6 @@ public class NavigationUtils {
         imageView.setEffect(colorAdjust);
     }
 
-
     // ----- 2. This is to reset the style of the dual anchorPanes (buttons) to default
     public void resetOverallMenuBtnToDefault(AnchorPane btnButton, AnchorPane btnIcon, Label lblLabel, ImageView imgIcon) {
         resetBtnToDefault(btnButton);
@@ -47,7 +43,6 @@ public class NavigationUtils {
         resetBtnLabelToDefault(lblLabel);
         resetImageIconToDefault(imgIcon);
     }
-
     public void resetBtnToDefault(AnchorPane anchorPane) {
         anchorPane.getStyleClass().remove("side-button-pressed");
     }
@@ -73,12 +68,10 @@ public class NavigationUtils {
             icon.getStyleClass().add("side-button-icon-hover");
         }
     }
-
     public void handleSideMenuMouseExit(AnchorPane button, AnchorPane icon) {
         button.getStyleClass().remove("side-button-hover");
         icon.getStyleClass().remove("side-button-icon-hover");
     }
-
 
 
     // ----- 4. Methods for side navigation on hover
@@ -112,6 +105,4 @@ public class NavigationUtils {
         transition.setToX(0);
         transition.play();
     }
-
-
 }

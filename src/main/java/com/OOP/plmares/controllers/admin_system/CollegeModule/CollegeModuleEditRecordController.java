@@ -21,10 +21,8 @@ public class CollegeModuleEditRecordController implements DataInitializable {
     @FXML private DatePicker dtDateOpened, dtDateClosed;
     @FXML private ComboBox<String> cmbActive;
     @FXML private Label errLblDescription, errLblDateOpened, errLblDateClosed;
-
     private CommonUtils c = new CommonUtils();
     private InputValidationUtils iv = new InputValidationUtils();
-
     private String strCollegeCode = "", strDescription = "", strDateOpened = "", strDateClosed = "", strStatus = "";
     private boolean isInitialized = false;
 

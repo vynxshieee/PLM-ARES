@@ -5,11 +5,9 @@ import javafx.scene.control.Alert;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.swing.*;
 import java.util.Properties;
 
 public class MailSenderUtils {
-
     public static boolean sendMail(String to, String subject, String content) {
         final String username = "plmares01@gmail.com"; //  EMAIL
         final String password = "ipzz sjyn anay vhpx"; // APP GENERATED PASSWORD

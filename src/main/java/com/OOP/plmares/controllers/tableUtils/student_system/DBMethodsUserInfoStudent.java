@@ -13,8 +13,6 @@ import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGener
 public class DBMethodsUserInfoStudent {
     public static TableModel.StudentMasterlist getStudentDetails(String strUserID) {
         TableModel.StudentMasterlist student = null;
-
-
         String query ="SELECT * FROM vwStudentMasterlist " +
                 "WHERE student_no = ?";
 
@@ -52,5 +50,4 @@ public class DBMethodsUserInfoStudent {
         }
         return student;
     }
-
 }

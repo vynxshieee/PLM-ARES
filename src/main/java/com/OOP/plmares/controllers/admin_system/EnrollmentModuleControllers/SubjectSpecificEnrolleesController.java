@@ -12,22 +12,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 
 public class SubjectSpecificEnrolleesController {
-
     @FXML private AnchorPane anchorPaneContentContainer, btnSearch;
     @FXML private TableView<TableModel.StudentEnrollees> tblVwSubjectSpecificEnrollees;
     @FXML private TableColumn<TableModel.StudentEnrollees, String> colStudentNo, colFullName, colCourse, colYear, colStatus;
     @FXML private TextField txtSubjectCode, txtSection;
     @FXML private Button btnUnenroll;
     @FXML private Label lblFullName, lblSyTitle, lblSemesterTitle, lblStudentNo, lblSubjectTitle, lblFaculty, lblEnrolleeCount;
-
     private String strSy = "", strSemester = "";
-
     private CommonUtils c = new CommonUtils();
-
     public void onClickBtnGoBack(){
         c.loadScreen("/FXML/admin_system/EnrollmentModule/EnrollmentModule.fxml", anchorPaneContentContainer);
     }
-
 
     // Load the table upon initialization
     @FXML

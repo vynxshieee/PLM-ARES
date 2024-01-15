@@ -18,10 +18,8 @@ public class EnrollmentHistoryController {
     @FXML private Label lblEnrolleeCount;
     @FXML private TextField txtSearchStudent;
     @FXML private AnchorPane anchorPaneTableHolder;
-
     private String strSy = "", strSemester = "";
     private final CommonUtils c = new CommonUtils();
-
 
     @FXML
     private void initialize() {
@@ -88,6 +86,4 @@ public class EnrollmentHistoryController {
         cmbCourse.getSelectionModel().clearSelection();
         updateTableWithFilter(strSy, strSemester,"", "", "");
     }
-
-
 }

@@ -1,6 +1,8 @@
 package com.OOP.plmares.controllers.admin_system.ClasslistGeneratorControllers;
 
-import com.OOP.plmares.controllers.tableUtils.*;
+import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
+import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.TableUtils;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsClasslistMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
@@ -13,18 +15,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 
-import javax.swing.*;
-
 public class SubjectSectionClasslistController {
-
     @FXML private AnchorPane anchorPaneContentContainer, btnPrint;
     @FXML private TableView<TableModel.ClasslistEnrollees> tblVwSubjectSectionClasslist;
     @FXML private TableColumn<TableModel.ClasslistEnrollees, String> colStudentNo, colFullName, colStatus;
     @FXML private ComboBox<String> cmbSchoolYear, cmbSemester;
     @FXML private TextField txtSubjectCode, txtSection;
     @FXML private Label lblSchoolYear, lblSemester, lblSubjectCode, lblFaculty, lblSection, lblDescription, lblStudentCount;
-
-
     private final CommonUtils c = new CommonUtils();
     private final PrintClasslistUtils printUtil = new PrintClasslistUtils();
     private String strSy, strSemester;

@@ -10,13 +10,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class SubjectSchedulingController {
-
-    @FXML
-    AnchorPane anchorPaneContentContainer;
-    @FXML
-    private Label errLblMaxCount;
-    @FXML
-    private TextField txtMaxCount;
+    @FXML AnchorPane anchorPaneContentContainer;
+    @FXML private Label errLblMaxCount;
+    @FXML private TextField txtMaxCount;
     CommonUtils c = new CommonUtils();
 
     public void onClickModifyClassCount() {
@@ -97,10 +93,6 @@ public class SubjectSchedulingController {
             errLblMaxCount.setText("");
         }
     }
-
-
-
-
     public void onClickBtnSubjectModule(){
         c.loadScreen("/FXML/admin_system/SubjectSchedulingModule/SubjectModule.fxml", anchorPaneContentContainer);
     }

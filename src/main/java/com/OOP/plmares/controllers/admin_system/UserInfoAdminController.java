@@ -19,23 +19,18 @@ import java.io.File;
 import java.util.Map;
 
 public class UserInfoAdminController implements DataInitializable {
-    @FXML
-    AnchorPane anchorPaneAccManageContainer;
-    @FXML
-    private ImageView imgVwProfilePic;
-
+    @FXML AnchorPane anchorPaneAccManageContainer;
+    @FXML private ImageView imgVwProfilePic;
     @FXML
     private Label lblEmployeeID, lblLastName, lblFirstName, lblActiveStatus, lblAddress, lblBirthday, lblEmail, lblMobileNum, lblGender,
             errLblCurrentPass, errLblNewPass, errLblConfirmPass,
             lblShowCurrPass, lblShowNewPass, lblShowConfirmNewPass;
-
     @FXML
     private Button btnRemoveImg;
     @FXML
     private TextField txtCurrPassword, txtNewPassword, txtConfirmNewPassword;
     @FXML
     private PasswordField passCurrPassword, passNewPassword, passConfirmNewPassword;
-
     private final CommonUtils c = new CommonUtils();
     private final InputValidationUtils iv = new InputValidationUtils();
     private final InputValidationUtils.PasswordValidator pv = new InputValidationUtils.PasswordValidator();
@@ -160,6 +155,4 @@ public class UserInfoAdminController implements DataInitializable {
     public void onClickLblShowConfirmNewPass() {
         c.togglePasswordVisibility(lblShowConfirmNewPass, txtConfirmNewPassword, passConfirmNewPassword);
     }
-
-
 }

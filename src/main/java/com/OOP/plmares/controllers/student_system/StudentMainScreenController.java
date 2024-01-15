@@ -27,28 +27,22 @@ import static com.OOP.plmares.controllers.utilities.CommonUtils.fadeInAndMoveUpA
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class StudentMainScreenController implements DataInitializable {
-
     @FXML
     private AnchorPane btnDashboardIcon, btnDashboard, btnEnlistmentIcon, btnEnlistment, btnRegistrationIcon, btnRegistration,
             btnGradesIcon, btnGrades, btnScheduleIcon, btnSchedule, btnSubjectsCatalogIcon, btnSubjectsCatalog,
             btnCurrCatalogIcon, btnCurrCatalog, btnLogoutIcon, btnLogout, btnUserInfo, btnTuition, btnTuitionIcon,
-
             anchorPaneSideButtons, anchorPaneContentContainer;
-
     @FXML
     private Label lblDashboard, lblEnlistment, lblRegistration, lblGrades, lblSchedule,
             lblSubjectsCatalog, lblCurrCatalog, lblLogout, lblUserInfo, lblTuition;
-
     @FXML
     private ImageView imgDashboardIcon, imgEnlistmentIcon, imgRegistrationIcon, imgGradesIcon, imgScheduleIcon,
             imgSubjectsCatalogIcon, imgCurrCatalogIcon, imgLogoutIcon, imgUserInfo, imgTuitionIcon;
-
     private final CommonUtils c = new CommonUtils();
     private final NavigationUtils n = new NavigationUtils();
     private final GlobalSchedule globalSchedule = new GlobalSchedule();
     private String strPreviousMenu = "", strStudentNo = "", stdName = "";
     private Boolean flagIsOpenSideMenu = false, flagIsLockedSideMenu = false, sideMenuButtonDoubleClick = false;
-
     private Map<String, Object> data = new HashMap<>();
 
     @Override
@@ -67,7 +61,6 @@ public class StudentMainScreenController implements DataInitializable {
         }
     }
 
-
     // change button (anchorPane) styles on press
     public void onPressButton(AnchorPane selectedButton, AnchorPane selectedIcon, Label selectedLabel, ImageView selectedImageView, String strCurrentMenu) {
         sideMenuButtonDoubleClick = false;
@@ -85,7 +78,6 @@ public class StudentMainScreenController implements DataInitializable {
 
         strPreviousMenu = strCurrentMenu;
     }
-
 
     // reset the previous button to default so that it won't stay pressed after another is clicked
     private void resetPrevMenuBtnToDefault (String strPreviousMenu){
@@ -123,7 +115,6 @@ public class StudentMainScreenController implements DataInitializable {
         }
     }
 
-
     // ------ menu buttons on click functions ------
 
     // load fxml files with the student number on click
@@ -152,7 +143,6 @@ public class StudentMainScreenController implements DataInitializable {
     public void onClickBtnRegistration() {
         onClickNavigationButton(btnRegistration, btnRegistrationIcon, lblRegistration, imgRegistrationIcon, "/FXML/student_system/Registration.fxml", "registration");
     }
-
 
     public void onClickBtnGrades() {
         onClickNavigationButton(btnGrades, btnGradesIcon, lblGrades, imgGradesIcon, "/FXML/student_system/Grades.fxml", "grades");
@@ -201,9 +191,6 @@ public class StudentMainScreenController implements DataInitializable {
             }
         }
     }
-
-
-
 
     // ------ menu buttons on hover functions ------
 

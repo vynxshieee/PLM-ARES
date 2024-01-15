@@ -19,9 +19,7 @@ import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGener
 public class DBMethodsSubjectSchedulingMod {
     public static ObservableList<TableModel.SubjectModuleInfo> getSubjects(String strSearchTerm) {
         ObservableList<TableModel.SubjectModuleInfo> subjectModuleInfo = FXCollections.observableArrayList();
-
         String query ="SELECT * FROM subject WHERE subject_code LIKE ? OR description LIKE ?";
-
         try (Connection connection = new ConnectDB().Connect();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
@@ -414,5 +412,4 @@ public class DBMethodsSubjectSchedulingMod {
             return false;
         }
     }
-
 }

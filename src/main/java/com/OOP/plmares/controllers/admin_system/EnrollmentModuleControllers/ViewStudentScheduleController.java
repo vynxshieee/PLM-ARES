@@ -18,15 +18,12 @@ import javafx.scene.text.TextAlignment;
 import java.util.*;
 
 public class ViewStudentScheduleController implements DataInitializable {
-
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private Label lblFullName, lblCourse, lblStudentNo, lblStatus, lblYearLevel, lblSyTitle, lblSemesterTitle;
-
     @FXML
     private TableView<TableModel.ScheduleCalendar> tblVwScheduleCalendar;
     @FXML
     private TableColumn<TableModel.ScheduleCalendar, String> colMonday, colTuesday, colWednesday, colThursday, colFriday, colSaturday, colSunday;
-
     private final CommonUtils c = new CommonUtils();
     private final TableUtils t = new TableUtils();
     private String strSy = "", strSemester = "",
@@ -45,7 +42,6 @@ public class ViewStudentScheduleController implements DataInitializable {
         }
     }
 
-
     @FXML
     private void initialize() {
         if (isInitialized) {
@@ -63,25 +59,18 @@ public class ViewStudentScheduleController implements DataInitializable {
             lblStatus.setText(stdInfo.getStatus());
             lblYearLevel.setText(stdInfo.getYearLevel());
 
-
             setupScheduleTextWrapping(colMonday);
             colMonday.setCellValueFactory(cellData -> cellData.getValue().strMondayProperty());
-
             setupScheduleTextWrapping(colTuesday);
             colTuesday.setCellValueFactory(cellData -> cellData.getValue().strTuesdayProperty());
-
             setupScheduleTextWrapping(colWednesday);
             colWednesday.setCellValueFactory(cellData -> cellData.getValue().strWednesdayProperty());
-
             setupScheduleTextWrapping(colThursday);
             colThursday.setCellValueFactory(cellData -> cellData.getValue().strThursdayProperty());
-
             setupScheduleTextWrapping(colFriday);
             colFriday.setCellValueFactory(cellData -> cellData.getValue().strFridayProperty());
-
             setupScheduleTextWrapping(colSaturday);
             colSaturday.setCellValueFactory(cellData -> cellData.getValue().strSaturdayProperty());
-
             setupScheduleTextWrapping(colSunday);
             colSunday.setCellValueFactory(cellData -> cellData.getValue().strSundayProperty());
 
@@ -210,7 +199,10 @@ public class ViewStudentScheduleController implements DataInitializable {
                         text.setText(null);
                         setGraphic(null);
                     } else {
-                        text.setText(item);
+                        // Splice the last letter
+                        String displayedText = item.substring(0, item.length() - 1);
+
+                        text.setText(displayedText);
 
                         // Color code the text based on the condition
                         if (item.endsWith("P")) {

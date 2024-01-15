@@ -8,32 +8,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.util.Optional;
 
 
 public class SchoolYearModuleController {
-
     @FXML private TableView<TableModel.SchoolYearModuleInfo> tblVwSchoolYear;
     @FXML private TableColumn<TableModel.SchoolYearModuleInfo, String> colSchoolYear, colStatus, colAction, colEdit, colDelete;
     @FXML private AnchorPane anchorPaneTitleEdit, anchorPaneEditContainer;
     @FXML private Label lblSchoolYear;
     @FXML private TextField txtEditSchoolYear, txtAddSchoolYear;
 
-
     @FXML
     private void initialize() {
         // Set up columns
         colSchoolYear.setCellValueFactory(cellData -> cellData.getValue().strSyProperty());
-
         colStatus.setCellValueFactory(cellData -> cellData.getValue().strStatusProperty());
-
         colAction.setCellFactory(param -> createBtnActionCell());
-
         colEdit.setCellFactory(param -> createBtnEditCell());
-
         colDelete.setCellFactory(param -> createBtnDeleteCell());
-
         // Populate the TableView
         tblVwSchoolYear.getColumns().forEach(column -> column.setReorderable(false));
         tblVwSchoolYear.setFocusModel(null);

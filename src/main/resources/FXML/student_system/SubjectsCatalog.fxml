@@ -7,9 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;"
-            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.OOP.plmares.controllers.student_system.SubjectsCatalogController">
+<AnchorPane fx:id="anchorPaneContentContainer" prefHeight="704.0" prefWidth="1227.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.OOP.plmares.controllers.student_system.SubjectsCatalogController">
    <children>  <Label layoutX="54.0" layoutY="55.0" prefHeight="38.0" prefWidth="359.0" styleClass="label-header-titles" stylesheets="@../../styles/CommonStyles.css" text="Subjects Catalog" />
       <AnchorPane layoutX="336.0" layoutY="132.0" onMouseClicked="#handleBtnSearch" prefHeight="24.0" prefWidth="89.0" styleClass="button-teal" stylesheets="@../../styles/CommonStyles.css">
          <children>
@@ -28,8 +26,8 @@
                   <TableColumn fx:id="colSubjectCode" editable="false" prefWidth="148.5283203125" resizable="false" sortable="false" text="Subject Code" />
                   <TableColumn fx:id="colDescription" editable="false" minWidth="0.0" prefWidth="581.4338836669922" resizable="false" sortable="false" text="Description" />
                   <TableColumn fx:id="colUnits" editable="false" prefWidth="86.9434814453125" resizable="false" sortable="false" text="Units" />
-                  <TableColumn fx:id="colCurriculum" editable="false" minWidth="8.15093994140625" prefWidth="82.4151611328125" resizable="false" sortable="false" text="Curriculum" />
-                  <TableColumn fx:id="colCollegeCode" editable="false" minWidth="0.0" prefWidth="109.5848388671875" resizable="false" sortable="false" text="College Code" />
+                  <TableColumn fx:id="colCurriculum" editable="false" minWidth="8.15093994140625" prefWidth="87.8489990234375" resizable="false" sortable="false" text="Curriculum" />
+                  <TableColumn fx:id="colCollegeCode" editable="false" minWidth="0.0" prefWidth="105.056640625" resizable="false" sortable="false" text="College Code" />
                   <TableColumn fx:id="colStatus" editable="false" minWidth="0.0" prefWidth="91.4716796875" resizable="false" sortable="false" text="Status" />
                </columns>
                <columnResizePolicy>

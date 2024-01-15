@@ -21,34 +21,28 @@ public class CollegeModuleController {
     @FXML private TableColumn<TableModel.CollegeModule, String> colCollegeCode, colDescription, colDateOpened, colDateClosed, colStatus;
     @FXML private Label lblCollegeCode, lblDescription, lblDateOpened, lblDateClosed, lblActive;
     @FXML private TextField txtCollegeSearch;
-
     private TableUtils t = new TableUtils();
     private CommonUtils c = new CommonUtils();
 
     @FXML
     private void initialize() {
         colCollegeCode.setCellValueFactory(cellData -> cellData.getValue().strCollegeCodeProperty());
-
         t.setupTextWrapping(colDescription);
         colDescription.setCellValueFactory(cellData -> cellData.getValue().strDescriptionProperty());
-
         colDateOpened.setCellValueFactory(cellData -> cellData.getValue().strDateOpenedProperty());
         colDateClosed.setCellValueFactory(cellData -> cellData.getValue().strDateClosedProperty());
         colStatus.setCellValueFactory(cellData -> cellData.getValue().strStatusProperty());
-
         updateTableWithFilter("");
         tblVwCollegeModule.getColumns().forEach(column -> column.setReorderable(false));
         TableUtils.setTableClickListener(tblVwCollegeModule, this::updateLabels);
     }
 
     private void updateLabels(TableModel.CollegeModule collegeInfo) {
-
         lblCollegeCode.setText(collegeInfo.getStrCollegeCode());
         lblDescription.setText(collegeInfo.getStrDescription());
         lblDateOpened.setText(collegeInfo.getStrDateOpened());
         lblDateClosed.setText(collegeInfo.getStrDateClosed());
         lblActive.setText(collegeInfo.getStrStatus());
-
         btnDelete.setDisable(false);
         btnEdit.setDisable(false);
     }

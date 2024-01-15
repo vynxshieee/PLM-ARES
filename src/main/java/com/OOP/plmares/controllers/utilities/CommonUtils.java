@@ -16,7 +16,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.util.Pair;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.time.LocalDate;
@@ -25,11 +24,8 @@ import java.util.Map;
 
 
 public class CommonUtils {
-
     private final InputValidationUtils iv = new InputValidationUtils();
     private final InputValidationUtils.PasswordValidator pv = new InputValidationUtils.PasswordValidator();
-
-
 
     // ----- 1. dynamically adjust labels based on content
     public void adjustLabelSizeWithText(Label lblSelectedLabel, String strText) {
@@ -62,7 +58,6 @@ public class CommonUtils {
         }
     }
 
-
     // ------ 3. (Overload) load an fxml file as a child node with data passing
     public void loadScreen(String fxmlFile, AnchorPane anchorPaneContentContainer, Map<String, Object> data) {
         try {
@@ -85,7 +80,6 @@ public class CommonUtils {
             System.out.println("Error loading FXML: " + e.getMessage());
         }
     }
-
 
     // ------- 4. Fade in transition for scene change
     private void applyFadeInTransition(AnchorPane anchorPane, Parent newContent) {
@@ -119,9 +113,7 @@ public class CommonUtils {
         });
     }
 
-
     // ------ 5.) Center a stage when loading with fade in transition
-
     public static void fadeInAndMoveUpAndCenterStage(Stage stage, Parent root) {
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
 
@@ -199,9 +191,7 @@ public class CommonUtils {
         return "";
     }
 
-
     // ------ 7. return database-appropriate values for comboboxes
-
     public static String mapComboBoxValue(String comboBoxValue, String type) {
         if ("Gender".equalsIgnoreCase(type)) {
             return "Female".equalsIgnoreCase(comboBoxValue) ? "F" : "Male".equalsIgnoreCase(comboBoxValue) ? "M" : null;
@@ -234,8 +224,7 @@ public class CommonUtils {
     }
 
 
-
-    // ------ 7. plm email generator for students
+    // ------ 8. plm email generator for students
     public static String generatePLMEmail(String strLastName, String strFirstName, String strStudentNumber) {
         // Extract initials from the first name
         String initials = strFirstName.substring(0, 1);
@@ -251,7 +240,7 @@ public class CommonUtils {
         return initials.toLowerCase() + strLastName.toLowerCase() + studentNumberPrefix + "@plm.edu.ph";
     }
 
-    // ------ 8. plm email generator for faculty
+    // ------ 9. plm email generator for faculty
     public static String generatePLMEmailFaculty(String strLastName, String strFirstName) {
         // Extract initials from the first name
         String initials = strFirstName.substring(0, 1);
@@ -264,12 +253,12 @@ public class CommonUtils {
         return initials.toLowerCase() + strLastName.toLowerCase() + "@plm.edu.ph";
     }
 
-    // ------ 9. get value for date pickers, returns an empty string if null
+    // ------ 10. get value for date pickers, returns an empty string if null
     public String getDateValue(DatePicker datePicker) {
         return datePicker.getValue() != null ? datePicker.getValue().toString() : "";
     }
 
-    // ------ 10. return day name from abbreviation
+    // ------ 11. return day name from abbreviation
     public static String getDayFromAbbreviation(String strAbbreviatedDay) {
         switch (strAbbreviatedDay) {
             case "M":
@@ -291,7 +280,7 @@ public class CommonUtils {
         }
     }
 
-    // ------ 11. extract employee info with format (E001) Lastname, Fullname
+    // ------ 12. extract employee info with format (E001) Lastname, Fullname
     public static Pair<String, String> extractEmployeeInfo(String input) {
 
         if(input == null)
@@ -314,7 +303,7 @@ public class CommonUtils {
     }
 
 
-    // ------ 12. extract individual time parts for editing
+    // ------ 13. extract individual time parts for editing
     public static String[] extractTimeParts(String strTime) {
         String[] timeParts = new String[4];
 
@@ -339,7 +328,7 @@ public class CommonUtils {
         return timeParts;
     }
 
-    // ------ 13.) password generator for new inputs
+    // ------ 14.) password generator for new inputs
     private static final String strUpperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String strLowerCase= "abcdefghijklmnopqrstuvwxyz";
     private static final String strDigits = "0123456789";
@@ -360,7 +349,7 @@ public class CommonUtils {
     }
 
 
-    // ------- 14.) toggle password visibility on click of label
+    // ------- 15.) toggle password visibility on click of label
     public void togglePasswordVisibility(Label showLabel, TextField textField, PasswordField passField) {
         String currentState = showLabel.getText();
 
@@ -377,12 +366,12 @@ public class CommonUtils {
         }
     }
 
-    // ------- 15.) get password value based on text visibility
+    // ------- 16.) get password value based on text visibility
     public String getPassword(TextField textField, PasswordField passField) {
         return passField.isVisible() ? passField.getText() : textField.getText();
     }
 
-    // ------- 16.) validate the three passwords (Current, new, confirm)
+    // ------- 17.) validate the three passwords (Current, new, confirm)
     public boolean validatePasswords(String strUserID, String currentPassword, String newPassword, String confirmNewPassword,
                                      Label errLblCurrentPass, Label errLblNewPass, Label errLblConfirmPass) {
         boolean flagValid = true; // Assume all inputs are valid initially
@@ -425,11 +414,9 @@ public class CommonUtils {
     }
 
 
-    // ------- 17.) Format date to string
+    // ------- 18.) Format date to string
     public String formatDateToString(LocalDate date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, uuuu");
         return date.format(formatter);
     }
-
-
 }

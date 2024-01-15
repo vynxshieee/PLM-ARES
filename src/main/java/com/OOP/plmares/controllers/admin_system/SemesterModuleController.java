@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 public class SemesterModuleController {
-
     @FXML private TableView<TableModel.SemesterModuleInfo> tblVwSemester;
     @FXML private TableColumn<TableModel.SemesterModuleInfo, String> colSemester, colStatus, colAction, colEdit, colDelete;
     @FXML private AnchorPane anchorPaneTitleEdit, anchorPaneEditContainer;
@@ -20,21 +19,15 @@ public class SemesterModuleController {
     private void initialize() {
         // Set up columns
         colSemester.setCellValueFactory(cellData -> cellData.getValue().strSemesterProperty());
-
         colStatus.setCellValueFactory(cellData -> cellData.getValue().strStatusProperty());
-
         colAction.setCellFactory(param -> createBtnActionCell());
-
         colEdit.setCellFactory(param -> createBtnEditCell());
-
         colDelete.setCellFactory(param -> createBtnDeleteCell());
-
         // Populate the TableView
         tblVwSemester.setFocusModel(null);
         tblVwSemester.getColumns().forEach(column -> column.setReorderable(false));
         updateTable();
     }
-
 
     private TableCell<TableModel.SemesterModuleInfo, String> createBtnActionCell() {
         return new TableCell<TableModel.SemesterModuleInfo, String>() {

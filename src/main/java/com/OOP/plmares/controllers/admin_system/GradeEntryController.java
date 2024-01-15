@@ -12,10 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 
 import java.util.Optional;
-import java.util.logging.Logger;
 
 public class GradeEntryController {
-
     @FXML private TableView<TableModel.GradeEntryStudent> tblVwGradeEntry;
     @FXML private TableColumn<TableModel.GradeEntryStudent, String> colStudentNo, colFullName, colRemark;
     @FXML private TableColumn<TableModel.GradeEntryStudent, Double> colGrade;
@@ -23,8 +21,6 @@ public class GradeEntryController {
     @FXML private TextField txtSubjectCode, txtSection;
     @FXML private Label lblSchoolYear, lblSemester, lblSubjectCode, lblFaculty, lblSection, lblDescription, lblStudentCount;
     @FXML private Button btnPrintPreview, btnRevert, btnSave;
-    private static final Logger LOGGER = Logger.getLogger(GradeEntryController.class.getName());
-
     private String strSy, strSemester;
 
     @FXML
@@ -48,7 +44,6 @@ public class GradeEntryController {
         colFullName.setCellValueFactory(cellData -> cellData.getValue().strFullNameProperty());
         colRemark.setCellValueFactory(cellData -> cellData.getValue().strRemarkProperty());
         setupRemarkColumn();
-
         colGrade.setCellValueFactory(cellData -> cellData.getValue().dblGradeProperty().asObject());
         setupGradeColumn();
 

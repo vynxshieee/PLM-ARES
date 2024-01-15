@@ -14,20 +14,14 @@ import java.net.URISyntaxException;
 import java.time.LocalDate;
 
 public class DashboardController {
-    @FXML
-    private Hyperlink hyperlinkTutorial, hyperlinkFeedbackForm;
-
-    @FXML
-    private Label lblAnnouncementDesc, lblStartDate, lblEndDate, lblStartDateValue, lblEndDateValue, lblCurrDateValue;
-    @FXML
-    private AnchorPane anchorPaneAnnounceContainer;
-
+    @FXML private Hyperlink hyperlinkTutorial, hyperlinkFeedbackForm;
+    @FXML private Label lblAnnouncementDesc, lblStartDate, lblEndDate, lblStartDateValue, lblEndDateValue, lblCurrDateValue;
+    @FXML private AnchorPane anchorPaneAnnounceContainer;
     private final GlobalSchedule globalSchedule = new GlobalSchedule();
     private final CommonUtils c = new CommonUtils();
 
     @FXML
     private void initialize(){
-
         // set current time and enrollment schedule
         String strStartDate = c.formatDateToString(globalSchedule.getDtStartDate());
         String strEndDate = c.formatDateToString(globalSchedule.getDtEndDate());
@@ -35,7 +29,6 @@ public class DashboardController {
         lblStartDateValue.setText(strStartDate);
         lblEndDateValue.setText(strEndDate);
         lblCurrDateValue.setText(strCurrentDate);
-
 
         if (LocalDate.now().isBefore(globalSchedule.getDtStartDate()) || LocalDate.now().isAfter(globalSchedule.getDtEndDate())) {   // check enrollment date
             lblAnnouncementDesc.setText("The enrollment period has concluded. Please refer to the attached deadline: ");
@@ -91,5 +84,4 @@ public class DashboardController {
         String strURL = "https://forms.gle/VcCxJAy7hoeSxWKh8";
         Desktop.getDesktop().browse(new URI(strURL));
     }
-
 }

@@ -13,30 +13,23 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 public class TuitionController {
-    @FXML
-    private AnchorPane anchorPaneTuitionTable;
-    @FXML
-    private TableView<FeeItem> tblVwTuition, tblVwMiscellaneous, tblVwLab, tblVwOther;
-    @FXML
-    private TableColumn<FeeItem, String> colDescription, colDescription1, colDescription2, colDescription3;
-    @FXML
-    private TableColumn<FeeItem, Integer> colAmount, colAmount1, colAmount2, colAmount3;
+    @FXML private AnchorPane anchorPaneTuitionTable;
+    @FXML private TableView<FeeItem> tblVwTuition, tblVwMiscellaneous, tblVwLab, tblVwOther;
+    @FXML private TableColumn<FeeItem, String> colDescription, colDescription1, colDescription2, colDescription3;
+    @FXML private TableColumn<FeeItem, Integer> colAmount, colAmount1, colAmount2, colAmount3;
 
     @FXML
     private void initialize() {
         // tuition table
         colDescription.setCellValueFactory(cellData -> cellData.getValue().strDescriptionProperty());
         colAmount.setCellValueFactory(cellData -> cellData.getValue().intAmountProperty().asObject());
-
         tblVwTuition.getColumns().forEach(column -> column.setReorderable(false));
         tblVwTuition.getItems().addAll(
                 new FeeItem("Tuition Fee (23.00 units)", 27600)
         );
-
         // Miscellaneous table
         colDescription1.setCellValueFactory(cellData -> cellData.getValue().strDescriptionProperty());
         colAmount1.setCellValueFactory(cellData -> cellData.getValue().intAmountProperty().asObject());
-
         tblVwMiscellaneous.setFocusModel(null);
         tblVwMiscellaneous.getItems().addAll(
                 new FeeItem("Cultural Activity", 74),
@@ -51,13 +44,11 @@ public class TuitionController {
         // Lab table
         colDescription2.setCellValueFactory(cellData -> cellData.getValue().strDescriptionProperty());
         colAmount2.setCellValueFactory(cellData -> cellData.getValue().intAmountProperty().asObject());
-
         tblVwLab.setFocusModel(null);
         tblVwLab.getColumns().forEach(column -> column.setReorderable(false));
         tblVwLab.getItems().addAll(
                 new FeeItem("Category 3 Laboratory", 1800)
         );
-
         // Other fee table
         colDescription3.setCellValueFactory(cellData -> cellData.getValue().strDescriptionProperty());
         colAmount3.setCellValueFactory(cellData -> cellData.getValue().intAmountProperty().asObject());
@@ -69,8 +60,6 @@ public class TuitionController {
                 new FeeItem("Ang Pamantasan Fee", 50),
                 new FeeItem("Supreme Student Council", 50)
         );
-
-
     }
 
     public static class FeeItem {
@@ -103,7 +92,6 @@ public class TuitionController {
     private void handlePrint() {
         // Get the node to be printed
         Node nodeToPrint = anchorPaneTuitionTable;
-
         // Create a PrinterJob
         PrinterJob job = PrinterJob.createPrinterJob();
 
@@ -117,9 +105,4 @@ public class TuitionController {
             job.endJob();
         }
     }
-
-
-
-
-
 }

@@ -10,7 +10,6 @@ import javafx.scene.text.TextAlignment;
 import java.util.function.Consumer;
 
 public class TableUtils {
-
     // ----- 1. set items to a table based on a list's data
     public static <T> void populateTable(TableView<T> tableView, ObservableList<T> data) {
         tableView.setItems(data);
@@ -41,7 +40,6 @@ public class TableUtils {
             return row;
         });
     }
-
 
     // ----- 4. text wrap and adjust height for a table row
     public <T> void setupTextWrapping(TableColumn<T, String> column) {
@@ -76,9 +74,7 @@ public class TableUtils {
         });
     }
 
-
     // ----- 5.)  text wrap and adjust height for a table row and create new line in comma occurrence (for day-time-modality)
-
     public <T> void setupTextWrappingWithLineBreaks(TableColumn<T, String> column) {
         column.setCellFactory(col -> {
             TableCell<T, String> cell = new TableCell<>() {
@@ -109,15 +105,7 @@ public class TableUtils {
                 }
 
             };
-
             return cell;
         });
     }
-
-
-
-
-
-
-
 }

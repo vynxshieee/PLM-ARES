@@ -87,16 +87,12 @@ public class EnrollmentModuleController {
             }
         }
     }
-
-
     public void onClickBtnApprovalsConsole(){
         c.loadScreen("/FXML/admin_system/EnrollmentModule/ApprovalsConsole.fxml", anchorPaneContentContainer);
     }
-
     public void onClickBtnSubjectSpecificEnrollees(){
         c.loadScreen("/FXML/admin_system/EnrollmentModule/SubjectSpecificEnrollees.fxml", anchorPaneContentContainer);
     }
-
     public void onClickBtnEnrolleesMasterlist(){
         c.loadScreen("/FXML/admin_system/EnrollmentModule/EnrolleesMasterlist.fxml", anchorPaneContentContainer);
     }

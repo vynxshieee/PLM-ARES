@@ -16,8 +16,6 @@ import java.sql.SQLException;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class DBMethodsApplicationMod {
-
-
     // ----- 1.) Query to populate and filter Application module's potential irregular applicants
     public static ObservableList<TableModel.IrregPotentialApplicant> getAllIrregPotentialApplicants(String strSy, String strSemester, String strSearchTerm) {
 
@@ -172,7 +170,4 @@ public class DBMethodsApplicationMod {
         }
         return false;
     }
-
-
-
 }

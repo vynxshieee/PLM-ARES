@@ -25,7 +25,6 @@ import static com.OOP.plmares.controllers.utilities.CommonUtils.fadeInAndMoveUpA
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class AdminMainScreenController implements DataInitializable {
-
     @FXML
     private AnchorPane anchorPaneMainContainer,
 
@@ -244,9 +243,6 @@ public class AdminMainScreenController implements DataInitializable {
             }
         }
     }
-
-
-
 
     // ------ menu buttons on hover functions ------
 

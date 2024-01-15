@@ -13,21 +13,13 @@ import java.util.Map;
 import static com.OOP.plmares.controllers.tableUtils.DBCommonMethods.fetchNameData;
 
 public class ChangePasswordSuggestInfoController implements DataInitializable {
-
-    @FXML
-    private Label
-            errLblCurrentPass, errLblNewPass, errLblConfirmPass,
-            lblShowCurrPass, lblShowNewPass, lblShowConfirmNewPass,
-            errLblSuggestInfo;
-
+    @FXML private Label errLblCurrentPass, errLblNewPass, errLblConfirmPass, lblShowCurrPass, lblShowNewPass, lblShowConfirmNewPass, errLblSuggestInfo;
     @FXML
     private TextField txtCurrPassword, txtNewPassword, txtConfirmNewPassword;
     @FXML
     private PasswordField passCurrPassword, passNewPassword, passConfirmNewPassword;
     @FXML
     private TextArea txtAreaSuggest;
-
-
     private CommonUtils c = new CommonUtils();
     private String strStudentNo = "";
 
@@ -66,7 +58,6 @@ public class ChangePasswordSuggestInfoController implements DataInitializable {
     public void onClickLblShowConfirmNewPass() {
         c.togglePasswordVisibility(lblShowConfirmNewPass, txtConfirmNewPassword, passConfirmNewPassword);
     }
-
 
     // ------ methods for SuggestInfo
     public void onClickSubmitRequest() {

@@ -9,25 +9,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 public class CollegeModuleAddRecordController {
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtCollegeCode, txtDescription;
     @FXML private DatePicker dtDateOpened, dtDateClosed;
     @FXML private ComboBox<String> cmbActive;
     @FXML private Label errLblDescription, errLblDateOpened, errLblDateClosed, errLblCollegeCode, errLblActiveStatus;
-
     private final CommonUtils c = new CommonUtils();
-
     private InputValidationUtils iv = new InputValidationUtils();
-
     @FXML
     private void initialize() {
         ObservableList<String> activeStatus = FXCollections.observableArrayList(
                 "Active", "Inactive");
         cmbActive.setItems(activeStatus);
-
     }
 
     public void onClickClearAll() {

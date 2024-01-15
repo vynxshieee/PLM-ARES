@@ -13,10 +13,8 @@ import java.sql.SQLException;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class DBMethodsClasslistMod {
-    public static ObservableList<TableModel.ClasslistEnrollees> getClasslistEnrollees(String strSy, String strSemester, String strSubjectCode,
-                                                                                      String strSection) {
+    public static ObservableList<TableModel.ClasslistEnrollees> getClasslistEnrollees(String strSy, String strSemester, String strSubjectCode, String strSection) {
         ObservableList<TableModel.ClasslistEnrollees> ClasslistEnrollees = FXCollections.observableArrayList();
-
         String query = "SELECT student_no, full_name, status " +
                 "FROM vwSubjectSpecificEnrollees " +
                 "WHERE sy = ? AND semester = ? AND subject_code = ? AND block_no = ?";

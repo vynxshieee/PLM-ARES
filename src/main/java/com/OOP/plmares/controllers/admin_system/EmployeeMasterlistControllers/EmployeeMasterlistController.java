@@ -23,7 +23,6 @@ public class EmployeeMasterlistController {
     @FXML private TableColumn<TableModel.EmployeeMasterlist, String> colEmployeeID, colFullName, colEmail, colGender, colMobileNum, colAddress, colBirthday, colActive;
     @FXML private Label lblLastName, lblFirstName, lblEmployeeID, lblGender, lblBirthday, lblMobileNum, lblEmail, lblAddress, lblActive;
     @FXML private TextField txtEmployeeSearch;
-
     private TableUtils t = new TableUtils();
     private CommonUtils c = new CommonUtils();
 

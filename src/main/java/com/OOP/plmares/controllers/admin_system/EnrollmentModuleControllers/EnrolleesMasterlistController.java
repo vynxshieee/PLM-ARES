@@ -15,16 +15,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EnrolleesMasterlistController implements DataInitializable {
-
     @FXML private AnchorPane anchorPaneContentContainer, btnViewSchedule, btnUnenroll;
     @FXML private TableView<TableModel.StudentEnrollees> tblVwEnrolleesMasterlist;
     @FXML private TableColumn<TableModel.StudentEnrollees, String> colStudentNo, colFullName, colCourse, colYear, colStatus;
     @FXML private TextField txtStudentSearch;
     @FXML private Label lblFullName, lblSyTitle, lblSemesterTitle, lblStudentNo, lblEnrolleeCount;
-
     private String strSy = "", strSemester = "";
     private final CommonUtils c = new CommonUtils();
-
     @Override
     public void initializeData(Map<String, Object> data) {
         lblStudentNo.setText((String) data.get("studentNo"));

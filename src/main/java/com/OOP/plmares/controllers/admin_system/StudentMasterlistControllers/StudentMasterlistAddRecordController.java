@@ -1,4 +1,5 @@
 package com.OOP.plmares.controllers.admin_system.StudentMasterlistControllers;
+
 import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsStudentMasterlistMod;
 import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSySem;
@@ -10,22 +11,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 
 public class StudentMasterlistAddRecordController {
-
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtLastName, txtFirstName, txtStudentNo, txtPLMEmail, txtMobileNum;
     @FXML private TextArea txtAreaAddress;
     @FXML private ComboBox<String> cmbGender, cmbActive, cmbCourse, cmbRegistration;
     @FXML private DatePicker dateBirthday;
     @FXML private Label errLblLastName, errLblFirstName, errLblMobileNumber, errLblAddress, errLblBirthday, errLblGender, errLblActive, errLblCourse, errLblStatus;
-
     private CommonUtils c = new CommonUtils();
     private InputValidationUtils iv = new InputValidationUtils();
     private String strStudentNo = "", strSy = "";
-
 
     @FXML
     private void initialize() {

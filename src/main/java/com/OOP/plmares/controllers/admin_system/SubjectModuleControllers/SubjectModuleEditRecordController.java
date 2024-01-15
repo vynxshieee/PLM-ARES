@@ -2,8 +2,8 @@ package com.OOP.plmares.controllers.admin_system.SubjectModuleControllers;
 
 import com.OOP.plmares.controllers.DataInitializable;
 import com.OOP.plmares.controllers.tableUtils.DBCommonMethods;
-import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSubjectSchedulingMod;
 import com.OOP.plmares.controllers.tableUtils.TableModel;
+import com.OOP.plmares.controllers.tableUtils.admin_system.DBMethodsSubjectSchedulingMod;
 import com.OOP.plmares.controllers.utilities.CommonUtils;
 import com.OOP.plmares.controllers.utilities.InputValidationUtils;
 import javafx.collections.FXCollections;
@@ -12,30 +12,24 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
 import java.util.Map;
 
 public class SubjectModuleEditRecordController implements DataInitializable {
-
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtSubjectCode, txtDescription;
     @FXML private Spinner<Integer> spnUnits = new Spinner<>(1, 10, 1);
     @FXML private ComboBox<String> cmbCurriculum, cmbCollegeCode, cmbActive;
     @FXML private Label errLblDescription;
     @FXML private SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10, 1);
-
     private CommonUtils c = new CommonUtils();
     private InputValidationUtils iv = new InputValidationUtils();
-
     private String strSubjectCode = "", strDescription = "", strCurriculum = "", strCollegeCode = "", strStatus = "";
     private int intUnits = 0;
     private boolean isInitialized = false;
 
     @Override
     public void initializeData(Map<String, Object> data) {
-
         strSubjectCode = (String) data.get("subjectCode");
-
         if (!isInitialized) {
             isInitialized = true;
             initialize();
@@ -53,8 +47,7 @@ public class SubjectModuleEditRecordController implements DataInitializable {
             DBCommonMethods.populateComboBox(cmbCollegeCode, "college", "college_code");
             cmbCollegeCode.getItems().remove("--");
 
-            ObservableList<String> activeStatus = FXCollections.observableArrayList(
-                    "Active", "Inactive");
+            ObservableList<String> activeStatus = FXCollections.observableArrayList("Active", "Inactive");
             cmbActive.setItems(activeStatus);
 
             // set original data from selected student:

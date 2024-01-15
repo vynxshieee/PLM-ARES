@@ -15,26 +15,19 @@ import javafx.scene.layout.AnchorPane;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showSuccessDialog;
 
 public class ScheduleModuleController {
-    @FXML
-    private TableView<TableModel.ScheduleModule> tblVwScheduleInfo;
-    @FXML
-    private TableColumn<TableModel.ScheduleModule, String> colSubjectCode, colDescription, colSemester, colCollege, colSection, colDay,
+    @FXML private TableView<TableModel.ScheduleModule> tblVwScheduleInfo;
+    @FXML private TableColumn<TableModel.ScheduleModule, String> colSubjectCode, colDescription, colSemester, colCollege, colSection, colDay,
                                                             colTime, colRoom, colModality, colSequence, colFaculty;
-
     @FXML
     private TableView<TableModel.SubjectOptions> tblVwSubjectInfo;
     @FXML
     private TableColumn<TableModel.SubjectOptions, String> colSubjectCodeDetails, colDescriptionDetails;
-
     @FXML
     private TableView<TableModel.FacultyOptions> tblVwFacultyInfo;
     @FXML
     private TableColumn<TableModel.FacultyOptions, String> colFacultyIDDetails, colFacultyNameDetails;
-
     @FXML
     private ScrollPane scrollPaneAddMode;
-
-
     @FXML
     private TextField txtSubjectSearch, txtEmployeeSearch, txtSecSearch, txtSubjectCode, txtDescription,
                     txtCollegeCode, txtSemester, txtSequence, txtSection, txtRoom,
@@ -46,27 +39,21 @@ public class ScheduleModuleController {
                         txtStartHourSeq1, txtStartMinSeq1, txtEndHourSeq1, txtEndMinSeq1,
                         txtStartHourSeq2, txtStartMinSeq2, txtEndHourSeq2, txtEndMinSeq2,
                         txtStartHourSeq3, txtStartMinSeq3, txtEndHourSeq3, txtEndMinSeq3;
-
     @FXML
     private ComboBox<String> cmbScheduleFilter, cmbCollegeFilter, cmbCollege, cmbDay, cmbModality, cmbSemester,
                             cmbDaySeq1, cmbDaySeq2, cmbDaySeq3,
                              cmbModalitySeq1, cmbModalitySeq2, cmbModalitySeq3;
-
     @FXML
     private CheckBox chkSeq1, chkSeq2, chkSeq3;
-
     @FXML
     private AnchorPane
             // anchor panes designed as buttons
             btnFilter, btnRevertDetails, btnDelete, btnEdit, btnAdd, btnCancel, btnSubjectSearchDetails,
             btnFacultySearchDetails, btnDeleteCommit, btnEditCommit,
-
             // main containers
             anchorPaneSchedDetails, anchorPaneContentContainer,
-
             // add mode containers
             anchorPaneSeq1, anchorPaneSeq2, anchorPaneSeq3;
-
     @FXML
     private Label lblSubjectTitle, btnClearSubjectDetails, btnClearFacultyDetails, btnChangeFacultyAssign,
                  errLblRoom, errLblTime, lblChooseSubject, lblChooseFaculty,
@@ -74,9 +61,6 @@ public class ScheduleModuleController {
                 errLblDaySeq1, errLblModalitySeq1, errLblRoomSeq1, errLblTimeSeq1,
                 errLblDaySeq2, errLblModalitySeq2, errLblRoomSeq2, errLblTimeSeq2,
                 errLblDaySeq3, errLblModalitySeq3, errLblRoomSeq3, errLblTimeSeq3;
-
-
-
     private final CommonUtils c = new CommonUtils();
     private final TableUtils t = new TableUtils();
     private final InputValidationUtils iv = new InputValidationUtils();
@@ -129,29 +113,18 @@ public class ScheduleModuleController {
 
         // Set up columns for main schedule table
         colSubjectCode.setCellValueFactory(cellData -> cellData.getValue().subjectCodeProperty());
-
         t.setupTextWrapping(colDescription);
         colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
-
         colSemester.setCellValueFactory(cellData -> cellData.getValue().strSemesterProperty());
-
         colCollege.setCellValueFactory(cellData -> cellData.getValue().collegeProperty());
-
         colSection.setCellValueFactory(cellData -> cellData.getValue().sectionProperty());
-
         colDay.setCellValueFactory(cellData -> cellData.getValue().strDayProperty());
-
         colTime.setCellValueFactory(cellData -> cellData.getValue().strTimeProperty());
-
         colRoom.setCellValueFactory(cellData -> cellData.getValue().strRoomProperty());
-
         colModality.setCellValueFactory(cellData -> cellData.getValue().strTypeProperty());
-
         colSequence.setCellValueFactory(cellData -> cellData.getValue().strSequenceNumberProperty());
-
         t.setupTextWrapping(colFaculty);
         colFaculty.setCellValueFactory(cellData -> cellData.getValue().facultyProperty());
-
 
         // Set up columns for subject picker table
         colSubjectCodeDetails.setCellValueFactory(cellData -> cellData.getValue().subjectCodeProperty());
@@ -163,10 +136,8 @@ public class ScheduleModuleController {
         t.setupTextWrapping(colFacultyNameDetails);
         colFacultyNameDetails.setCellValueFactory(cellData -> cellData.getValue().strFullNameProperty());
 
-
         // Populate all Tables
         updateMainTableWithFilter("","","", "", "");
-
 
         // Attach the table row click listener for all Tables
         tblVwScheduleInfo.getColumns().forEach(column -> column.setReorderable(false));
@@ -174,7 +145,6 @@ public class ScheduleModuleController {
         tblVwFacultyInfo.getColumns().forEach(column -> column.setReorderable(false));
 
         TableUtils.setTableClickListener(tblVwScheduleInfo, this::updateLabelsMainTable);
-
         // set edit delete revert btn visibility to false
         btnDeleteCommit.setVisible(false);
         btnEditCommit.setVisible(false);
@@ -209,7 +179,6 @@ public class ScheduleModuleController {
             strStartMin = c.extractTimeParts(scheduleInfo.getStrTime())[1]; // get start minute
             strEndHour = c.extractTimeParts(scheduleInfo.getStrTime())[2]; // get end hour
             strEndMin = c.extractTimeParts(scheduleInfo.getStrTime())[3]; // get end minute
-
 
             lblSubjectTitle.setText("(" + strSubjectCode + ") " + strDescription);
             txtSubjectCode.setText(strSubjectCode);
@@ -262,18 +231,14 @@ public class ScheduleModuleController {
     private void updateSubjectPickerTableWithFilter(String strSubjectSearchTerm) {
         subjectPickerList = DBMethodsSubjectSchedulingMod.getSubjectOptions(
                 strSubjectSearchTerm);
-
         System.out.println("fetched results: " + subjectPickerList.size());
-
         TableUtils.populateTable(tblVwSubjectInfo, subjectPickerList);
     }
 
     private void updateFacultyPickerTableWithFilter(String strFacultySearchTerm) {
         facultyPickerList = DBMethodsSubjectSchedulingMod.getEmployeeOptions(
                 strFacultySearchTerm);
-
         System.out.println("fetched results: " + facultyPickerList.size());
-
         TableUtils.populateTable(tblVwFacultyInfo, facultyPickerList);
     }
 
@@ -281,7 +246,6 @@ public class ScheduleModuleController {
 
     public void handleDeleteMode() {
         strMode = "DELETE";
-
         // table shouldn't be focusable
         tblVwScheduleInfo.setFocusModel(null);
         // disable table listener
@@ -301,16 +265,13 @@ public class ScheduleModuleController {
         txtEndHour.setDisable(true);
         txtEndMin.setDisable(true);
         btnChangeFacultyAssign.setDisable(true);
-
         anchorPaneSchedDetails.setDisable(false);
-
         anchorPaneSchedDetails.getStyleClass().remove("custom-border-white-container");
         anchorPaneSchedDetails.getStyleClass().add("custom-delete-container");
     }
 
     public void handleEditMode() {
         strMode = "EDIT";
-
         // table shouldn't be focusable and filter should not work
         tblVwScheduleInfo.setFocusModel(null);
         // disable table listener
@@ -1017,7 +978,6 @@ public class ScheduleModuleController {
         errLblRoomSeq3.setText("");
         errLblTimeSeq3.setText("");
     }
-
 
     public void onClickBtnGoBack(){
         c.loadScreen("/FXML/admin_system/SubjectSchedulingModule/SubjectSchedulingModule.fxml", anchorPaneContentContainer);

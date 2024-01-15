@@ -21,8 +21,6 @@ public class CourseModuleController {
     @FXML private TableColumn<TableModel.CourseModule, String> colCourseCode, colDescription, colCollegeCode, colDateOpened, colDateClosed, colStatus;
     @FXML private Label lblCourseCode, lblDescription, lblCollegeCode, lblDateOpened, lblDateClosed, lblActive;
     @FXML private TextField txtCourseSearch;
-
-
     private final TableUtils t = new TableUtils();
     private final CommonUtils c = new CommonUtils();
 
@@ -44,7 +42,6 @@ public class CourseModuleController {
     }
 
     private void updateLabels(TableModel.CourseModule courseInfo) {
-
         lblCourseCode.setText(courseInfo.getStrCourseCode());
         lblDescription.setText(courseInfo.getStrDescription());
         lblCollegeCode.setText(courseInfo.getStrCollegeCode());
@@ -77,22 +74,18 @@ public class CourseModuleController {
         lblDateOpened.setText("< >");
         lblDateClosed.setText("< >");
         lblActive.setText("< >");
-
         btnDelete.setDisable(true);
         btnEdit.setDisable(true);
     }
-
     public void onClickBtnAdd(){
         c.loadScreen("/FXML/admin_system/CourseModule/CourseModuleAddRecord.fxml", anchorPaneContentContainer);
     }
-
     @FXML
     public void onClickBtnEdit(){
         Map<String, Object> data = new HashMap<>();
         data.put("courseCode", lblCourseCode.getText());
         c.loadScreen("/FXML/admin_system/CourseModule/CourseModuleEditRecord.fxml", anchorPaneContentContainer, data);
     }
-
 
     public void onClickBtnDelete(){
         if(DBMethodsCourseMod.deleteCourseModule(lblCourseCode.getText())){

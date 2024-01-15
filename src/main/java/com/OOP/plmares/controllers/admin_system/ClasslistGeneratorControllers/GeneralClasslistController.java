@@ -16,23 +16,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Pair;
 
 public class GeneralClasslistController {
-
-    @FXML
-    AnchorPane anchorPaneContentContainer, btnPrint;
-    @FXML
-    private TableView<TableModel.ClasslistEnrollees> tblVwGeneralClasslist;
-    @FXML
-    private TableColumn<TableModel.ClasslistEnrollees, String> colStudentNo, colFullName, colStatus;
-
-    @FXML
-    private ComboBox<String> cmbSchoolYear, cmbSemester;
-
-    @FXML
-    private Label lblStudentCount;
-    @FXML
-    private TextField txtSection;
-
-
+    @FXML AnchorPane anchorPaneContentContainer, btnPrint;
+    @FXML private TableView<TableModel.ClasslistEnrollees> tblVwGeneralClasslist;
+    @FXML private TableColumn<TableModel.ClasslistEnrollees, String> colStudentNo, colFullName, colStatus;
+    @FXML private ComboBox<String> cmbSchoolYear, cmbSemester;
+    @FXML private Label lblStudentCount;
+    @FXML private TextField txtSection;
     private final CommonUtils c = new CommonUtils();
     private final PrintClasslistUtils printUtil = new PrintClasslistUtils();
     private String strSy, strSemester;
@@ -45,13 +34,11 @@ public class GeneralClasslistController {
         cmbSchoolYear.setValue(strSy);
         cmbSemester.setValue(strSemester);
 
-
         DBCommonMethods.populateComboBox(cmbSemester, "semester", "semester");
         cmbSemester.getItems().remove("--");
 
         DBCommonMethods.populateComboBox(cmbSchoolYear, "sy", "sy");
         cmbSchoolYear.getItems().remove("--");
-
 
         // setup columns
         colStudentNo.setCellValueFactory(cellData -> cellData.getValue().strStudentNoProperty());
@@ -77,8 +64,6 @@ public class GeneralClasslistController {
         String strSy = cmbSchoolYear.getValue();
         String strSemester = cmbSemester.getValue();
         String strSection = txtSection.getText();
-
-
         int intStudentCount = updateTableWithSearchResults(strSy, strSemester, strSection);
 
         System.out.println("Result count: " + intStudentCount);
@@ -110,8 +95,6 @@ public class GeneralClasslistController {
     public void onClickBtnGoBack(){
         c.loadScreen("/FXML/admin_system/ClasslistGenerator/ClasslistGenerator.fxml", anchorPaneContentContainer);
     }
-
-
     @FXML
     private void handlePrint() {
         PrinterJob printerJob = PrinterJob.createPrinterJob();
@@ -144,6 +127,4 @@ public class GeneralClasslistController {
             }
         }
     }
-
-
 }

@@ -21,19 +21,16 @@ import javafx.util.Pair;
 import java.util.Map;
 
 public class GradesController implements DataInitializable  {
-
     @FXML private TableView<TableModel.StudentRecordSubject> tblVwStudentRecords;
     @FXML private TableColumn<TableModel.StudentRecordSubject, String> colSubjectCode, colDescription, colGrade, colRemark;
     @FXML private TableColumn<TableModel.StudentRecordSubject, Integer> colUnits;
     @FXML private Label lblFullName, lblCourse, lblStudentNo, lblStatus, lblYearLevel, lblUnitsTaken, lblGWA;
     @FXML private ComboBox<String> cmbSchoolYear, cmbSemester;
     @FXML private AnchorPane anchorPaneFilter, btnPrintPreview;
-
     private final TableUtils t = new TableUtils();
     private final CommonUtils c = new CommonUtils();
     private String strStudentNo = "", strSy = "", strSemester = "";
     private boolean isInitialized = false;
-
 
     @Override
     public void initializeData(Map<String, Object> data) {
@@ -50,29 +47,21 @@ public class GradesController implements DataInitializable  {
             // set active sy and sem
             strSy = DBMethodsSySem.getActiveSy();
             strSemester = DBMethodsSySem.getActiveSem();
-
             // Populate school year and semester comboboxes
             DBCommonMethods.populateComboBox(cmbSchoolYear, "sy", "sy");
             DBCommonMethods.populateComboBox(cmbSemester, "semester", "semester");
-
             // Set up columns
             colSubjectCode.setCellValueFactory(cellData -> cellData.getValue().subjectCodeProperty());
-
             t.setupTextWrapping(colDescription);
             colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
-
             colUnits.setCellValueFactory(cellData -> cellData.getValue().unitsProperty().asObject());
-
             colGrade.setCellValueFactory(cellData -> cellData.getValue().gradeProperty());
-
             colRemark.setCellValueFactory(cellData -> cellData.getValue().remarkProperty());
-
             colorCodeGradeRemarkColumns();
 
             // Populate the TableView
             tblVwStudentRecords.getColumns().forEach(column -> column.setReorderable(false));
             tblVwStudentRecords.setFocusModel(null);
-
 
             // set values for student details and current sy and sem
             TableModel.StudentGeneralInfo stdInfo = DBMethodsEnrollmentMod.getStudentGeneralInfo(strSy, strStudentNo);
@@ -86,14 +75,10 @@ public class GradesController implements DataInitializable  {
             cmbSchoolYear.setValue(strSy);
             cmbSemester.setValue(strSemester);
             updateTableWithFilter(strSy, strSemester, strStudentNo);
-
-
         }
-
     }
 
     private void updateTableWithFilter(String strSy, String strSemester, String strStudentNo) {
-
         ObservableList<TableModel.StudentRecordSubject> listFilteredResults = DBMethodsStudentRecordsMod.getStudentRecords(
                 strSy, strSemester, strStudentNo);
 

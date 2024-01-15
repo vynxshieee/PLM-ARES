@@ -17,7 +17,6 @@ import java.util.Map;
 
 
 public class StudentMasterlistEditRecordController implements DataInitializable {
-
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtLastName, txtFirstName, txtStudentNo, txtPLMEmail, txtMobileNum;
     @FXML private TextArea txtAreaAddress;

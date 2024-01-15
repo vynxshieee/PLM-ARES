@@ -9,18 +9,12 @@ import javafx.scene.control.Label;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-import javax.swing.*;
-
 
 public class CurriculumsCatalogController {
-    @FXML
-    private WebView webVwCurriculum;
+    @FXML private WebView webVwCurriculum;
     private WebEngine webEngine;
-    @FXML
-    private Label lblLoading, lblCourseTitle;
-    @FXML
-    private ComboBox<String> cmbCourse;
-
+    @FXML private Label lblLoading, lblCourseTitle;
+    @FXML private ComboBox<String> cmbCourse;
     @FXML
     private void initialize() {
         // Initialize the WebEngine
@@ -86,5 +80,4 @@ public class CurriculumsCatalogController {
             warningAlert.showAndWait();
         }
     }
-
 }

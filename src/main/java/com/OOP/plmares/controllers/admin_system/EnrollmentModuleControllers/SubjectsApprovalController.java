@@ -25,13 +25,11 @@ import static com.OOP.plmares.controllers.tableUtils.DBCommonMethods.fetchNameDa
 
 
 public class SubjectsApprovalController implements DataInitializable {
-
     @FXML private AnchorPane anchorPaneContentContainer, btnApproveAll, anchorPaneGreenStatus, anchorPaneRedStatus;
     @FXML private TableView<TableModel.ApprovalSubjectInfo> tblVwSubjectsApproval;
     @FXML private TableColumn<TableModel.ApprovalSubjectInfo, String> colSubjectCode, colDescription, colSection, colDayTimeModality, colCollege, colStatus, colAction;
     @FXML private TableColumn<TableModel.ApprovalSubjectInfo, Integer> colUnits, colSlots, colQueue;
     @FXML private Label lblFullName, lblSyTitle, lblSemesterTitle, lblStudentNo, lblUnitsCount, lblTotalUnitsAllowed;
-
     private String strSy = "", strSemester = "", strStudentNo = "";
     private CommonUtils c = new CommonUtils();
     private TableUtils t = new TableUtils();
@@ -48,7 +46,6 @@ public class SubjectsApprovalController implements DataInitializable {
         }
     }
 
-
     @FXML
     private void initialize() {
         if (isInitialized) {
@@ -57,32 +54,21 @@ public class SubjectsApprovalController implements DataInitializable {
             strSemester = DBMethodsSySem.getActiveSem();
             lblSyTitle.setText(strSy);
             lblSemesterTitle.setText(strSemester);
-
             // set max unit count
             lblTotalUnitsAllowed.setText("/" + intTotalUnitsAllowed);
-
             // Set up columns
             colSubjectCode.setCellValueFactory(cellData -> cellData.getValue().subjectCodeProperty());
-
             t.setupTextWrapping(colDescription);
             colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
-
             colSection.setCellValueFactory(cellData -> cellData.getValue().sectionProperty());
-
             t.setupTextWrappingWithLineBreaks(colDayTimeModality);
             colDayTimeModality.setCellValueFactory(cellData -> cellData.getValue().dayTimeModalityProperty());
-
             colUnits.setCellValueFactory(cellData -> cellData.getValue().unitsProperty().asObject());
-
             colCollege.setCellValueFactory(cellData -> cellData.getValue().collegeProperty());
-
             colSlots.setCellValueFactory(cellData -> cellData.getValue().slotsProperty().asObject());
-
             colQueue.setCellValueFactory(cellData -> cellData.getValue().queueProperty().asObject());
-
             colStatus.setCellValueFactory(cellData -> cellData.getValue().remarkProperty());
             colorCodeStatusColumn();
-
             colAction.setCellFactory(param -> createBtnActionCell());
 
             // Populate the TableView

@@ -43,7 +43,6 @@ public class LoginController {
     private Label errLblLogin;
 
     private Stage stage;
-    private Scene scene;
     private final CommonUtils c = new CommonUtils();
 
     public void handleContactUs() throws URISyntaxException, IOException { // open plm contacts website link
@@ -121,5 +120,4 @@ public class LoginController {
             passPassword.setVisible(true);
         }
     }
-
 }

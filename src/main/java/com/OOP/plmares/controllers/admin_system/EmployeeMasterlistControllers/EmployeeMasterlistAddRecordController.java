@@ -10,8 +10,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.*;
-
 public class EmployeeMasterlistAddRecordController {
     @FXML private AnchorPane anchorPaneContentContainer;
     @FXML private TextField txtLastName, txtFirstName, txtEmployeeID, txtPLMEmail, txtMobileNum;
@@ -19,11 +17,9 @@ public class EmployeeMasterlistAddRecordController {
     @FXML private ComboBox<String> cmbGender, cmbActive;
     @FXML private DatePicker dateBirthday;
     @FXML private Label errLblLastName, errLblFirstName, errLblMobileNumber, errLblAddress, errLblBirthday, errLblGender, errLblActive;
-
     private CommonUtils c = new CommonUtils();
     private InputValidationUtils iv = new InputValidationUtils();
     private String strEmployeeID = "", strSy = "";
-
 
     @FXML
     private void initialize() {
@@ -33,12 +29,10 @@ public class EmployeeMasterlistAddRecordController {
         System.out.println("STUDENT NUMBER MAX: " + strEmployeeID);
         txtEmployeeID.setText(strEmployeeID);
 
-        ObservableList<String> gender = FXCollections.observableArrayList(
-                "Male", "Female");
+        ObservableList<String> gender = FXCollections.observableArrayList("Male", "Female");
         cmbGender.setItems(gender);
 
-        ObservableList<String> activeStatus = FXCollections.observableArrayList(
-                "Active", "Inactive");
+        ObservableList<String> activeStatus = FXCollections.observableArrayList("Active", "Inactive");
         cmbActive.setItems(activeStatus);
     }
 
@@ -69,7 +63,6 @@ public class EmployeeMasterlistAddRecordController {
         txtAreaAddress.setText("");
         clearErrorLabels();
     }
-
 
     public void onClickBtnAddEmployee(){
         // input validation test + edit confirmation
@@ -144,7 +137,6 @@ public class EmployeeMasterlistAddRecordController {
             errLblAddress.setText("");
         }
 
-
         // check the rest of the cmb box if they're empty:
 
         if (cmbGender.getSelectionModel().isEmpty()) {
@@ -161,7 +153,6 @@ public class EmployeeMasterlistAddRecordController {
             errLblActive.setText("");
         }
 
-
         // Display warning and return false if at least one input is not valid
         if (!flagValid) {
             Alert warningAlert = new Alert(Alert.AlertType.WARNING);
@@ -170,10 +161,8 @@ public class EmployeeMasterlistAddRecordController {
             warningAlert.setContentText("Please recheck your inputs.");
             warningAlert.showAndWait();
         }
-
         return flagValid;
     }
-
     public String handleBtnGenerateEmail() {  // generate updated email
         String strGeneratedEmail = c.generatePLMEmailFaculty(txtLastName.getText(), txtFirstName.getText());
         txtPLMEmail.setText(strGeneratedEmail);

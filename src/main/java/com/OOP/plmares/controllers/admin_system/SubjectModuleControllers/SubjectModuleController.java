@@ -22,7 +22,6 @@ public class SubjectModuleController {
     @FXML private TableColumn<TableModel.SubjectModuleInfo, Integer> colUnits;
     @FXML private Label lblSubjectCode, lblDescription, lblUnits, lblCurriculum, lblCollegeCode, lblStatus;
     @FXML private TextField txtSubjectSearch;
-
     private TableUtils t = new TableUtils();
     private CommonUtils c = new CommonUtils();
 

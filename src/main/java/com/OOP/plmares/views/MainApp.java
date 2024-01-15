@@ -14,10 +14,6 @@ import java.sql.Connection;
 import static com.OOP.plmares.controllers.utilities.CommonUtils.generateRandomPassword;
 
 public class MainApp extends Application {
-    /*
-    Prefixes: Stage = stgName, Scene = scnName, controller = ctrlName
-    */
-
     @Override
     public void start(Stage stage) throws IOException {
         // set login page as landing scene
@@ -37,8 +33,6 @@ public class MainApp extends Application {
         stage.show();
         System.out.println(generateRandomPassword());
     }
-
-
     public static void main(String[] args) {
         ConnectDB db = new ConnectDB();
         Connection connection = db.Connect();

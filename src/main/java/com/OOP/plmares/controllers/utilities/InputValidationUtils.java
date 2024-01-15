@@ -35,7 +35,6 @@ public class InputValidationUtils {
         return matcher.matches();
     }
 
-
     // ----- 2.) validates cp_num. starts with "09" and is followed by exactly 9 more digits
     public static boolean isValidPhilippineNumber(String number) {
         if (number.isEmpty()) {
@@ -48,7 +47,6 @@ public class InputValidationUtils {
 
         return matcher.matches();
     }
-
 
     // ----- 3.) validates a type-written date picker date
     public static boolean isValidDate(String dateString) {
@@ -67,12 +65,10 @@ public class InputValidationUtils {
         }
     }
 
-
     // ----- 4.) validates address, not null and has char limit
     public static boolean isValidAddress(String address) {
         return !address.isEmpty() && address.length() <= 255;
     }
-
 
     // ----- 5.) validates a description. can have upper, lower case and dashes, apostrophes, parentheses, dots, numerals, and dashes
     public static boolean isValidDescription(String description) {
@@ -101,7 +97,6 @@ public class InputValidationUtils {
         return isCodeUnique(strCode, strTableName, strColumn);
     }
 
-
     // ----- 7.) validates a subject primary key and checks validity. can have upper, lower case, dash, dots, spaces, numerals. must not have same code
     public static boolean isValidSubjectCode(String strCode, String strTableName, String strColumn) {
         if (!strCode.matches("^[A-Za-z0-9\\- .()]*$") || strCode.isEmpty() || strCode.length() > 10) {
@@ -109,7 +104,6 @@ public class InputValidationUtils {
         }
         return isCodeUnique(strCode, strTableName, strColumn);
     }
-
 
     // ----- 8.) validates primary keys uniqueness
     public static boolean isCodeUnique (String strCode, String strTableName, String strColumn){
@@ -191,8 +185,6 @@ public class InputValidationUtils {
             return false;
         }
     }
-
-
 
     // ----- 13.)  password validation class
     public static class PasswordValidator {

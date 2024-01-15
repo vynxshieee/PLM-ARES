@@ -16,8 +16,6 @@ import java.sql.*;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class DBCommonMethods {
-
-    // ----- 1.) Query to populate any combobox with a specific column and table to fetch
     public static void populateComboBox(ComboBox<String> comboBox, String tableName, String columnName) {
         ObservableList<String> items = FXCollections.observableArrayList();
         items.add("--");
@@ -40,7 +38,6 @@ public class DBCommonMethods {
         comboBox.setItems(items);
     }
 
-    // ----- 2.) executeQuery - execute any query
     public static void executeQuery(String query) {
         try (Connection connection = new ConnectDB().Connect();
              Statement statement = connection.createStatement()) {
@@ -54,8 +51,6 @@ public class DBCommonMethods {
         }
     }
 
-
-    // ------ 2
     public static void updateDBValues(String tableName, String columnName, String conditionColumn, String newValue, String oldValue) throws SQLException {
         try (Connection connection = new ConnectDB().Connect();
              PreparedStatement preparedStatement = connection.prepareStatement(
@@ -67,10 +62,6 @@ public class DBCommonMethods {
         }
     }
 
-
-
-
-    // ----- 3.) Method to update a tables (specifically made for editing fact tables)
     public static void updateValuesWithFilter(Connection connection, String tableName, String columnName, String conditionColumn, String oldValue, String newValue) throws SQLException {
         String updateQuery = String.format("UPDATE %s SET %s = ? WHERE %s = ?", tableName, columnName, conditionColumn);
         try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
@@ -80,7 +71,6 @@ public class DBCommonMethods {
         }
     }
 
-    // ----- 4.) Method to delete existing records
     public static void deleteRecord(Connection connection, String tableName, String conditionColumn, String conditionValue) throws SQLException {
         String deleteQuery = String.format("DELETE FROM %s WHERE %s = ?", tableName, conditionColumn);
 
@@ -90,7 +80,6 @@ public class DBCommonMethods {
         }
     }
 
-    // ------ 5.) Retrieve a single string from a table
     public static String fetchNameData(String strTable, String strConditionColumn, String strDataColumn, String strUserID) {
         String result = null;
 
@@ -108,18 +97,15 @@ public class DBCommonMethods {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Handle the exception according to your application's requirements
         }
 
         return result;
     }
 
-    // ------ 6.) set to null the profile_image column for removing pictures
     public static void removeProfileImage(String strTable, String strProfileTable, String strConditionColumn, String strUserID) {
         try (Connection connection = new ConnectDB().Connect();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "UPDATE " + strTable + " SET " + strProfileTable + " = null WHERE " + strConditionColumn + " = ?")) {
-
             preparedStatement.setString(1, strUserID);
             int rowsAffected = preparedStatement.executeUpdate();
 
@@ -128,14 +114,12 @@ public class DBCommonMethods {
             } else {
                 System.out.println("No rows affected. Profile picture removal might have failed.");
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error removing profile picture: " + e.getMessage());
         }
     }
 
-    // ------ 7.) set to profile picture to database
     public static boolean storeProfilePictureInDB(File file, String strTable, String strProfileTable,
                                                String strConditionColumn, String strUserID) {
         try (Connection connection = new ConnectDB().Connect();
@@ -166,7 +150,6 @@ public class DBCommonMethods {
         }
     }
 
-    // ------ 8.) retrieve pic from database
     public static Image getProfilePictureFromDB(String strTable, String strProfileTable,
                                                 String strConditionColumn, String strUserID) {
         try (Connection connection = new ConnectDB().Connect()) {
@@ -195,8 +178,6 @@ public class DBCommonMethods {
             e.printStackTrace();
 
         }
-        // Return null if no image is found or an error occurs
         return null;
     }
-
 }

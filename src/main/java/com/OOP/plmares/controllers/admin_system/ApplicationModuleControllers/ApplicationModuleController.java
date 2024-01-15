@@ -16,22 +16,14 @@ import java.util.Map;
 
 
 public class ApplicationModuleController implements DataInitializable {
-
     CommonUtils c = new CommonUtils();
-
-
     @FXML
     AnchorPane anchorPaneContentContainer;
-
-    // Table View columns initialization
     @FXML private TableView<TableModel.IrregPotentialApplicant> tblVwIrregPotentialApplicants;
     @FXML private TableColumn<TableModel.IrregPotentialApplicant, String> colStudentNo, colFullName, colCourse, colYear, colStatus, colUnitsEnrolled;
-
-    // other components
     @FXML private TextField txtSearchStudent;
     @FXML private Button btnApply;
     @FXML private Label btnClear, lblStudentNo, lblFullName, lblCourse, lblStatus, lblUnitsEnrolled, lblSyTitle, lblSemesterTitle;
-
 
     private String strSy = "", strSemester = "";
     private Boolean isTableFocusOnInitialized = true;
@@ -46,7 +38,6 @@ public class ApplicationModuleController implements DataInitializable {
         lblUnitsEnrolled.setText((String) data.get("unitsEnrolled"));
         btnApply.setDisable(false);
     }
-
     // 2.) Load the table upon initialization
     @FXML
     private void initialize() {
@@ -75,25 +66,18 @@ public class ApplicationModuleController implements DataInitializable {
         // Attach the table row click listener
         TableUtils.setTableClickListener(tblVwIrregPotentialApplicants, this::updateLabels);
     }
-
-
     // 3.) Filter name/student number on search bar
     @FXML
     private void handleSearchType() {
         String strSearchTerm = txtSearchStudent.getText();
         updateTableWithSearchResults(strSearchTerm);
     }
-
-
     // 4.) Clear name/student number on search bar, would refresh the table
     @FXML
     private void handleClearButton() {
         updateTableWithSearchResults("");
         txtSearchStudent.setText("");
     }
-
-
-
     // 5.) Update table according to filter
     private void updateTableWithSearchResults(String strSearchTerm) {
         // Call the method to get search results based on the search term
@@ -102,9 +86,6 @@ public class ApplicationModuleController implements DataInitializable {
         // Update the TableView with the new search results
         TableUtils.populateTable(tblVwIrregPotentialApplicants, listSearchResults);
     }
-
-
-
     // 6.) Update labels according to mouse click (row click listener is in initializer)
     private void updateLabels(TableModel.IrregPotentialApplicant studentInfo) {
         lblStudentNo.setText(studentInfo.getStrStudentNo());
@@ -114,7 +95,6 @@ public class ApplicationModuleController implements DataInitializable {
         lblUnitsEnrolled.setText(studentInfo.getIntUnitsEnrolled()+ "");
         btnApply.setDisable(false);
     }
-
     // 7.) Switch scenes to the Subject Application Module
     public void onClickBtnApply(){
         Map<String, Object> data = new HashMap<>();
@@ -123,8 +103,6 @@ public class ApplicationModuleController implements DataInitializable {
         data.put("course", lblCourse.getText());
         data.put("status", lblStatus.getText().toUpperCase());
         data.put("unitsEnrolled", lblUnitsEnrolled.getText());
-
         c.loadScreen("/FXML/admin_system/ApplicationModule/SubjectsApplication.fxml", anchorPaneContentContainer, data);
     }
-
 }

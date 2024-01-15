@@ -14,8 +14,6 @@ import java.sql.SQLException;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class DBMethodsSySem {
-
-    // ----- 1.) Query to get the active sem and sy and use it as the default setup for the application upon opening modules
     public static String getActiveSem() {
         String query = "SELECT semester FROM vwSySemesterActive";
         String strSem = "";
@@ -60,9 +58,6 @@ public class DBMethodsSySem {
         return strSy;
     }
 
-
-    // ----- 2.) Query to get the active sem and sy and use it as the default setup for the application upon opening modules
-
     public static void openSySemMethod(String tableName, String columnName, String conditionValue) {
         try (Connection connection = new ConnectDB().Connect()) {
             // Set status to 'I' for rows not matching the condition
@@ -92,7 +87,6 @@ public class DBMethodsSySem {
     }
 
 
-    // ----- 6.) Query to get school year from sy table
     public static ObservableList<TableModel.SchoolYearModuleInfo> getAllSchoolYear() {
 
         ObservableList<TableModel.SchoolYearModuleInfo> schoolYears = FXCollections.observableArrayList();
@@ -121,8 +115,6 @@ public class DBMethodsSySem {
         return schoolYears;
     }
 
-
-    // ----- 7.) Query to get semester from semester table
     public static ObservableList<TableModel.SemesterModuleInfo> getAllSemester() {
 
         ObservableList<TableModel.SemesterModuleInfo> semesters = FXCollections.observableArrayList();
@@ -151,7 +143,6 @@ public class DBMethodsSySem {
         return semesters;
     }
 
-    // ----- 8.) Query to delete school year (on cascade delete)
     public static void deleteSchoolYear(String conditionValue) {
         try (Connection connection = new ConnectDB().Connect()) {
             DBCommonMethods.deleteRecord(connection, "sy", "sy", conditionValue);
@@ -161,8 +152,6 @@ public class DBMethodsSySem {
         }
     }
 
-
-    // ----- 8.) Query to edit school year (edit child rows first)
     public static void editSchoolYear(String oldStrSy, String newStrSy) {
         try (Connection connection = new ConnectDB().Connect()) {
             DBCommonMethods.updateValuesWithFilter(connection, "sy", "sy", "sy", oldStrSy, newStrSy);
@@ -172,8 +161,6 @@ public class DBMethodsSySem {
         }
     }
 
-
-    // ----- 10.) Query to add a school year (would return true if successful)
     public static void addSchoolYear(String strSy) {
         try (Connection connection = new ConnectDB().Connect()) {
             String insertQuery = "INSERT INTO sy (sy, status) VALUES (?, 'I')";
@@ -186,9 +173,6 @@ public class DBMethodsSySem {
             showGenericErrorWarning();
         }
     }
-
-
-    // ----- 8.) Query to edit semester
     public static void editSemester(String oldStrSemester, String newStrSemester) {
         try (Connection connection = new ConnectDB().Connect()) {
             DBCommonMethods.updateValuesWithFilter(connection, "semester", "semester", "semester", oldStrSemester, newStrSemester);
@@ -197,7 +181,6 @@ public class DBMethodsSySem {
             showGenericErrorWarning();
         }
     }
-
 
     public static void addSemesterWithStrSy(String strSemester) {  // controller copy of add school year
         try (Connection connection = new ConnectDB().Connect()) {
@@ -212,8 +195,6 @@ public class DBMethodsSySem {
         }
     }
 
-
-    // ----- 12.) Query to delete semester (on cascade delete)
     public static void deleteSemester(String conditionValue) {
         try (Connection connection = new ConnectDB().Connect()) {
             DBCommonMethods.deleteRecord(connection, "semester", "semester", conditionValue);
@@ -222,6 +203,4 @@ public class DBMethodsSySem {
             showGenericErrorWarning();
         }
     }
-
-
 }

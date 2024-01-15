@@ -50,7 +50,6 @@ public class DBMethodsGradeEntryMod {
         return gradeRecordList;
     }
 
-
     public static void updateGrades(String strSy, String strSemester, String strStudentNo, String strSubjectCode, String strBlockNo, double dblGrade) {
         String updateQuery = "UPDATE grade SET grade = ? WHERE sy = ? AND semester = ? AND student_no = ? AND subject_code = ? AND block_no = ?";
 
@@ -70,5 +69,4 @@ public class DBMethodsGradeEntryMod {
             e.printStackTrace();
         }
     }
-
 }

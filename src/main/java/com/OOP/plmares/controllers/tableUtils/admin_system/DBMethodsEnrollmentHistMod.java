@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import static com.OOP.plmares.controllers.utilities.WarningDialogUtils.showGenericErrorWarning;
 
 public class DBMethodsEnrollmentHistMod {
-
     public static ObservableList<TableModel.StudentEnrollmentHistory> getEnrolleesMasterlist(String strSy, String strSemester, String strCollegeCode,
                                                                                              String strCourseCode, String strStudentSearch) {
         ObservableList<TableModel.StudentEnrollmentHistory> enrolleesMasterlist = FXCollections.observableArrayList();
