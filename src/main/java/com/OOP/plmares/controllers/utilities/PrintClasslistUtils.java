@@ -42,7 +42,6 @@ public class PrintClasslistUtils {
         }
 
         // Create a node with the printable content, e.g., a TextArea
-        // Customize this based on your requirements
         TextArea printTextArea = new TextArea(printContent.toString());
         printTextArea.setEditable(false);
         printTextArea.setWrapText(true);
@@ -56,7 +55,6 @@ public class PrintClasslistUtils {
         if (node instanceof TextArea) {
             return printTextArea(job, (TextArea) node, pageLayout);
         } else {
-            // Handle other types of nodes (if needed)...
             return false;
         }
     }
