@@ -81,12 +81,10 @@ PLM-ARES is a standalone Java application built using JavaFX, featuring a local 
 ### [C] Screenshots
 Here are some screenshots from PLM-ARES. To see more, download the app or view the [full documentation](https://drive.google.com/file/d/1SWUJvZwKT2z2lGe16KNvcIyArUCstr_e/view?usp=sharing).
 
-<center>
-<img style="width:500px" alt="ss1" src="https://imgur.com/unqOvxc"><br>
-<img style="width:500px" alt="ss2" src="https://imgur.com/5xfDPAX"><br>
-<img style="width:500px" alt="ss3" src="https://imgur.com/2QVezC8"><br>
-<img style="width:500px" alt="ss4" src="https://imgur.com/Yb6x7OW"><br>
-<img style="width:500px" alt="ss5" src="https://imgur.com/Atsvt6g"><br>
-<img style="width:500px" alt="ss6" src="https://imgur.com/mpZI8ws"><br>
-<img style="width:500px" alt="ss7" src="https://imgur.com/asDps5m"><br>
-</center>
+<img style="width:500px" alt="ss1" src="https://i.imgur.com/Yb6x7OW.jpeg"><br>
+<img style="width:500px" alt="ss2" src="https://i.imgur.com/2QVezC8.jpeg"><br>
+<img style="width:500px" alt="ss3" src="https://i.imgur.com/unqOvxc.png"><br>
+<img style="width:500px" alt="ss4" src="https://i.imgur.com/5xfDPAX.jpeg"><br>
+<img style="width:500px" alt="ss5" src="https://i.imgur.com/Atsvt6g.jpeg"><br>
+<img style="width:500px" alt="ss6" src="https://i.imgur.com/mpZI8ws.jpeg"><br>
+<img style="width:500px" alt="ss7" src="https://i.imgur.com/asDps5m.jpeg"><br>
