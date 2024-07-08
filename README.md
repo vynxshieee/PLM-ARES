@@ -4,7 +4,7 @@ PLM-ARES is a standalone Java application built using JavaFX, featuring a local 
 
 
 ### [A] Features & Modules
-##### View full documentation here: [PLM_ARES-Documentation](https://drive.google.com/file/d/1SWUJvZwKT2z2lGe16KNvcIyArUCstr_e/view?usp=sharing)
+#### View full documentation here: [PLM_ARES-Documentation](https://drive.google.com/file/d/1FCiwZiqpfoYapzHsa3gMHqms9a7ARKvX/view?usp=sharing)
 
 1. **Login Page**
 
@@ -79,7 +79,7 @@ PLM-ARES is a standalone Java application built using JavaFX, featuring a local 
             - Password: password
 
 ### [C] Screenshots
-Here are some screenshots from PLM-ARES. To see more, download the app or view the [full documentation](https://drive.google.com/file/d/1SWUJvZwKT2z2lGe16KNvcIyArUCstr_e/view?usp=sharing).
+Here are some screenshots from PLM-ARES. To see more, download the app or view the [full documentation](https://drive.google.com/file/d/1FCiwZiqpfoYapzHsa3gMHqms9a7ARKvX/view?usp=sharing).
 
 <img style="width:500px" alt="ss1" src="https://i.imgur.com/Yb6x7OW.jpeg"><br>
 <img style="width:500px" alt="ss2" src="https://i.imgur.com/2QVezC8.jpeg"><br>
