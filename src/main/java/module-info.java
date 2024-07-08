@@ -5,8 +5,7 @@ module com.example.plmares {
     requires java.desktop;
     requires org.apache.pdfbox;
     requires javafx.web;
-    requires java.mail;
-
+    requires javax.mail.api;
 
     exports com.OOP.plmares.controllers;
     opens com.OOP.plmares.controllers to javafx.fxml;
